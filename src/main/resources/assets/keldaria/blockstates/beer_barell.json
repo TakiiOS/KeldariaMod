@@ -1,0 +1,9 @@
+{
+  "variants": {
+    "normal": {"model":"keldaria:beer_barell"},
+    "facing=north": { "model": "keldaria:beer_barell", "y": 90 },
+    "facing=east":  { "model": "keldaria:beer_barell", "y": 180 },
+    "facing=south": { "model": "keldaria:beer_barell", "y": 270 },
+    "facing=west":  { "model": "keldaria:beer_barell" }
+  }
+}

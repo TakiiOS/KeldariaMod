@@ -1,0 +1,16 @@
+{
+  "type": "forge:ore_shaped",
+  "pattern": [
+    "_"
+  ],
+  "key": {
+    "_": {
+      "item": "minecraft:porkchop",
+      "data": 0
+    }
+  },
+  "result": {
+    "item": "keldaria:bacon",
+    "count": 3
+  }
+}

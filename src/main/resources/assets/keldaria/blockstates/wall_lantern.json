@@ -1,0 +1,9 @@
+{
+  "variants": {
+    "normal": {"model":"keldaria:wall_lantern"},
+    "facing=north": { "model": "keldaria:wall_lantern", "y": 180 },
+    "facing=east":  { "model": "keldaria:wall_lantern", "y": 270 },
+    "facing=south": { "model": "keldaria:wall_lantern", "y": 0 },
+    "facing=west":  { "model": "keldaria:wall_lantern", "y": 90 }
+  }
+}

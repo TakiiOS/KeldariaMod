@@ -1,0 +1,6 @@
+{
+  "minecraft:stone": {
+    "climbType": 0,
+    "climbSpeed": 1
+  }
+}

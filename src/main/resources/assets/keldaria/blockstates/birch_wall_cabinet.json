@@ -1,0 +1,9 @@
+{
+  "variants": {
+    "normal": {"model":"keldaria:birch_wall_cabinet"},
+    "facing=north": { "model": "keldaria:birch_wall_cabinet", "y": 0 },
+    "facing=east":  { "model": "keldaria:birch_wall_cabinet", "y": 90 },
+    "facing=south": { "model": "keldaria:birch_wall_cabinet", "y": 180 },
+    "facing=west":  { "model": "keldaria:birch_wall_cabinet", "y": 270 }
+  }
+}

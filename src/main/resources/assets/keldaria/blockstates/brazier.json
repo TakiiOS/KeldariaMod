@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "normal": { "model": "keldaria:brazier" },
+    "ignited=false": { "model": "keldaria:brazier" },
+    "ignited=true": { "model": "keldaria:brazier_ignited" }
+  }
+}

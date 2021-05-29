@@ -1,0 +1,7 @@
+{
+  "parent": "block/cube_column",
+  "textures": {
+    "end": "keldaria:blocks/orge_block_top",
+    "side": "keldaria:blocks/orge_block_side"
+  }
+}

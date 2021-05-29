@@ -1,0 +1,17 @@
+{
+  "type": "forge:ore_shaped",
+  "pattern": [
+    "__",
+    "__"
+  ],
+  "key": {
+    "_": {
+      "item": "minecraft:paper",
+      "data": 0
+    }
+  },
+  "result": {
+    "item": "keldaria:canvas",
+    "count": 4
+  }
+}

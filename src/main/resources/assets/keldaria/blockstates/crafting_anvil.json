@@ -1,0 +1,9 @@
+{
+  "variants": {
+    "normal": {"model":"keldaria:crafting_anvil"},
+    "facing=north": { "model": "keldaria:crafting_anvil", "y": 90 },
+    "facing=east":  { "model": "keldaria:crafting_anvil", "y": 180 },
+    "facing=south": { "model": "keldaria:crafting_anvil", "y": 270 },
+    "facing=west":  { "model": "keldaria:crafting_anvil" }
+  }
+}

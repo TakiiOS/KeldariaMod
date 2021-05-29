@@ -1,0 +1,17 @@
+{
+  "type": "forge:ore_shaped",
+  "pattern": [
+    "___",
+    "__ "
+  ],
+  "key": {
+    "_": {
+      "item": "minecraft:clay_ball",
+      "data": 0
+    }
+  },
+  "result": {
+    "item": "keldaria:clay_chop",
+    "count": 2
+  }
+}

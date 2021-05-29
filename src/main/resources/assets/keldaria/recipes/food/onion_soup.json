@@ -1,0 +1,25 @@
+{
+  "type": "forge:ore_shaped",
+  "pattern": [
+    "wo",
+    "b "
+  ],
+  "key": {
+    "w": {
+      "item": "keldaria:white_onion",
+      "data": 0
+    },
+    "o": {
+      "item": "keldaria:onion",
+      "data": 0
+    },
+    "b": {
+      "item": "minecraft:bowl",
+      "data": 0
+    }
+  },
+  "result": {
+    "item": "keldaria:onion_soup",
+    "count": 1
+  }
+}

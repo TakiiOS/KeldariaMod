@@ -1,0 +1,27 @@
+{
+  "variants": {
+    "normal": {"model":"keldaria:diorite_bench"},
+    "facing=north,left=true,right=true": { "model": "keldaria:diorite_bench_middle", "y": 0 },
+    "facing=north,left=true,right=false": { "model": "keldaria:diorite_bench_end", "y": 180 },
+    "facing=north,left=false,right=true": { "model": "keldaria:diorite_bench_end", "y": 0 },
+    "facing=north,left=false,right=false": { "model": "keldaria:diorite_bench", "y": 0 },
+
+    "facing=south,left=true,right=true": { "model": "keldaria:diorite_bench_middle", "y": 0 },
+    "facing=south,left=true,right=false": { "model": "keldaria:diorite_bench_end", "y": 0 },
+    "facing=south,left=false,right=true": { "model": "keldaria:diorite_bench_end", "y": 180 },
+    "facing=south,left=false,right=false": { "model": "keldaria:diorite_bench", "y": 0 },
+
+    "facing=west,left=true,right=true": { "model": "keldaria:diorite_bench_middle", "y": 90 },
+    "facing=west,left=true,right=false": { "model": "keldaria:diorite_bench_end", "y": 90 },
+    "facing=west,left=false,right=true": { "model": "keldaria:diorite_bench_end", "y": 270 },
+    "facing=west,left=false,right=false": { "model": "keldaria:diorite_bench", "y": 90 },
+
+    "facing=east,left=true,right=true": { "model": "keldaria:diorite_bench_middle", "y": 90 },
+    "facing=east,left=true,right=false": { "model": "keldaria:diorite_bench_end", "y": 270 },
+    "facing=east,left=false,right=true": { "model": "keldaria:diorite_bench_end", "y": 90 },
+    "facing=east,left=false,right=false": { "model": "keldaria:diorite_bench", "y": 90 },
+    "facing=east":  { "model": "keldaria:diorite_bench", "y": 90 },
+    "facing=south": { "model": "keldaria:diorite_bench", "y": 180 },
+    "facing=west":  { "model": "keldaria:diorite_bench", "y": 270 }
+  }
+}

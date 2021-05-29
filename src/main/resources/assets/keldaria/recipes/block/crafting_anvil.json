@@ -1,0 +1,26 @@
+{
+  "type": "forge:ore_shaped",
+  "pattern": [
+    "_i_",
+    " b ",
+    "_b_"
+  ],
+  "key": {
+    "_": {
+      "item": "minecraft:iron_ingot",
+      "data": 0
+    },
+    "b": {
+      "item": "minecraft:iron_block",
+      "data": 0
+    },
+    "i": {
+      "item": "minecraft:crafting_table",
+      "data": 0
+    }
+  },
+  "result": {
+    "item": "keldaria:crafting_anvil",
+    "count": 1
+  }
+}

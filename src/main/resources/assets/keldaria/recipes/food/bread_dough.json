@@ -1,0 +1,22 @@
+{
+  "type": "forge:ore_shaped",
+  "pattern": [
+    "___",
+    "_w_",
+    "___"
+  ],
+  "key": {
+    "_": {
+      "item": "keldaria:flour",
+      "data": 0
+    },
+    "w": {
+      "item": "minecraft:water_bucket",
+      "data": 0
+    }
+  },
+  "result": {
+    "item": "keldaria:bread_dough",
+    "count": 3
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "variants": {
+    "normal": {"model":"keldaria:spruce_crate"},
+    "facing=north": { "model": "keldaria:spruce_crate", "y": 0 },
+    "facing=east":  { "model": "keldaria:spruce_crate", "y": 90 },
+    "facing=south": { "model": "keldaria:spruce_crate", "y": 180 },
+    "facing=west":  { "model": "keldaria:spruce_crate", "y": 270 }
+  }
+}

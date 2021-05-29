@@ -1,0 +1,152 @@
+buildscript {
+    repositories {
+        jcenter()
+        maven { url = "https://files.minecraftforge.net/maven" }
+        maven { url = "https://jitpack.io/" }
+        maven {
+            name = "forge"
+            url = "https://files.minecraftforge.net/maven"
+        }
+        maven {
+            name = 'sponge'
+            url = 'https://repo.spongepowered.org/repository/maven-public'
+        }
+        mavenCentral()
+    }
+    dependencies {
+        //classpath 'net.minecraftforge.gradle:ForgeGradle:2.1-SNAPSHOT'
+
+        classpath "net.minecraftforge.gradle:ForgeGradle:2.3-SNAPSHOT"
+        classpath 'com.github.jengelman.gradle.plugins:shadow:1.2.4'
+        classpath 'org.spongepowered:mixingradle:0.4-SNAPSHOT'
+
+    }
+}
+apply plugin: 'net.minecraftforge.gradle.forge'
+//Only edit below this line, the above code adds and enables the necessary things for Forge to be setup.
+apply plugin: 'com.github.johnrengelman.shadow'
+apply plugin: 'java'
+apply plugin: 'org.spongepowered.mixin'
+
+
+version = "2.0-DEV"
+group = "fr.nathanael2611.keldaria.mod" //http://maven.apache.org/guides/mini/guide-naming-conventions.html\\
+archivesBaseName = "keldaria"
+
+sourceCompatibility = targetCompatibility = '1.8' // Need this here so eclipse task generates correctly.
+compileJava {
+    sourceCompatibility = targetCompatibility = '1.8'
+    options.encoding = 'UTF-8'
+}
+
+minecraft {
+    version = "1.12.2-14.23.5.2847"
+    runDir = "run"
+    mappings = "stable_39"
+}
+
+
+repositories {
+    maven {
+        name = "CurseForge"
+        url = "https://minecraft.curseforge.com/api/maven/"
+    }
+    maven { url = "https://jitpack.io/" }
+    maven {
+        name = "sponge"
+        url = 'https://repo.spongepowered.org/repository/maven-public'
+    }
+}
+
+
+dependencies {
+    compile files(
+            'Lib/armourers.jar',
+            'Lib/bridj.jar',
+            'Lib/slf4j.jar',
+            'Lib/png.jar',
+            'Lib/JDAA.jar',
+            "Lib/java-discord-rpc-2.0.1-all.jar"
+    )
+    compile 'simpledatabasemanager:simpledatabasemanager:2.3'
+    compile 'modularvoicechat:ModularVoiceChat:BETA:1.2'
+    compile group: 'org.apache.commons', name: 'commons-math3', version: '3.0'
+    compile ('org.spongepowered:mixin:0.8') {
+        exclude module: "asm-commons"
+        exclude module: "asm-tree"
+        exclude module: "launchwrapper"
+        exclude module: "guava"
+        exclude module: "log4j-core"
+        exclude module: "gson"
+        exclude module: "commons-io"
+    }
+
+}
+
+processResources {
+    inputs.property "version", project.version
+    inputs.property "mcversion", project.minecraft.version
+
+    from(sourceSets.main.resources.srcDirs) {
+        include 'mcmod.info'
+        expand 'version':project.version, 'mcversion':project.minecraft.version
+    }
+
+    from(sourceSets.main.resources.srcDirs) {
+        exclude 'mcmod.info'
+    }
+}
+
+
+
+jar {
+    manifest.attributes(
+
+            'TweakClass': 'org.spongepowered.asm.launch.MixinTweaker',
+            'FMLCorePlugin': 'fr.nathanael2611.keldaria.mod.asm.KeldariaLoadingPlugin',
+            'MixinConfigs': "mixins.keldaria.json",
+            "ForceLoadAsMod": true,
+            'FMLCorePluginContainsFMLMod': true,
+            'FMLAT': 'keldaria_at.cfg'
+    )
+}
+
+mixin {
+    defaultObfuscationEnv searge
+    add sourceSets.main, "mixins.keldaria.refmap.json"
+}
+
+
+
+shadowJar {
+//    configurations = [project.configurations.compile]
+
+    relocate 'org.apache.commons.collections4', 'fr.nathanael2611.repack.org.apache.commons.collections4'
+    relocate 'gnu.trove', 'fr.nathanael2611.repack.gnu.trove'
+    relocate "com.neovisionaries.ws.client", "fr.nathanael2611.repack.com.neovisionaries.ws.client"
+    relocate "com.iwebpp.crypto", "fr.nathanael2611.repack.com.iwebpp.crypto"
+    relocate "com.fasterxml.jackson", "fr.nathanael2611.repack.com.fasterxml.jackson"
+    relocate "net.dv8tion.jda", "fr.nathanael2611.repack.net.dv8tion.jda"
+    relocate "org.json", "fr.nathanael2611.repack.org.json"
+    relocate "okio", "fr.nathanael2611.repack.okio"
+    relocate "okhttp3", "fr.nathanael2611.repack.okhttp3"
+    relocate "okhttp3", "fr.nathanael2611.repack.okhttp3"
+    relocate "org.slf4j", "fr.nathanael2611.repack.org.slf4j"
+    // relocate "org.apache.commons", "fr.nathanael2611.repack.org.apache.commons"
+
+    //exclude "**/module-info.class"
+
+    dependencies {
+        include(
+                dependency('org.spongepowered:mixin:0.8')
+        )
+        // include(dependency('com.esotericsoftware:kryonet:2.22.0-RC1'))
+    }
+}
+reobf {
+    shadowJar { }
+}
+
+artifacts {
+    archives shadowJar
+}

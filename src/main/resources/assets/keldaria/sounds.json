@@ -1,0 +1,39 @@
+{
+  "sharpening": {
+    "sounds": [
+      "keldaria:sharpening/sharpening0",
+      "keldaria:sharpening/sharpening1",
+      "keldaria:sharpening/sharpening2",
+      "keldaria:sharpening/sharpening3",
+      "keldaria:sharpening/sharpening4"
+    ],
+    "subtitle": "keldaria:sharpening"
+  },
+  "gittern": {
+    "sounds": [
+      "keldaria:instrument/gittern/1",
+      "keldaria:instrument/gittern/2",
+      "keldaria:instrument/gittern/3",
+      "keldaria:instrument/gittern/4"
+    ],
+    "subtitle": "keldaria:gittern"
+  },
+  "gittern_sneak": {
+    "sounds": [
+      "keldaria:instrument/gittern/sneak_1"
+    ],
+    "subtitle": "keldaria:gittern_sneak"
+  },
+  "lyre": {
+    "sounds": [
+      "keldaria:instrument/lyre/1"
+    ],
+    "subtitle": "keldaria:lyre"
+  },
+  "lyre_sneak": {
+    "sounds": [
+      "keldaria:instrument/lyre/sneak_1"
+    ],
+    "subtitle": "keldaria:lyre_sneak"
+  }
+}

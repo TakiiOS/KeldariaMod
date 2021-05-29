@@ -1,0 +1,33 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "keldaria:items/gold_coin"
+  },
+  "display": {
+    "ground": {
+      "scale":[ 0.3, 0.3, 0.3 ]
+    },
+    "head": {
+      "scale":[ 0.3, 0.3, 0.3]
+    },
+    "thirdperson_righthand": {
+      "scale": [ 0.3, 0.3, 0.3 ],
+      "translation": [ 0, 1.65, 0 ]
+    },
+    "thirdperson_lefthand": {
+      "scale": [ 0.3, 0.3, 0.3 ],
+      "translation": [ 0, 1.65, 0 ]
+    },
+    "firstperson_righthand": {
+      "translation": [ 0, 1.65, 0 ],
+      "scale": [ 0.3, 0.3, 0.3 ]
+    },
+    "firstperson_lefthand": {
+      "translation": [ 0, 1.65, 0 ],
+      "scale": [ 0.3, 0.3, 0.3 ]
+    },
+    "fixed": {
+      "scale": [ 0.3, 0.3, 0.3 ]
+    }
+  }
+}

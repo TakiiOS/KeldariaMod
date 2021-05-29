@@ -1,0 +1,6 @@
+{
+  "parent": "block/crop",
+  "textures": {
+    "crop": "keldaria:blocks/white_onion_stage_2"
+  }
+}

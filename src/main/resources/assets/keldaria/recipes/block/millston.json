@@ -1,0 +1,29 @@
+{
+  "type": "forge:ore_shaped",
+  "pattern": [
+    " fs",
+    "aba"
+  ],
+  "key": {
+    "f": {
+      "item": "minecraft:stone",
+      "data": 0
+    },
+    "b": {
+      "item": "minecraft:wooden_slab",
+      "data": 0
+    },
+    "a": {
+      "item": "minecraft:planks",
+      "data": 0
+    },
+    "s": {
+      "item": "minecraft:stick",
+      "data": 0
+    }
+  },
+  "result": {
+    "item": "keldaria:millstone",
+    "count": 1
+  }
+}

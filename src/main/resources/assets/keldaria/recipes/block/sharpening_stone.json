@@ -1,0 +1,21 @@
+{
+  "type": "forge:ore_shaped",
+  "pattern": [
+    "f",
+    "b"
+  ],
+  "key": {
+    "f": {
+      "item": "minecraft:stone",
+      "data": 0
+    },
+    "b": {
+      "item": "minecraft:wooden_slab",
+      "data": 0
+    }
+  },
+  "result": {
+    "item": "keldaria:sharpening_stone",
+    "count": 1
+  }
+}

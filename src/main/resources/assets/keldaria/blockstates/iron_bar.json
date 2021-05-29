@@ -1,0 +1,281 @@
+{
+  "variants": {
+    "normal": {
+      "model": "keldaria:iron_bar_sample",
+      "y": 0
+    },
+    "back=false,down=false,forward=false,left=false,right=false,up=false": {
+      "model": "keldaria:iron_bar_sample",
+      "y": 270
+    },
+    "back=false,down=true,forward=false,left=false,right=false,up=false": {
+      "model": "keldaria:iron_bar_sample",
+      "y": 270
+    },
+    "back=false,down=false,forward=false,left=false,right=false,up=true": {
+      "model": "keldaria:iron_bar_sample",
+      "y": 270
+    },
+    "back=false,down=true,forward=false,left=false,right=false,up=true": {
+      "model": "keldaria:iron_bar_sample",
+      "y": 270
+    },
+
+
+    "back=false,down=false,forward=true,left=false,right=false,up=true": {
+      "model": "keldaria:iron_bar_total_cross",
+      "y": 270
+    },
+    "back=true,down=false,forward=true,left=false,right=false,up=true": {
+      "model": "keldaria:iron_bar_cross",
+      "y": 270
+    },
+
+    "back=true,down=false,forward=true,left=false,right=true,up=true": {
+      "model": "keldaria:iron_bar_total_cross",
+      "y": 270
+    },
+    "back=true,down=false,forward=true,left=true,right=true,up=true": {
+      "model": "keldaria:iron_bar_total_cross",
+      "y": 270
+    },
+
+
+    "back=false,down=false,forward=true,left=false,right=true,up=true": {
+      "model": "keldaria:iron_bar_total_cross",
+      "y": 270
+    },
+    "back=false,down=false,forward=true,left=true,right=false,up=true": {
+      "model": "keldaria:iron_bar_total_cross",
+      "y": 270
+    },
+    "back=true,down=false,forward=false,left=true,right=false,up=true": {
+      "model": "keldaria:iron_bar_total_cross",
+      "y": 270
+    },
+    "back=true,down=false,forward=false,left=false,right=true,up=true": {
+      "model": "keldaria:iron_bar_total_cross",
+      "y": 270
+    },
+
+    "back=true,down=true,forward=false,left=true,right=false,up=false": {
+      "model": "keldaria:iron_bar_total_cross",
+      "y": 270
+    },
+    "back=true,down=true,forward=false,left=false,right=true,up=false": {
+      "model": "keldaria:iron_bar_total_cross",
+      "y": 270
+    },
+
+    "back=false,down=true,forward=true,left=false,right=true,up=false": {
+      "model": "keldaria:iron_bar_total_cross",
+      "y": 270
+    },
+
+    "back=false,down=true,forward=true,left=true,right=false,up=false": {
+      "model": "keldaria:iron_bar_total_cross",
+      "y": 270
+    },
+    "back=true,down=true,forward=false,left=false,right=true,up=true": {
+      "model": "keldaria:iron_bar_total_cross",
+      "y": 270
+    },
+
+
+    "back=false,down=true,forward=true,left=false,right=false,up=true": {
+      "model": "keldaria:iron_bar_total_cross",
+      "y": 270
+    },
+    "back=true,down=true,forward=false,left=false,right=false,up=true": {
+      "model": "keldaria:iron_bar_total_cross",
+      "y": 270
+    },
+
+    "back=false,down=true,forward=true,left=true,right=true,up=true": {
+      "model": "keldaria:iron_bar_total_cross",
+      "y": 270
+    },
+
+
+    "back=false,down=false,forward=true,left=true,right=true,up=false": {
+      "model": "keldaria:iron_bar_total_cross",
+      "y": 270
+    },
+    "back=true,down=false,forward=true,left=true,right=false,up=false": {
+      "model": "keldaria:iron_bar_total_cross",
+      "y": 270
+    },
+
+
+    "back=false,down=true,forward=true,left=true,right=true,up=false": {
+      "model": "keldaria:iron_bar_total_cross",
+      "y": 270
+    },
+
+
+    "back=false,down=false,forward=false,left=false,right=true,up=true": {
+      "model": "keldaria:iron_bar_cross",
+      "y": 0
+    },
+
+
+
+    "back=true,down=false,forward=true,left=true,right=true,up=false": {
+      "model": "keldaria:iron_bar_total_cross",
+      "y": 270
+    },
+
+
+
+    "back=true,down=true,forward=false,left=false,right=false,up=false": {
+      "model": "keldaria:iron_bar_cross",
+      "y": 270
+    },
+    "back=false,down=true,forward=true,left=false,right=false,up=false": {
+      "model": "keldaria:iron_bar_cross",
+      "y": 270
+    },
+    "back=true,down=true,forward=true,left=false,right=false,up=false": {
+      "model": "keldaria:iron_bar_cross",
+      "y": 270
+    },
+
+    "back=true,down=true,forward=true,left=true,right=false,up=false": {
+      "model": "keldaria:iron_bar_total_cross",
+      "y": 270
+    },
+    "back=true,down=true,forward=true,left=false,right=true,up=false": {
+      "model": "keldaria:iron_bar_total_cross",
+      "y": 270
+    },
+    "back=true,down=true,forward=true,left=true,right=true,up=false": {
+      "model": "keldaria:iron_bar_total_cross",
+      "y": 270
+    },
+
+    "back=true,down=false,forward=false,left=false,right=false,up=false": {
+      "model": "keldaria:iron_bar_couched",
+      "y": 270
+    },
+    "back=false,down=false,forward=true,left=false,right=false,up=false": {
+      "model": "keldaria:iron_bar_couched",
+      "y": 270
+    },
+
+    "back=true,down=true,forward=true,left=false,right=false,up=true": {
+      "model": "keldaria:iron_bar_cross",
+      "y": 270
+    },
+
+    "back=true,down=true,forward=true,left=true,right=true,up=true": {
+      "model": "keldaria:iron_bar_total_cross",
+      "y": 270
+    },
+
+
+
+
+    "back=false,down=false,forward=false,left=true,right=true,up=false": {
+      "model": "keldaria:iron_bar_couched",
+      "y": 0
+    },
+    "back=false,down=false,forward=false,left=true,right=false,up=false": {
+      "model": "keldaria:iron_bar_couched",
+      "y": 0
+    },
+    "back=false,down=false,forward=false,left=false,right=true,up=false": {
+      "model": "keldaria:iron_bar_couched",
+      "y": 0
+    },
+
+    "back=false,down=true,forward=false,left=true,right=false,up=true": {
+      "model": "keldaria:iron_bar_cross",
+      "y": 0
+    },
+
+    "back=false,down=true,forward=false,left=true,right=false,up=false": {
+      "model": "keldaria:iron_bar_cross",
+      "y": 0
+    },
+    "back=false,down=false,forward=false,left=true,right=false,up=true": {
+      "model": "keldaria:iron_bar_cross",
+      "y": 0
+    },
+
+    "back=false,down=false,forward=false,left=true,right=false,up=true": {
+      "model": "keldaria:iron_bar_cross",
+      "y": 0
+    },
+
+
+    "back=false,down=true,forward=false,left=true,right=true,up=false": {
+      "model": "keldaria:iron_bar_cross",
+      "y": 0
+    },
+
+    "back=false,down=true,forward=false,left=true,right=true,up=true": {
+      "model": "keldaria:iron_bar_cross",
+      "y": 0
+    },
+
+    "back=false,down=true,forward=false,left=false,right=true,up=true": {
+      "model": "keldaria:iron_bar_cross",
+      "y": 0
+    },
+
+    "back=false,down=false,forward=false,left=true,right=true,up=true": {
+      "model": "keldaria:iron_bar_cross",
+      "y": 0
+    },
+
+    "back=false,down=true,forward=false,left=false,right=true,up=false": {
+      "model": "keldaria:iron_bar_cross",
+      "y": 0
+    },
+    "back=true,down=true,forward=false,left=true,right=true,up=false": {
+      "model": "keldaria:iron_bar_total_cross",
+      "y": 0
+    },
+    "back=true,down=false,forward=false,left=true,right=true,up=false": {
+      "model": "keldaria:iron_bar_total_cross",
+      "y": 0
+    },
+    "back=true,down=false,forward=false,left=false,right=true,up=false": {
+      "model": "keldaria:iron_bar_total_cross",
+      "y": 0
+    },
+    "back=true,down=false,forward=true,left=false,right=true,up=false": {
+      "model": "keldaria:iron_bar_total_cross",
+      "y": 0
+    },
+    "back=false,down=false,forward=true,left=false,right=true,up=false": {
+      "model": "keldaria:iron_bar_total_cross",
+      "y": 0
+    },
+    "back=false,down=false,forward=true,left=true,right=false,up=false": {
+      "model": "keldaria:iron_bar_total_cross",
+      "y": 0
+    },
+    "back=true,down=false,forward=false,left=true,right=false,up=false": {
+      "model": "keldaria:iron_bar_total_cross",
+      "y": 0
+    },
+
+
+
+
+    "back=true,down=false,forward=false,left=false,right=false,up=true": {
+      "model": "keldaria:iron_bar_cross",
+      "y": 270
+    },
+    "back=true,down=true,forward=false,left=false,right=false,up=false": {
+      "model": "keldaria:iron_bar_cross",
+      "y": 270
+    },
+
+    "back=true,down=false,forward=true,left=false,right=false,up=false": {
+      "model": "keldaria:iron_bar_couched",
+      "y": 270
+    }
+  }
+}

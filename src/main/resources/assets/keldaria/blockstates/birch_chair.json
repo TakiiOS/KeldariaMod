@@ -1,0 +1,9 @@
+{
+  "variants": {
+    "normal": {"model":"keldaria:birch_chair"},
+    "facing=north": { "model": "keldaria:birch_chair", "y": 0 },
+    "facing=east":  { "model": "keldaria:birch_chair", "y": 90 },
+    "facing=south": { "model": "keldaria:birch_chair", "y": 180 },
+    "facing=west":  { "model": "keldaria:birch_chair", "y": 270 }
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "keldaria:items/remedy_vial_overlay",
+    "layer1": "keldaria:items/empty_remedy_vial"
+  }
+}

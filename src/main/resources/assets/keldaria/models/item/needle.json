@@ -1,0 +1,37 @@
+{
+  "parent":"item/handheld",
+  "textures": {
+    "layer0":"keldaria:items/needle"
+  },
+  "display": {
+    "thirdperson_righthand": {
+      "rotation": [ 0, -90, 55 ],
+      "translation": [ 0, 1.80, 0.5 ],
+      "scale": [ 0.40, 0.40, 0.40 ]
+    },
+    "thirdperson_lefthand": {
+      "rotation": [ 0, 90, -55 ],
+      "translation": [ 0, 1.80, 0.5 ],
+      "scale": [ 0.40, 0.40, 0.40 ]
+    },
+    "firstperson_righthand": {
+      "rotation": [ 0, -90, 30 ],
+      "translation": [ 1.0, 4.0, 1.25 ],
+      "scale": [ 0.45, 0.45, 0.45 ]
+    },
+    "firstperson_lefthand": {
+      "rotation": [ 0, 90, -30 ],
+      "translation": [ 1.0, 4.0, 1.25 ],
+      "scale": [ 0.45, 0.45, 0.45 ]
+    },
+    "ground": {
+      "rotation": [ 0, 0, 0 ],
+      "translation": [ 0.00, 4.25, 0.00 ],
+      "scale": [ 0.5375, 0.5375, 0.5375 ]
+    },
+    "fixed": {
+      "rotation": [ 0, 0, 90 ],
+      "scale": [ 0.40, 0.40, 0.40 ]
+    }
+  }
+}

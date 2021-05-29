@@ -1,0 +1,270 @@
+item.keldaria:silver_coin.name=Écu d'Argent
+item.keldaria:gold_coin.name=Écu d'Or
+item.keldaria:quiver.name=Carquois
+
+item.keldaria:white_queen.name=Reine blanche
+item.keldaria:white_jester.name=Fou blanc
+item.keldaria:white_tower.name=Tour blanche
+item.keldaria:white_horse.name=Cheval blanc
+item.keldaria:white_pawn.name=Pion blanc
+item.keldaria:white_king.name=Roi blanc
+
+item.keldaria:oak_lishen_wood.name=Bois de Lishen en chêne
+item.keldaria:birch_lishen_wood.name=Bois de Lishen en bouleau
+item.keldaria:dark_oak_lishen_wood.name=Bois de Lishen en chêne noir
+item.keldaria:spruce_lishen_wood.name=Bois de Lishen en sapin
+
+item.keldaria:wooden_pot.name=Pot en bois
+item.keldaria:salt_wooden_pot.name=Pot de sel
+
+item.keldaria:black_queen.name=Reine noire
+item.keldaria:black_jester.name=Fou noir
+item.keldaria:black_tower.name=Tour noire
+item.keldaria:black_horse.name=Cheval noir
+item.keldaria:black_pawn.name=Pion noir
+item.keldaria:black_king.name=Roi noir
+
+
+
+item.keldaria:fried_egg.name=Oeuf au plat
+item.keldaria:raisin_bread.name=Pain au raisin
+item.keldaria:grapes.name=Grappe de Raisin
+item.keldaria:bacon.name=Bacon
+item.keldaria:pestle.name=Pilon
+item.keldaria:cooked_bacon.name=Bacon cuit
+item.keldaria:steel_spear.name=Lance en acier
+item.keldaria:needle.name=Aguille
+item.keldaria:animal_grease.name=Graisse animale
+item.keldaria:steel_dagger.name=Dague en acier
+item.keldaria:writed_paper.name=Papier Ecrit
+item.keldaria:crossbow.name=Arbalète
+item.keldaria:dice.name=Dé à six faces
+item.keldaria:card.name=Carte
+item.keldaria:omelet.name=Omelette
+item.keldaria:iron_forge_hammer.name=Marteau de forge en fer
+item.keldaria:purse.name=Bourse
+item.keldaria:flambadou.name=Flambadou
+
+item.keldaria:fresh_water.name=Fiole d'eau purifiée
+
+item.keldaria:empty_chop.name=Chope vide
+item.keldaria:water_chop.name=Chope d'eau
+item.keldaria:beer_chop.name=Chope de bière
+item.keldaria:keyring.name=Porte clefs
+
+item.keldaria:fried_potatoes.name=Pommes de terre sautés
+item.keldaria:mashed_potatoes.name=Purée
+item.keldaria:stuffed_mushrooms.name=Champignons farcis
+item.keldaria:fish_pie.name=Tourte de poisson
+item.keldaria:beetroot_broth.name=Brouet de betteraves
+item.keldaria:easter_chocolate_rabbit.name=Lapin en chocolat :D
+item.keldaria:butter.name=Beurre
+item.keldaria:shortbread.name=Sablé
+item.keldaria:raisin_cookie.name=Biscuit au raisin
+item.keldaria:apple_pie.name=Tarte aux pommes
+item.keldaria:applesauce.name=Compote de pommes
+
+
+item.keldaria:oak_bit.name=Morceau de chêne
+item.keldaria:dark_oak_bit.name=Morceau de chêne noir
+item.keldaria:birch_bit.name=Morceau de bouleau
+item.keldaria:spruce_bit.name=Morceau de sapin
+item.keldaria:acacia_bit.name=Morceau d'Acacia
+item.keldaria:jungle_bit.name=Morceau d'Acajou
+
+
+
+
+
+item.keldaria:chainmail_hood.name=Capuche de maille
+item.keldaria:chainmail_chestplate.name=Côte de maille
+item.keldaria:chainmail_leggings.name=Pantalon de maille
+item.keldaria:chainmail_boots.name=Bottes de maille
+
+item.keldaria:iron_helmet.name=Casque en fer
+item.keldaria:iron_chestplate.name=Plastron en fer
+item.keldaria:iron_gorgeret.name=Gorgeret en fer
+item.keldaria:iron_pauldron.name=Spallières en fer
+item.keldaria:iron_armband.name=Brassard en fer
+item.keldaria:iron_elbow_pads.name=Genouillères en fer
+item.keldaria:iron_leggings.name=Jambières en fer
+item.keldaria:iron_boots.name=Bottes en fer
+
+item.keldaria:steel_helmet.name=Casque en acier
+item.keldaria:steel_chestplate.name=Plastron en acier
+item.keldaria:steel_gorgeret.name=Gorgeret en acier
+item.keldaria:steel_pauldron.name=Spallières en acier
+item.keldaria:steel_armband.name=Brassard en acier
+item.keldaria:steel_elbow_pads.name=Genouillères en acier
+item.keldaria:steel_leggings.name=Jambières en acier
+item.keldaria:steel_boots.name=Bottes en acier
+
+item.keldaria:reinforced_steel_helmet.name=Casque en acier renforcé
+item.keldaria:reinforced_steel_chestplate.name=Plastron en acier renforcé
+item.keldaria:reinforced_steel_gorgeret.name=Gorgeret en acier renforcé
+item.keldaria:reinforced_steel_pauldron.name=Spallières en acier renforcé
+item.keldaria:reinforced_steel_armband.name=Brassard en acier renforcé
+item.keldaria:reinforced_steel_elbow_pads.name=Genouillères en acier renforcé
+item.keldaria:reinforced_steel_leggings.name=Jambières en acier renforcé
+item.keldaria:reinforced_steel_boots.name=Bottes en acier renforcé
+
+
+item.keldaria:onion.name=Oignons
+item.keldaria:white_onion.name=Oignons blanc
+item.keldaria:onion_soup.name=Soupe d'Oignon
+item.keldaria:pemmican.name=Pemmican
+item.keldaria:unripe_apple.name=Pomme pas mûre
+
+
+item.keldaria:potaufeu.name=Pot-au-feu
+item.keldaria:iron_plate.name=Plaque de fer
+tile.keldaria:fruit_block.name=Block fruitier
+tile.keldaria:sieve.name=Tamis à sel
+
+tile.keldaria:refined_log.name=Bois raffiné
+tile.keldaria:oak_refined_log.name=Bois de chêne raffiné
+tile.keldaria:spruce_refined_log.name=Bois de sapin raffiné
+tile.keldaria:birch_refined_log.name=Bois de bouleau raffiné
+tile.keldaria:jungle_refined_log.name=Bois d'acajou raffiné
+tile.keldaria:acacia_refined_log.name=Bois d'acacia raffiné
+tile.keldaria:dark_oak_refined_log.name=Bois de chêne noir raffiné
+
+
+item.keldaria:sunflower_oil.name=Huile de tournesol
+
+
+
+item.keldaria:flour.name=Farine
+
+itemGroup.keldaria.tab=Keldaria
+itemGroup.keldaria.bazar.tab=Keldaria Bazar
+itemGroup.keldaria.combat.tab=Keldaria Combat
+itemGroup.keldaria.cooking.tab=Keldaria Cuisine
+itemGroup.keldaria.apothecary.tab=Keld'Apothicaire
+itemGroup.keldaria.games.tab=Keldaria Jeux
+
+key.categories.keldaria=Keldaria
+
+tile.craftinforge=Enclume
+
+tile.keldaria:crafting_anvil.name=Enclume de fabrication
+tile.keldaria:vine_support.name=Support de vigne
+tile.keldaria:cooking_furnace.name=Four de cuisine
+tile.keldaria:mill.name=Moulin
+tile.keldaria:beer_barell.name=Tonneau de fabrication de bière
+tile.keldaria:salt_bag.name=Sac de sel
+tile.keldaria:flowering_pot.name=Bac à floraison
+
+
+tile.keldaria:chess_plate.name=Plateau d'echecs
+tile.keldaria:card_carpet.name=Tapis de cartes [HRP]
+tile.keldaria:oak_chair.name=Chaise en chêne
+tile.keldaria:spruce_chair.name=Chaise en sapin
+tile.keldaria:dark_oak_chair.name=Chaise en chêne noir
+tile.keldaria:birch_chair.name=Chaise en bouleau
+
+
+tile.keldaria:oak_table.name=Table en chêne
+tile.keldaria:spruce_table.name=Table en sapin
+tile.keldaria:dark_oak_table.name=Table en chêne noir
+tile.keldaria:birch_table.name=Table en bouleau
+
+
+tile.keldaria:card_deck.name=Pioche à cartes
+tile.keldaria:chain.name=Chaine
+tile.keldaria:iron_bar.name=Barre en fer
+tile.keldaria:chandeler.name=Lustre
+tile.keldaria:cobblestone_bench.name=Lustre
+tile.keldaria:stone_bench.name=Banc en pierre
+tile.keldaria:diorite_bench.name=Banc en diorite
+tile.keldaria:andesite_bench.name=Banc en andesite
+tile.keldaria:granite_bench.name=Banc en granite
+
+
+
+tile.keldaria:brazier.name=Brasier
+tile.keldaria:clothing_mannequin.name=Mannequin à vêtements
+tile.keldaria:sharpening_stone.name=Pierre d'affûtage
+tile.keldaria:millstone.name=Meule
+item.keldaria:key.name=Clef
+item.keldaria:lock.name=Cadenas
+item.keldaria:horse_brush.name=Brosse à cheval
+item.keldaria:lockpick.name=Lockpick
+item.keldaria:longbow.name=Arc long
+
+item.keldaria:orge.name=Orge
+item.keldaria:orge_seeds.name=Graines d'orge
+item.keldaria:compass.name=Boussole
+item.keldaria:canvas.name=Canvas
+
+item.keldaria:mushroom_bowl.name=Bol de champignons
+item.keldaria:fried_mushroom_bowl.name=Bol de champignons sautés
+item.keldaria:clothe.name=Vêtement
+item.keldaria:iron_dagger.name=Dague en fer
+item.keldaria:sleeping_mask.name=Maque de nuit
+item.keldaria:iron_spear.name=Lance en fer
+item.keldaria:bread_dough.name=Pâte à pain
+
+item.keldaria:chainmail.name=Maille
+item.keldaria:empty_remedy_vial.name=Flacon à remède vide
+
+item.keldaria:gittern.name=Guiterne
+item.keldaria:lyre.name=Lyre
+tile.keldaria:drum.name=Tambour
+tile.keldaria:pestle_mortar.name=Mortier à pilon
+tile.keldaria:woodworker_table.name=Table de Menuiserie
+tile.keldaria:feeder.name=Mangeoir / Abreuvoir (au choix ptdr)
+tile.keldaria:stonecutter.name=Table de tailleur de pierre
+tile.keldaria:cooking_table.name=Plan de travail cuisine
+tile.keldaria:portcullis.name=Block de herse
+tile.keldaria:weaving_loom.name=Métier à tisser
+tile.keldaria:hrp_sign.name=Panneau HRP
+tile.keldaria:custom_painting.name=Peinture Custom
+tile.keldaria:hrp_carpet.name=Tapis HRP
+
+tile.keldaria:oak_cabinet.name=Armoire en chêne
+tile.keldaria:dark_oak_cabinet.name=Armoire en chêne noir
+tile.keldaria:birch_cabinet.name=Armoire en bouleau
+tile.keldaria:spruce_cabinet.name=Armoire en sapin
+
+tile.keldaria:oak_crate.name=Caisse en chêne
+tile.keldaria:dark_oak_crate.name=Caisse en chêne noir
+tile.keldaria:birch_crate.name=Caisse en bouleau
+tile.keldaria:spruce_crate.name=Caisse en sapin
+
+tile.keldaria:oak_wall_cabinet.name=Armoire murale en chêne
+tile.keldaria:dark_oak_wall_cabinet.name=Armoire murale en chêne noir
+tile.keldaria:birch_wall_cabinet.name=Armoire murale en bouleau
+tile.keldaria:spruce_wall_cabinet.name=Armoire murale en sapin
+
+tile.keldaria:big_lantern.name=Grosse lanterne
+tile.keldaria:wall_lantern.name=Lanterne murale
+
+
+item.keldaria:spur_5cm.name=Eperon 5cm
+item.keldaria:spur_10cm.name=Eperon 10cm
+item.keldaria:spur_30cm.name=Eperon 30cm
+item.keldaria:spur_50cm.name=Eperon 50cm
+
+
+item.keldaria:steel_helm.name=Heaume en acier
+item.keldaria:iron_helm.name=Heaume en fer
+
+
+
+item.keldaria:reinforced_steel_helm.name=Heaume en acier renforcé
+
+
+item.keldaria:steel_sword.name=Epée en acier
+item.keldaria:steel_pickaxe.name=Pioche en acier
+item.keldaria:steel_shovel.name=Pelle en acier
+item.keldaria:steel_hoe.name=Houe en acier
+item.keldaria:steel_axe.name=Hache en acier
+item.keldaria:iron_mace.name=Masse en fer
+item.keldaria:steel_mace.name=Masse en acier
+item.keldaria:wine_glass.name=Verre de vin
+item.keldaria:empty_wine_glass.name=Verre de vin vide
+item.keldaria:empty_wine_bottle.name=Bouteille de vin vide
+item.keldaria:wine_bottle.name=Bouteille de vin
+
+item.keldaria:steel_ingot.name=Lingot d'acier

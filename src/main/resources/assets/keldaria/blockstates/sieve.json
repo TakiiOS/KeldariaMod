@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "normal": { "model": "keldaria:sieve" },
+    "salted=false": { "model": "keldaria:sieve" },
+    "salted=true": { "model": "keldaria:sieve_salted" }
+  }
+}

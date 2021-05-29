@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "axis=y":  { "model": "keldaria:chain" },
+    "axis=z":   { "model": "keldaria:chain", "x": 90 },
+    "axis=x":   { "model": "keldaria:chain", "x": 90, "y": 90 },
+    "axis=none": { "model": "keldaria:chain" }
+  }
+}

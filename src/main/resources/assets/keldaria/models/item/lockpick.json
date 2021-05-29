@@ -1,0 +1,7 @@
+{
+  "parent": "item/handheld",
+  "scale": 1,
+  "textures": {
+    "layer0": "keldaria:items/lockpick"
+  }
+}

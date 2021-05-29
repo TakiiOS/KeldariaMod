@@ -1,0 +1,18 @@
+{
+  "type": "forge:ore_shaped",
+  "pattern": [
+    " _ ",
+    "_ _",
+    " _ "
+  ],
+  "key": {
+    "_": {
+      "item": "minecraft:iron_nugget",
+      "data": 0
+    }
+  },
+  "result": {
+    "item": "keldaria:chainmail",
+    "count": 1
+  }
+}

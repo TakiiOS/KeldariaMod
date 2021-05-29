@@ -1,0 +1,9 @@
+{
+  "variants": {
+    "normal": {"model":"keldaria:candlestick"},
+    "facing=north": { "model": "keldaria:candlestick", "y": 180 },
+    "facing=east":  { "model": "keldaria:candlestick", "y": 270 },
+    "facing=south": { "model": "keldaria:candlestick", "y": 0 },
+    "facing=west":  { "model": "keldaria:candlestick", "y": 90 }
+  }
+}

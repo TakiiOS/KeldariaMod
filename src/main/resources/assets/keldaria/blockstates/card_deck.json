@@ -1,0 +1,9 @@
+{
+  "variants": {
+    "normal": {"model":"keldaria:card_deck"},
+    "facing=north": { "model": "keldaria:card_deck", "y": 0 },
+    "facing=east":  { "model": "keldaria:card_deck", "y": 90 },
+    "facing=south": { "model": "keldaria:card_deck", "y": 180 },
+    "facing=west":  { "model": "keldaria:card_deck", "y": 270 }
+  }
+}

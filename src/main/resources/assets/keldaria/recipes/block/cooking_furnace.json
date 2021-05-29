@@ -1,0 +1,22 @@
+{
+  "type": "forge:ore_shaped",
+  "pattern": [
+    " b ",
+    "bfb",
+    " b "
+  ],
+  "key": {
+    "f": {
+      "item": "minecraft:furnace",
+      "data": 0
+    },
+    "b": {
+      "item": "minecraft:brick_block",
+      "data": 0
+    }
+  },
+  "result": {
+    "item": "keldaria:cooking_furnace",
+    "count": 1
+  }
+}

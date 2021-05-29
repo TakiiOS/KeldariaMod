@@ -1,0 +1,45 @@
+{
+  "required": true,
+  "package": "fr.nathanael2611.keldaria.mod.asm.mixin",
+  "refmap": "mixins.keldaria.refmap.json",
+  "target": "@env(DEFAULT)",
+  "minVersion": "0.8",
+  "compatibilityLevel": "JAVA_8",
+  "mixins": [
+    "common.MixinBlockDoor",
+    "common.MixinCommandHandler",
+    "common.MixinContainer",
+    "common.MixinEntityAnimal",
+    "common.MixinEntityHorse",
+    "common.MixinEntityItem",
+    "common.MixinEntityLivingBase",
+    "common.MixinEntityPlayer",
+    "common.MixinEntityTracker",
+    "common.MixinFoodStats",
+    "common.MixinHorse",
+    "common.MixinItemBow",
+    "common.MixinItemFood",
+    "common.MixinItemSword",
+    "common.MixinNetHandlerLoginServer",
+    "common.MixinSlot",
+    "common.MixinSlotCrafting",
+    "common.MixinWorldProvider"
+  ],
+  "client": [
+    "client.MixinBlockRendererDispatcher",
+    "client.MixinEntityPlayerSP",
+    "client.MixinEntityRenderer",
+    "client.MixinGuiChat",
+    "client.MixinGuiConnecting",
+    "client.MixinItemColors",
+    "client.MixinLayerBipedArmor",
+    "client.MixinLayerHeldItem",
+    "client.MixinModelPlayer",
+    "client.MixinMovmentInputFromOption",
+    "client.MixinRenderHorse",
+    "client.MixinRenderItem",
+    "client.MixinRenderPlayer"
+  ],
+  "server": [
+  ]
+}

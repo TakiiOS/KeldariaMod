@@ -1,0 +1,38 @@
+{
+  "type": "forge:ore_shaped",
+  "pattern": [
+    "cjc",
+    "who",
+    " b "
+  ],
+  "key": {
+    "w": {
+      "item": "keldaria:white_onion",
+      "data": 0
+    },
+    "o": {
+      "item": "keldaria:onion",
+      "data": 0
+    },
+    "h": {
+      "item": "keldaria:cooked_bacon",
+      "data": 0
+    },
+    "j": {
+      "item": "minecraft:carrot",
+      "data": 0
+    },
+    "c": {
+      "item": "minecraft:potato",
+      "data": 0
+    },
+    "b": {
+      "item": "minecraft:bowl",
+      "data": 0
+    }
+  },
+  "result": {
+    "item": "keldaria:potaufeu",
+    "count": 1
+  }
+}

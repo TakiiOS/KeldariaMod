@@ -1,0 +1,9 @@
+{
+  "variants": {
+    "normal": {"model":"keldaria:dark_oak_cabinet"},
+    "facing=north": { "model": "keldaria:dark_oak_cabinet", "y": 0 },
+    "facing=east":  { "model": "keldaria:dark_oak_cabinet", "y": 90 },
+    "facing=south": { "model": "keldaria:dark_oak_cabinet", "y": 180 },
+    "facing=west":  { "model": "keldaria:dark_oak_cabinet", "y": 270 }
+  }
+}

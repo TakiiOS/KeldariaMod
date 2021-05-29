@@ -1,0 +1,21 @@
+{
+  "type": "forge:ore_shaped",
+  "pattern": [
+    "bfb",
+    " b "
+  ],
+  "key": {
+    "f": {
+      "item": "minecraft:coal_block",
+      "data": 0
+    },
+    "b": {
+      "item": "minecraft:iron_bars",
+      "data": 0
+    }
+  },
+  "result": {
+    "item": "keldaria:brazier",
+    "count": 1
+  }
+}

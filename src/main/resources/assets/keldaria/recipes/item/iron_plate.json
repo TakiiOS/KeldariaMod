@@ -1,0 +1,18 @@
+{
+  "type": "forge:ore_shaped",
+  "pattern": [
+    " _ ",
+    "___",
+    " _ "
+  ],
+  "key": {
+    "_": {
+      "item": "minecraft:iron_ingot",
+      "data": 0
+    }
+  },
+  "result": {
+    "item": "keldaria:iron_plate",
+    "count": 1
+  }
+}

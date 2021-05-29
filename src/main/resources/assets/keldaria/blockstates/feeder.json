@@ -1,0 +1,9 @@
+{
+  "variants": {
+    "normal": {"model":"keldaria:feeder"},
+    "facing=north": { "model": "keldaria:feeder", "y": 90 },
+    "facing=east":  { "model": "keldaria:feeder", "y": 180 },
+    "facing=south": { "model": "keldaria:feeder", "y": 270 },
+    "facing=west":  { "model": "keldaria:feeder" }
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "variants": {
+    "normal": {"model":"keldaria:mill"},
+    "facing=north": { "model": "keldaria:mill", "y": 90 },
+    "facing=east":  { "model": "keldaria:mill", "y": 180 },
+    "facing=south": { "model": "keldaria:mill", "y": 270 },
+    "facing=west":  { "model": "keldaria:mill" }
+  }
+}

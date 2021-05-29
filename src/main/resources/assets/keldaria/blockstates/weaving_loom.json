@@ -1,0 +1,9 @@
+{
+  "variants": {
+    "normal": {"model":"keldaria:weaving_loom"},
+    "facing=north": { "model": "keldaria:weaving_loom", "y": 0 },
+    "facing=east":  { "model": "keldaria:weaving_loom", "y": 90 },
+    "facing=south": { "model": "keldaria:weaving_loom", "y": 180 },
+    "facing=west":  { "model": "keldaria:weaving_loom", "y": 270 }
+  }
+}

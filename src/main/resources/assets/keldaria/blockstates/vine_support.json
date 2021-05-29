@@ -1,0 +1,9 @@
+{
+  "variants": {
+    "normal": {"model":"keldaria:vine_support"},
+    "facing=north": { "model": "keldaria:vine_support", "y": 0 },
+    "facing=east":  { "model": "keldaria:vine_support", "y": 90 },
+    "facing=south": { "model": "keldaria:vine_support", "y": 180 },
+    "facing=west":  { "model": "keldaria:vine_support", "y": 270 }
+  }
+}
