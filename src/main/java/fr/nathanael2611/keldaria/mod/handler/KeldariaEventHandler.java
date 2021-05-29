@@ -402,6 +402,7 @@ public class KeldariaEventHandler
     {
         if (event.getEntityLiving() instanceof EntityPlayer)
         {
+            //Yeet
             EntityPlayer player = (EntityPlayer) event.getEntityLiving();
             ItemStack stack = event.getItem();
             if (stack.getItem() instanceof ItemCrossbow)
