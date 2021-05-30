@@ -8,6 +8,7 @@ import fr.nathanael2611.keldaria.mod.animation.Animations;
 import fr.nathanael2611.keldaria.mod.api.registry.Register;
 import fr.nathanael2611.keldaria.mod.crafting.CraftHandler;
 import fr.nathanael2611.keldaria.mod.features.rot.ExpiredFoods;
+import fr.nathanael2611.keldaria.mod.features.skill.JobHandler;
 import fr.nathanael2611.keldaria.mod.fight.FightHandler;
 import fr.nathanael2611.keldaria.mod.server.zone.ZoneHandler;
 import fr.nathanael2611.keldaria.mod.tileentity.TileEntityFruitBlock;
@@ -104,6 +105,7 @@ public class KeldariaRegistry
         MinecraftForge.EVENT_BUS.register(new ZoneHandler());
         MinecraftForge.EVENT_BUS.register(new CraftHandler());
         MinecraftForge.EVENT_BUS.register(new ExpiredFoods());
+        MinecraftForge.EVENT_BUS.register(new JobHandler());
         //MinecraftForge.EVENT_BUS.register(new FightHandler());
 
         Season.registerEvents(keldaria);

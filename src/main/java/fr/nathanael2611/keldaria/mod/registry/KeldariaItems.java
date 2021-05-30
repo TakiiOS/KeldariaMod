@@ -387,6 +387,12 @@ public class KeldariaItems
     public static final Item JUNGLE_BIT = new Item();
 
 
+    @Register(name = "raw_iron")
+    public static final Item RAW_IRON = new ItemRawOre();
+    @Register(name = "raw_gold")
+    public static final Item RAW_GOLD = new ItemRawOre();
+
+
     static
     {
 
