@@ -1,3 +1,8 @@
+/**
+ * Copyright 2019-2021 Keldaria. Tous droits réservés.
+ * Toute reproduction, diffusion, partage, distribution,
+ * commercialisation sans autorisation explicite est interdite.
+ */
 package fr.nathanael2611.keldaria.mod.registry;
 
 import com.google.common.collect.Lists;
@@ -5,10 +10,12 @@ import fr.nathanael2611.keldaria.mod.Keldaria;
 import fr.nathanael2611.keldaria.mod.api.registry.Register;
 import fr.nathanael2611.keldaria.mod.features.EnumFlower;
 import fr.nathanael2611.keldaria.mod.item.*;
+import fr.nathanael2611.keldaria.mod.item.accessory.ItemAccessory;
 import fr.nathanael2611.keldaria.mod.item.accessory.ItemQuiver;
 import fr.nathanael2611.keldaria.mod.item.accessory.ItemSpur;
 import fr.nathanael2611.keldaria.mod.item.instruments.ItemInstrument;
 import net.minecraft.block.Block;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.init.MobEffects;
@@ -391,6 +398,11 @@ public class KeldariaItems
     public static final Item RAW_IRON = new ItemRawOre();
     @Register(name = "raw_gold")
     public static final Item RAW_GOLD = new ItemRawOre();
+
+    @Register(name = "glasses")
+    public static final Item GLASSES = new ItemGlasses();
+    @Register(name = "glasses_frame")
+    public static final Item GLASSES_FRAME = new ItemFakeGlasses();
 
 
     static

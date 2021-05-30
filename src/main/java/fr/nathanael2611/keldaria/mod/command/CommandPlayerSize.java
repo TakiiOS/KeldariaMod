@@ -1,3 +1,8 @@
+/**
+ * Copyright 2019-2021 Keldaria. Tous droits réservés.
+ * Toute reproduction, diffusion, partage, distribution,
+ * commercialisation sans autorisation explicite est interdite.
+ */
 package fr.nathanael2611.keldaria.mod.command;
 
 import fr.nathanael2611.keldaria.mod.features.PlayerSizes;
@@ -34,9 +39,9 @@ public class CommandPlayerSize extends KeldariaCommand
                     size = Math.min(s / 1.8, 30);
                 } else size = Math.min(parseDouble(args[2]), 30);
                 PlayerSizes.set(player.getName(), size);
-                user.sendMessage(GOLD + " ● La taille de " + RED + player.getName() + GOLD + " a été définie à " + RED + size + GOLD + " (" + size * 1.8 + "m)");
+                user.sendMessage(GOLD + " �? La taille de " + RED + player.getName() + GOLD + " a été définie à " + RED + size + GOLD + " (" + size * 1.8 + "m)");
             } else {
-                user.sendMessage(GOLD + " ● La taille de " + RED + player.getName() + GOLD + " est " + RED + PlayerSizes.get(player));
+                user.sendMessage(GOLD + " �? La taille de " + RED + player.getName() + GOLD + " est " + RED + PlayerSizes.get(player));
             }
         }
         else {

@@ -1,3 +1,8 @@
+/**
+ * Copyright 2019-2021 Keldaria. Tous droits réservés.
+ * Toute reproduction, diffusion, partage, distribution,
+ * commercialisation sans autorisation explicite est interdite.
+ */
 package fr.nathanael2611.keldaria.mod.client.gui;
 
 import fr.nathanael2611.keldaria.mod.client.RenderHelpers;
@@ -10,6 +15,7 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.*;
 import net.minecraft.client.gui.inventory.GuiInventory;
 import net.minecraft.realms.RealmsBridge;
+import net.minecraft.util.ResourceLocation;
 
 import java.awt.*;
 import java.io.IOException;
@@ -61,6 +67,8 @@ public class GuiCustomIngameMenu extends GuiScreen
                 , 5, (int) (8 + (this.fontRenderer.FONT_HEIGHT * 5.0f)), 1.3f, Color.GRAY.getRGB(), true);
         RenderHelpers.drawScaledString(this.fontRenderer, "Pour définir l'anniversaire: /anniversaire"
                 , 5, (int) (9 + (this.fontRenderer.FONT_HEIGHT * 6.0f)), 1f, Color.LIGHT_GRAY.getRGB(), true);
+
+
 
         super.drawScreen(mouseX, mouseY, partialTicks);
     }

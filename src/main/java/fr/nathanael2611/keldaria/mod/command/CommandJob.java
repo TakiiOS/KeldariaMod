@@ -1,3 +1,8 @@
+/**
+ * Copyright 2019-2021 Keldaria. Tous droits réservés.
+ * Toute reproduction, diffusion, partage, distribution,
+ * commercialisation sans autorisation explicite est interdite.
+ */
 package fr.nathanael2611.keldaria.mod.command;
 
 import com.google.common.collect.Lists;
@@ -8,9 +13,12 @@ import net.minecraft.command.WrongUsageException;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.math.BlockPos;
+import org.bridj.cpp.std.list;
 
 import javax.annotation.Nullable;
+import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class CommandJob extends KeldariaCommand
 {
@@ -30,8 +38,8 @@ public class CommandJob extends KeldariaCommand
                 user.sendMessage("§cMétiers de " + args[0]);
                 for (EnumJob value : EnumJob.values())
                 {
-                    EnumJob.JobLevel level = value.getLevel(dest);
-                    if (level.atLeast(EnumJob.JobLevel.NOVICE))
+                    EnumJob.Level level = value.getLevel(dest);
+                    if (level.atLeast(EnumJob.Level.NOVICE))
                     {
                         user.sendMessage(" §e- §6" + value.getFormattedName() + "§e " + level.getFormattedName());
                     }
@@ -41,7 +49,7 @@ public class CommandJob extends KeldariaCommand
                 EnumJob job = EnumJob.byName(args[1]);
                 if (job == null)
                     throw new WrongUsageException(getUsage(user.getSender()));
-                EnumJob.JobLevel level = EnumJob.JobLevel.byName(args[2]);
+                EnumJob.Level level = EnumJob.Level.byName(args[2]);
                 if (level == null)
                     throw new WrongUsageException(getUsage(user.getSender()));
                 job.set(dest, level);
@@ -64,19 +72,14 @@ public class CommandJob extends KeldariaCommand
             return getListOfStringsMatchingLastWord(args, server.getOnlinePlayerNames());
         } else if(args.length == 2)
         {
-
-            List<String> list = Lists.newArrayList();
-            for (EnumJob value : EnumJob.values())
-            {
-                list.add(value.getName());
-            }
+            List<String> list = Arrays.stream(EnumJob.values()).map(EnumJob::getName).collect(Collectors.toList());
             list.add("infos");
             return getListOfStringsMatchingLastWord(args, list);
         }
         else if(args.length == 3)
         {
             List<String> list = Lists.newArrayList();
-            for (EnumJob.JobLevel value : EnumJob.JobLevel.values())
+            for (EnumJob.Level value : EnumJob.Level.values())
             {
                 list.add(value.getName());
             }

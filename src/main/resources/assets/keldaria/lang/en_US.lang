@@ -9,6 +9,9 @@ item.keldaria:white_horse.name=Cheval blanc
 item.keldaria:white_pawn.name=Pion blanc
 item.keldaria:white_king.name=Roi blanc
 
+item.keldaria:glasses.name=Lunettes
+item.keldaria:glasses_frame.name=Lunettes vides
+
 item.keldaria:oak_lishen_wood.name=Bois de Lishen en chêne
 item.keldaria:birch_lishen_wood.name=Bois de Lishen en bouleau
 item.keldaria:dark_oak_lishen_wood.name=Bois de Lishen en chêne noir

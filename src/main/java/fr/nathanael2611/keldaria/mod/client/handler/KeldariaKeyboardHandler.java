@@ -1,9 +1,15 @@
+/**
+ * Copyright 2019-2021 Keldaria. Tous droits réservés.
+ * Toute reproduction, diffusion, partage, distribution,
+ * commercialisation sans autorisation explicite est interdite.
+ */
 package fr.nathanael2611.keldaria.mod.client.handler;
 
 import fr.nathanael2611.keldaria.mod.animation.Animation;
 import fr.nathanael2611.keldaria.mod.animation.AnimationUtils;
 import fr.nathanael2611.keldaria.mod.animation.Animations;
 import fr.nathanael2611.keldaria.mod.client.NewItemTextureCache;
+import fr.nathanael2611.keldaria.mod.client.ShadersManager;
 import fr.nathanael2611.keldaria.mod.client.gui.*;
 import fr.nathanael2611.keldaria.mod.network.KeldariaPacketHandler;
 import fr.nathanael2611.keldaria.mod.network.animation.PacketHandleAnimationRequest;
@@ -20,11 +26,7 @@ public class KeldariaKeyboardHandler
 
     @SubscribeEvent
     public void onKey(InputEvent.KeyInputEvent event)
-
-
-
     {
-
         if(Keyboard.isKeyDown(Keyboard.KEY_R))
         {
             NewItemTextureCache.MODELS.clear();

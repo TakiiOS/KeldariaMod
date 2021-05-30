@@ -1,3 +1,8 @@
+/**
+ * Copyright 2019-2021 Keldaria. Tous droits réservés.
+ * Toute reproduction, diffusion, partage, distribution,
+ * commercialisation sans autorisation explicite est interdite.
+ */
 package fr.nathanael2611.keldaria.mod.registry;
 
 import com.google.common.collect.Lists;
@@ -206,7 +211,6 @@ public class KeldariaRegistry
                             Register info = (Register) annotation;
                             try
                             {
-
                                 Object obj = field.get(null);
                                 if(obj instanceof Item)
                                 {

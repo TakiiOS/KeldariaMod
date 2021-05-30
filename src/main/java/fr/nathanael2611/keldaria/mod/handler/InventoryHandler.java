@@ -1,3 +1,8 @@
+/**
+ * Copyright 2019-2021 Keldaria. Tous droits réservés.
+ * Toute reproduction, diffusion, partage, distribution,
+ * commercialisation sans autorisation explicite est interdite.
+ */
 package fr.nathanael2611.keldaria.mod.handler;
 
 import com.google.common.collect.Maps;
@@ -100,7 +105,7 @@ public class InventoryHandler
         }
         if(e.getEntityItem().getItem().getItem() == KeldariaItems.DICE)
         {
-            Helpers.sendInRadius(e.getPlayer().getPosition(), new TextComponentString("§6 ● §e" + RolePlayNames.getName(e.getPlayer()) + " a lancé un dé... Résultat: " + (Helpers.RANDOM.nextInt(6) + 1)), 6);
+            Helpers.sendInRadius(e.getPlayer().getPosition(), new TextComponentString("§6 �? §e" + RolePlayNames.getName(e.getPlayer()) + " a lancé un dé... Résultat: " + (Helpers.RANDOM.nextInt(6) + 1)), 6);
         }
         PlayerSpy.ITEMS_LOG.log("**Item Toss:** " + e.getEntityItem().getItem().getDisplayName() + "\n**Position**: " + Helpers.blockPosToString(e.getEntityItem().getPosition()));
 

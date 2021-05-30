@@ -1,8 +1,14 @@
+/**
+ * Copyright 2019-2021 Keldaria. Tous droits réservés.
+ * Toute reproduction, diffusion, partage, distribution,
+ * commercialisation sans autorisation explicite est interdite.
+ */
 package fr.nathanael2611.keldaria.mod.proxy;
 
 import de.matthiasmann.twl.utils.PNGDecoder;
 import fr.nathanael2611.keldaria.mod.Keldaria;
 import fr.nathanael2611.keldaria.mod.animation.AnimationUtils;
+import fr.nathanael2611.keldaria.mod.client.ShadersManager;
 import fr.nathanael2611.keldaria.mod.client.ren.REN;
 import fr.nathanael2611.keldaria.mod.tileentity.TileEntityFruitBlock;
 import fr.nathanael2611.keldaria.mod.block.furniture.TileEntityChessPlate;
@@ -146,6 +152,7 @@ public class ClientProxy extends CommonProxy
         MinecraftForge.EVENT_BUS.register(new KeldariaClientHandler());
         MinecraftForge.EVENT_BUS.register(new KeldariaRenderHandler());
         MinecraftForge.EVENT_BUS.register(new KeldariaKeyboardHandler());
+        MinecraftForge.EVENT_BUS.register(new ShadersManager());
         MinecraftForge.EVENT_BUS.register(new ObfuscateEvents());
         //MinecraftForge.EVENT_BUS.register(new ClientCombatEvents());
     }

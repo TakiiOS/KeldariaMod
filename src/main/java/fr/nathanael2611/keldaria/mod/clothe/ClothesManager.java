@@ -1,3 +1,8 @@
+/**
+ * Copyright 2019-2021 Keldaria. Tous droits réservés.
+ * Toute reproduction, diffusion, partage, distribution,
+ * commercialisation sans autorisation explicite est interdite.
+ */
 package fr.nathanael2611.keldaria.mod.clothe;
 
 import com.google.common.collect.Lists;
@@ -124,11 +129,24 @@ public class ClothesManager implements INBTSerializable<NBTTagCompound>
                 InventoryAccessories acc = ((IKeldariaPlayer)player).getInventoryAccessories();
                 if(!acc.canSee())
                 {
-                    if(ItemClothe.isClothValid(acc.getAccessory(EntityEquipmentSlot.HEAD)))
-                    {
-                        urls.add(ItemClothe.getClothURL(acc.getAccessory(EntityEquipmentSlot.HEAD)));
-                    }
 
+
+                }
+                if(ItemClothe.isClothValid(acc.getAccessory(EntityEquipmentSlot.HEAD)))
+                {
+                    urls.add(ItemClothe.getClothURL(acc.getAccessory(EntityEquipmentSlot.HEAD)));
+                }
+                if(ItemClothe.isClothValid(acc.getAccessory(EntityEquipmentSlot.CHEST)))
+                {
+                    urls.add(ItemClothe.getClothURL(acc.getAccessory(EntityEquipmentSlot.CHEST)));
+                }
+                if(ItemClothe.isClothValid(acc.getAccessory(EntityEquipmentSlot.LEGS)))
+                {
+                    urls.add(ItemClothe.getClothURL(acc.getAccessory(EntityEquipmentSlot.LEGS)));
+                }
+                if(ItemClothe.isClothValid(acc.getAccessory(EntityEquipmentSlot.FEET)))
+                {
+                    urls.add(ItemClothe.getClothURL(acc.getAccessory(EntityEquipmentSlot.FEET)));
                 }
 
                 this.playerClothes.put(player.getName(), new Clothes(player.getName(), urls, armorOverrides));

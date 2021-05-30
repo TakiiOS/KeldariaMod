@@ -1,3 +1,8 @@
+/**
+ * Copyright 2019-2021 Keldaria. Tous droits réservés.
+ * Toute reproduction, diffusion, partage, distribution,
+ * commercialisation sans autorisation explicite est interdite.
+ */
 package fr.nathanael2611.keldaria.mod.command;
 
 import fr.nathanael2611.keldaria.mod.features.combatstats.WeaponStat;
@@ -31,7 +36,7 @@ public class CommandWeaponStats extends KeldariaCommand
                 user.sendMessage(RED + "   Infos dde compétences de combat sur " + GOLD + player.getName());
                 for (WeaponStat value : WeaponStat.values())
                 {
-                    user.sendMessage(YELLOW + " ● " + value.getName() + ": " + GOLD + value.getLevel(player) + YELLOW + "/20");
+                    user.sendMessage(YELLOW + " �? " + value.getName() + ": " + GOLD + value.getLevel(player) + YELLOW + "/20");
                 }
             }
             else if(args.length == 4 && args[1].equalsIgnoreCase("set"))

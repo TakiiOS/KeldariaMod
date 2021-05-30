@@ -20,13 +20,23 @@ buildscript {
         classpath 'com.github.jengelman.gradle.plugins:shadow:1.2.4'
         classpath 'org.spongepowered:mixingradle:0.4-SNAPSHOT'
 
+
+
     }
+}
+/*
+plugins {
+    id "com.github.hierynomus.license" version "0.15.0"
+}*/
+plugins {
+    id "com.github.hierynomus.license" version "0.15.0"
 }
 apply plugin: 'net.minecraftforge.gradle.forge'
 //Only edit below this line, the above code adds and enables the necessary things for Forge to be setup.
 apply plugin: 'com.github.johnrengelman.shadow'
 apply plugin: 'java'
 apply plugin: 'org.spongepowered.mixin'
+apply plugin: "com.github.hierynomus.license"
 
 
 version = "2.0-DEV"
@@ -38,6 +48,13 @@ compileJava {
     sourceCompatibility = targetCompatibility = '1.8'
     options.encoding = 'UTF-8'
 }
+
+license {
+    header = file('LICENSE')
+    include "**/*.java"
+}
+
+
 
 minecraft {
     version = "1.12.2-14.23.5.2847"

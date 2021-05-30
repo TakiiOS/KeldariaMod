@@ -1,3 +1,8 @@
+/**
+ * Copyright 2019-2021 Keldaria. Tous droits réservés.
+ * Toute reproduction, diffusion, partage, distribution,
+ * commercialisation sans autorisation explicite est interdite.
+ */
 package fr.nathanael2611.keldaria.mod.command;
 
 import fr.nathanael2611.keldaria.mod.Keldaria;
@@ -55,7 +60,7 @@ public class CommandPeristentEffects extends KeldariaCommand {
 
                 if(args[1].equalsIgnoreCase("add")){
                     if(!effects.contains(effect))effects.add(effect);
-                    user.sendMessage("§a ● Ajout de §2" + effect.toString() + "§a à  la liste des effets persistants de §2" + args[0] + "§a effectué avec succès.");
+                    user.sendMessage("§a �? Ajout de §2" + effect.toString() + "§a à  la liste des effets persistants de §2" + args[0] + "§a effectué avec succès.");
                 }else if(args[1].equalsIgnoreCase("remove")){
                     effects.forEach(e -> {
                         if(e.effectName.equalsIgnoreCase(effect.getEffectName()) && e.effectLevel == effect.getEffectLevel() && e.state.equalsIgnoreCase(effect.getState()))
@@ -63,7 +68,7 @@ public class CommandPeristentEffects extends KeldariaCommand {
                             effects.remove(e);
                         }
                     });
-                    user.sendMessage("§a ● Retrait de §4" + effect.toString() + "§c de  la liste des effets persistants de §4" + args[0] + "§c effectué avec succès.");
+                    user.sendMessage("§a �? Retrait de §4" + effect.toString() + "§c de  la liste des effets persistants de §4" + args[0] + "§c effectué avec succès.");
                 }
                 playerData.setString(KEY, effectsListToString(effects));
             }else if(args.length == 2 && args[1].equalsIgnoreCase("clear")){

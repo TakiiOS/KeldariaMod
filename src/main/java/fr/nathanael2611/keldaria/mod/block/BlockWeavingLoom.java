@@ -1,3 +1,8 @@
+/**
+ * Copyright 2019-2021 Keldaria. Tous droits réservés.
+ * Toute reproduction, diffusion, partage, distribution,
+ * commercialisation sans autorisation explicite est interdite.
+ */
 package fr.nathanael2611.keldaria.mod.block;
 
 import fr.nathanael2611.keldaria.mod.crafting.CraftManager;
@@ -42,12 +47,12 @@ public class BlockWeavingLoom extends Block {
                 }
                 else
                 {
-                    Helpers.sendPopMessage((EntityPlayerMP) playerIn, "§c ● Il vous faut une aiguille pour coudre!", 3000);
+                    Helpers.sendPopMessage((EntityPlayerMP) playerIn, "§c �? Il vous faut une aiguille pour coudre!", 3000);
                 }
             }
             else
             {
-                Helpers.sendPopMessage((EntityPlayerMP) playerIn, "§c ● Vous devez avoir la compétence §4" + EnumJob.DRESSMAKER.getFormattedName() + "§c pour faire cela!", 1000);
+                Helpers.sendPopMessage((EntityPlayerMP) playerIn, "§c �? Vous devez avoir la compétence §4" + EnumJob.DRESSMAKER.getFormattedName() + "§c pour faire cela!", 1000);
             }
         }
         return true;

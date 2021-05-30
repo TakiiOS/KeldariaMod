@@ -1,3 +1,8 @@
+/**
+ * Copyright 2019-2021 Keldaria. Tous droits réservés.
+ * Toute reproduction, diffusion, partage, distribution,
+ * commercialisation sans autorisation explicite est interdite.
+ */
 package fr.nathanael2611.keldaria.mod.block;
 
 import fr.nathanael2611.keldaria.mod.crafting.CraftManager;
@@ -38,7 +43,7 @@ public class BlockCookingTable extends Block
             }
             else
             {
-                Helpers.sendPopMessage((EntityPlayerMP) playerIn, "§c ● Vous devez avoir la compétence §4" + EnumJob.COOK.getFormattedName() + "§c pour faire cela!", 1000);
+                Helpers.sendPopMessage((EntityPlayerMP) playerIn, "§c �? Vous devez avoir la compétence §4" + EnumJob.COOK.getFormattedName() + "§c pour faire cela!", 1000);
             }
         }
         return true;

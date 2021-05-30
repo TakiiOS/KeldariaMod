@@ -1,3 +1,8 @@
+/**
+ * Copyright 2019-2021 Keldaria. Tous droits réservés.
+ * Toute reproduction, diffusion, partage, distribution,
+ * commercialisation sans autorisation explicite est interdite.
+ */
 package fr.nathanael2611.keldaria.mod.client.layer;
 
 import fr.nathanael2611.keldaria.mod.Keldaria;
@@ -5,6 +10,7 @@ import fr.nathanael2611.keldaria.mod.animation.Animation;
 import fr.nathanael2611.keldaria.mod.animation.AnimationUtils;
 import fr.nathanael2611.keldaria.mod.client.model.ModelRoundShield;
 import fr.nathanael2611.keldaria.mod.features.ItemTextures;
+import fr.nathanael2611.keldaria.mod.features.PlayerSizes;
 import fr.nathanael2611.keldaria.mod.features.backweapons.Weapons;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.ModelShield;
@@ -105,6 +111,8 @@ public class LayerWeapons implements LayerRenderer<EntityPlayer>
 
                         GlStateManager.pushMatrix();
 
+
+
                         GlStateManager.scale(1.0F, -1.0F, -1.0F);
                         GlStateManager.rotate(180, 0, 0, 1);
                         if (shield.getItem() instanceof ItemShield)
@@ -138,11 +146,16 @@ public class LayerWeapons implements LayerRenderer<EntityPlayer>
 
 
             }
+
+
+
             GlStateManager.rotate(180, 1, 0, 0);
 
             GlStateManager.scale(0.8F, 0.8F, 0.8F);
             GlStateManager.translate(2.0F * scale, -7 * scale, -3 * scale);
             GlStateManager.rotate(180.0F, 0.0F, 0.0F, 1.0F);
+
+
 
             GlStateManager.translate(0.1, 0, 0);
             if (animation.isElongated())
@@ -152,6 +165,8 @@ public class LayerWeapons implements LayerRenderer<EntityPlayer>
                 GlStateManager.rotate(180, 0, 1, 0);
                 GlStateManager.translate(0, 0, 0.6);
             }
+
+
 
             doTheRender(entity, backItem1);
 
@@ -233,7 +248,14 @@ public class LayerWeapons implements LayerRenderer<EntityPlayer>
                 }
             } else*/
             {
+
+                GlStateManager.pushMatrix();
+                double scale = PlayerSizes.get(entity);
+                GlStateManager.scale(1/scale, 1/scale, 1/scale);
+
                 Minecraft.getMinecraft().getItemRenderer().renderItem(entity, stack, ItemCameraTransforms.TransformType.FIXED);
+
+                GlStateManager.popMatrix();
             }
         }
     }

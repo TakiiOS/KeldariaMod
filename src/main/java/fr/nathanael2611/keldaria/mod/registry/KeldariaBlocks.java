@@ -1,3 +1,8 @@
+/**
+ * Copyright 2019-2021 Keldaria. Tous droits réservés.
+ * Toute reproduction, diffusion, partage, distribution,
+ * commercialisation sans autorisation explicite est interdite.
+ */
 package fr.nathanael2611.keldaria.mod.registry;
 
 import com.google.common.collect.Maps;
@@ -43,6 +48,8 @@ public class KeldariaBlocks
 
     @Register(name = "cooking_furnace")
     public static final Block COOKING_FURNACE = new BlockCookingFurnace();
+    @Register(name = "blast_furnace")
+    public static final Block BLAST_FURNACE = new BlockBlastFurnace();
 
     @Register(name = "white_onion", hasItem = false)
     public static final Block WHITE_ONION = new BlockWhiteOnion();

@@ -1,3 +1,8 @@
+/**
+ * Copyright 2019-2021 Keldaria. Tous droits réservés.
+ * Toute reproduction, diffusion, partage, distribution,
+ * commercialisation sans autorisation explicite est interdite.
+ */
 package fr.nathanael2611.keldaria.mod.command;
 
 import fr.nathanael2611.keldaria.mod.features.ability.EnumAptitudes;
@@ -33,7 +38,7 @@ public class CommandComplement extends KeldariaCommand
                 for (EnumComplement value : EnumComplement.values())
                 {
                     if(value.has(player))
-                    user.sendMessage(YELLOW + " ● " + value.getFormattedName() + ": " + GOLD + value.getCost());
+                    user.sendMessage(YELLOW + " �? " + value.getFormattedName() + ": " + GOLD + value.getCost());
                 }
             }
             else if(args.length == 3 && (args[1].equalsIgnoreCase("add") || args[1].equalsIgnoreCase("remove")))

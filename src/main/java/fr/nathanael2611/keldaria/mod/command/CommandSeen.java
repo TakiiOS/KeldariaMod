@@ -1,3 +1,8 @@
+/**
+ * Copyright 2019-2021 Keldaria. Tous droits réservés.
+ * Toute reproduction, diffusion, partage, distribution,
+ * commercialisation sans autorisation explicite est interdite.
+ */
 package fr.nathanael2611.keldaria.mod.command;
 
 import fr.nathanael2611.keldaria.mod.util.Helpers;
@@ -35,11 +40,11 @@ public class CommandSeen extends KeldariaCommand
         String IP = playerData.getString("Ip");
         Date lastConnection = Helpers.getLastPlayerConnection(args[0]);
         SimpleDateFormat format = new SimpleDateFormat("dd/MM/YYYY à HH:mm");
-        user.getSender().sendMessage(new TextComponentString(TextFormatting.GOLD + " ● Informations sur " + TextFormatting.RED + args[0] + "\n" + TextFormatting.GOLD + "   ● Status: " + (online ? TextFormatting.GREEN : TextFormatting.DARK_RED) + (online ? "En Ligne" : "Hors Ligne")));
-        user.getSender().sendMessage(new TextComponentString(TextFormatting.GOLD + "   ● Position: " + TextFormatting.RED + (online ? ((int) playerMP.posX + ", " + (int) playerMP.posY + ", " + (int) playerMP.posZ) : ((int) accessor.posX + ", " + (int) accessor.posY + ", " + (int) accessor.posZ))).setStyle(new Style().setHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new TextComponentString(TextFormatting.RED + "● Se téléporter à la position"))).setClickEvent(new ClickEvent(ClickEvent.Action.RUN_COMMAND, String.format("/tp %s %s %s", online ? playerMP.posX : accessor.posX, online ? playerMP.posY : accessor.posY, online ? playerMP.posZ : accessor.posZ)))));
-        user.getSender().sendMessage(new TextComponentString(TextFormatting.GOLD + "   ● Inventaire: " + TextFormatting.RED + TextFormatting.UNDERLINE + "Voir l'invetaire").setStyle(new Style().setClickEvent(new ClickEvent(ClickEvent.Action.RUN_COMMAND, "/invsee " + args[0])).setHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new TextComponentString(TextFormatting.RED + "● Ouvrir l'inventaire de " + args[0])))));
-        user.getSender().sendMessage(new TextComponentString(TextFormatting.GOLD + "   ● IP: ").appendSibling(new TextComponentString(TextFormatting.RED + "[HIDE]").setStyle(new Style().setHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new TextComponentString(TextFormatting.RED + "● " + IP))).setClickEvent(new ClickEvent(ClickEvent.Action.RUN_COMMAND, "/copytoclipboard " + IP)))));
-        user.getSender().sendMessage(new TextComponentString(TextFormatting.GOLD + "   ● Dernière Connexion: " + TextFormatting.RED + " " + (lastConnection != null ? format.format(lastConnection).toString() : "Inconnue.")));
+        user.getSender().sendMessage(new TextComponentString(TextFormatting.GOLD + " �? Informations sur " + TextFormatting.RED + args[0] + "\n" + TextFormatting.GOLD + "   �? Status: " + (online ? TextFormatting.GREEN : TextFormatting.DARK_RED) + (online ? "En Ligne" : "Hors Ligne")));
+        user.getSender().sendMessage(new TextComponentString(TextFormatting.GOLD + "   �? Position: " + TextFormatting.RED + (online ? ((int) playerMP.posX + ", " + (int) playerMP.posY + ", " + (int) playerMP.posZ) : ((int) accessor.posX + ", " + (int) accessor.posY + ", " + (int) accessor.posZ))).setStyle(new Style().setHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new TextComponentString(TextFormatting.RED + "�? Se téléporter à la position"))).setClickEvent(new ClickEvent(ClickEvent.Action.RUN_COMMAND, String.format("/tp %s %s %s", online ? playerMP.posX : accessor.posX, online ? playerMP.posY : accessor.posY, online ? playerMP.posZ : accessor.posZ)))));
+        user.getSender().sendMessage(new TextComponentString(TextFormatting.GOLD + "   �? Inventaire: " + TextFormatting.RED + TextFormatting.UNDERLINE + "Voir l'invetaire").setStyle(new Style().setClickEvent(new ClickEvent(ClickEvent.Action.RUN_COMMAND, "/invsee " + args[0])).setHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new TextComponentString(TextFormatting.RED + "�? Ouvrir l'inventaire de " + args[0])))));
+        user.getSender().sendMessage(new TextComponentString(TextFormatting.GOLD + "   �? IP: ").appendSibling(new TextComponentString(TextFormatting.RED + "[HIDE]").setStyle(new Style().setHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new TextComponentString(TextFormatting.RED + "�? " + IP))).setClickEvent(new ClickEvent(ClickEvent.Action.RUN_COMMAND, "/copytoclipboard " + IP)))));
+        user.getSender().sendMessage(new TextComponentString(TextFormatting.GOLD + "   �? Dernière Connexion: " + TextFormatting.RED + " " + (lastConnection != null ? format.format(lastConnection).toString() : "Inconnue.")));
 
     }
 }

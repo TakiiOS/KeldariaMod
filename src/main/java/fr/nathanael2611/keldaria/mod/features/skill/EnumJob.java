@@ -1,3 +1,8 @@
+/**
+ * Copyright 2019-2021 Keldaria. Tous droits réservés.
+ * Toute reproduction, diffusion, partage, distribution,
+ * commercialisation sans autorisation explicite est interdite.
+ */
 package fr.nathanael2611.keldaria.mod.features.skill;
 
 import fr.nathanael2611.simpledatabasemanager.client.ClientDatabases;
@@ -39,19 +44,19 @@ public enum EnumJob
         return formattedName;
     }
 
-    public void set(EntityPlayer player, JobLevel level)
+    public void set(EntityPlayer player, Level level)
     {
         Databases.getPlayerData(player).setInteger(this.key, level.getId());
     }
 
-    public JobLevel getLevel(EntityPlayer player)
+    public Level getLevel(EntityPlayer player)
     {
-        return JobLevel.byId(player.world.isRemote ? ClientDatabases.getPersonalPlayerData().getInteger(this.key) : Databases.getPlayerData(player).getInteger(this.key));
+        return Level.byId(player.world.isRemote ? ClientDatabases.getPersonalPlayerData().getInteger(this.key) : Databases.getPlayerData(player).getInteger(this.key));
     }
 
     public boolean has(EntityPlayer player)
     {
-        return getLevel(player).atLeast(JobLevel.NOVICE);
+        return getLevel(player).atLeast(Level.NOVICE);
     }
 
     public static EnumJob byName(String name)
@@ -63,7 +68,7 @@ public enum EnumJob
         return null;
     }
 
-    public enum JobLevel
+    public enum Level
     {
 
         NONE(0, "none", "None"), NOVICE(1, "novice", "Novice"), MEDIUM(2, "medium", "Medium"), MASTER(3, "master", "Master");
@@ -72,7 +77,7 @@ public enum EnumJob
         private String name;
         private String formattedName;
 
-        JobLevel(int id, String name, String formattedName)
+        Level(int id, String name, String formattedName)
         {
             this.id = id;
             this.name = name;
@@ -94,14 +99,14 @@ public enum EnumJob
             return formattedName;
         }
 
-        public boolean atLeast(JobLevel level)
+        public boolean atLeast(Level level)
         {
             return this.id >= level.getId();
         }
 
-        public static JobLevel byId(int id)
+        public static Level byId(int id)
         {
-            for (JobLevel value : values())
+            for (Level value : values())
             {
                 if (value.getId() == id) return value;
             }
@@ -109,9 +114,9 @@ public enum EnumJob
         }
 
 
-        public static JobLevel byName(String name)
+        public static Level byName(String name)
         {
-            for (JobLevel value : values())
+            for (Level value : values())
             {
                 if (value.getName().equalsIgnoreCase(name)) return value;
             }

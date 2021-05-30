@@ -1,3 +1,8 @@
+/**
+ * Copyright 2019-2021 Keldaria. Tous droits réservés.
+ * Toute reproduction, diffusion, partage, distribution,
+ * commercialisation sans autorisation explicite est interdite.
+ */
 package fr.nathanael2611.keldaria.mod.command;
 
 import fr.nathanael2611.keldaria.mod.features.SkyColor;
@@ -33,13 +38,13 @@ public class CommandSkyColor extends KeldariaCommand
                             throw new CommandException("Le " + (args[1].equalsIgnoreCase("sky") ? "ciel" : "brouillard") + " n'a pas de couleur personnalisée");
                         }
                         Vec3d color = args[1].equalsIgnoreCase("sky") ? SkyColor.getSkyColor(false) : SkyColor.getFogColor(false);
-                        user.sendMessage(GREEN + " ● La couleur du " + (args[1].equalsIgnoreCase("sky") ? "ciel" : "brouillard") + String.format(" est définie a rgb(%s, %s, %s)", color.x, color.y, color.z));
+                        user.sendMessage(GREEN + " �? La couleur du " + (args[1].equalsIgnoreCase("sky") ? "ciel" : "brouillard") + String.format(" est définie a rgb(%s, %s, %s)", color.x, color.y, color.z));
                     }
                     else if (args[0].equalsIgnoreCase("reset"))
                     {
                         if(args[1].equalsIgnoreCase("sky")) SkyColor.resetSkyColor();
                         else SkyColor.resetFogColor();
-                        user.sendMessage(GREEN + " ● La couleur du " + (args[1].equalsIgnoreCase("sky") ? "ciel" : "brouillard") + " a été reset !");
+                        user.sendMessage(GREEN + " �? La couleur du " + (args[1].equalsIgnoreCase("sky") ? "ciel" : "brouillard") + " a été reset !");
                     }
                     else
                     {

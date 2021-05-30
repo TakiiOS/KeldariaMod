@@ -1,3 +1,8 @@
+/**
+ * Copyright 2019-2021 Keldaria. Tous droits réservés.
+ * Toute reproduction, diffusion, partage, distribution,
+ * commercialisation sans autorisation explicite est interdite.
+ */
 package fr.nathanael2611.keldaria.mod;
 
 import com.google.common.collect.Lists;
@@ -30,7 +35,6 @@ import fr.nathanael2611.keldaria.mod.features.combat.EnumAttackType;
 import fr.nathanael2611.keldaria.mod.features.containment.Points;
 import fr.nathanael2611.keldaria.mod.features.containment.Regions;
 import fr.nathanael2611.keldaria.mod.features.rot.ExpiredFoods;
-import fr.nathanael2611.keldaria.mod.features.rot.capability.Rot;
 import fr.nathanael2611.keldaria.mod.features.skill.EnumJob;
 import fr.nathanael2611.keldaria.mod.item.ItemFlambadou;
 import fr.nathanael2611.keldaria.mod.item.ItemWashingSoap;
@@ -215,6 +219,7 @@ public class Keldaria
 
         this.commands.clear();
         this.commands.addAll(new CommandSignFatBook(), new CommandHorseTexture(), new CommandHeal(), new CommandLore(), new CommandVanish(), new CommandStartBot(), new CommandDiscordOP(), new CommandGroup(), new CommandPlayerSize(), new CommandWarp(), new CommandInvsee(), new CommandSeen(), new CommandSkyColor(), new CommandJob(), new CommandLocks(), new CommandSpeed(), new CommandCopyToClipboard(), new CommandGetBookAsString(), new CommandClothe(), new CommandPeristentEffects(), new CommandGM(), new CommandNathanael2611(), new CommandAmputation(), new CommandFlagUrl(), new CommandCraftManager(), new CommandGetJsonStack(), new CommandHRP());
+        this.commands.add(new CommandOpticIssue());
         this.commands.add(new CommandComplement());
         this.commands.add(new CommandAptitude());
         this.commands.add(new CommandMorph());
@@ -287,7 +292,7 @@ public class Keldaria
                 ingredients.put(new CraftIngredient(KeldariaItems.NEUTRAL_SOAP, 0), 1);
                 ingredients.put(new CraftIngredient(flower.getItem(), 0), 1);
 
-                apothecary.registerCraftEntry(new CraftEntry("apothecary/default/soap_" + flower.getName(), aptitudes, ingredients, stack, 0, "Un savon parfumé, et oui!", Lists.newArrayList(new PossibleWith(EnumJob.APOTHECARY, EnumJob.JobLevel.MEDIUM))));
+                apothecary.registerCraftEntry(new CraftEntry("apothecary/default/soap_" + flower.getName(), aptitudes, ingredients, stack, 0, "Un savon parfumé, et oui!", Lists.newArrayList(new PossibleWith(EnumJob.APOTHECARY, EnumJob.Level.MEDIUM))));
             }
         }
         CraftManager.createManager("woodworker");

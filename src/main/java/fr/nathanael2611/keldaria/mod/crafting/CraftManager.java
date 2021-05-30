@@ -1,3 +1,8 @@
+/**
+ * Copyright 2019-2021 Keldaria. Tous droits réservés.
+ * Toute reproduction, diffusion, partage, distribution,
+ * commercialisation sans autorisation explicite est interdite.
+ */
 package fr.nathanael2611.keldaria.mod.crafting;
 
 import com.google.common.collect.Lists;
@@ -176,7 +181,7 @@ public class CraftManager implements INBTSerializable<NBTTagCompound>
                                         if (split.length == 2)
                                         {
                                             EnumJob job = EnumJob.byName(split[0]);
-                                            EnumJob.JobLevel level = EnumJob.JobLevel.byId(Helpers.parseOrZero(split[1]));
+                                            EnumJob.Level level = EnumJob.Level.byId(Helpers.parseOrZero(split[1]));
                                             if (job != null)
                                             {
                                                 possibleSkills.add(new PossibleWith(job, level));

@@ -1,3 +1,8 @@
+/**
+ * Copyright 2019-2021 Keldaria. Tous droits réservés.
+ * Toute reproduction, diffusion, partage, distribution,
+ * commercialisation sans autorisation explicite est interdite.
+ */
 package fr.nathanael2611.keldaria.mod.command;
 
 import fr.nathanael2611.keldaria.mod.features.ability.EnumAptitudes;
@@ -31,7 +36,7 @@ public class CommandAptitude extends KeldariaCommand
                 user.sendMessage(RED + "   Infos d'aptitude sur " + GOLD + player.getName());
                 for (EnumAptitudes value : EnumAptitudes.values())
                 {
-                    user.sendMessage(YELLOW + " ● " + value.getDisplayName() + ": " + GOLD + value.getPoints(player) + YELLOW + "/" + value.getMaxPoints());
+                    user.sendMessage(YELLOW + " �? " + value.getDisplayName() + ": " + GOLD + value.getPoints(player) + YELLOW + "/" + value.getMaxPoints());
                 }
             }
             else if(args.length == 4 && args[1].equalsIgnoreCase("set"))

@@ -1,3 +1,8 @@
+/**
+ * Copyright 2019-2021 Keldaria. Tous droits réservés.
+ * Toute reproduction, diffusion, partage, distribution,
+ * commercialisation sans autorisation explicite est interdite.
+ */
 package de.mennomax.astikorcarts.inventory;
 
 import de.mennomax.astikorcarts.entity.AbstractDrawn;

@@ -1,3 +1,8 @@
+/**
+ * Copyright 2019-2021 Keldaria. Tous droits réservés.
+ * Toute reproduction, diffusion, partage, distribution,
+ * commercialisation sans autorisation explicite est interdite.
+ */
 package fr.nathanael2611.keldaria.mod.command;
 
 import fr.nathanael2611.keldaria.mod.util.Helpers;
@@ -31,22 +36,22 @@ public class CommandWarp extends KeldariaCommand
             if(args[0].equalsIgnoreCase("set"))
             {
                 warps.setString(args[1], Helpers.blockPosToString(user.getSender().getPosition()));
-                user.sendMessage(GREEN + " ● Le warp " + DARK_GREEN + args[1] + GREEN + " a été définit à votre position.");
+                user.sendMessage(GREEN + " �? Le warp " + DARK_GREEN + args[1] + GREEN + " a été définit à votre position.");
             }
             else if(args[0].equalsIgnoreCase("remove"))
             {
                 if(warps.isString(args[1]))
                 {
                     warps.remove(args[1]);
-                    user.sendMessage(RED + " ● Le warp " + DARK_RED + args[1] + RED + " a été supprimé.");
+                    user.sendMessage(RED + " �? Le warp " + DARK_RED + args[1] + RED + " a été supprimé.");
                 }
-                else user.sendMessage(RED + " ● Le warp " + DARK_RED + args[1] + RED + " ne peut être supprimé car il n'existe pas.");
+                else user.sendMessage(RED + " �? Le warp " + DARK_RED + args[1] + RED + " ne peut être supprimé car il n'existe pas.");
             }
             else if(args[0].equalsIgnoreCase("tp"))
             {
                 if(!warps.isString(args[1]))
                 {
-                    user.sendMessage(RED + " ● Le warp " + DARK_RED + args[1] + RED + " n'existe pas.");
+                    user.sendMessage(RED + " �? Le warp " + DARK_RED + args[1] + RED + " n'existe pas.");
                     return;
                 }
                 BlockPos warpPos = Helpers.parseBlockPosFromString(warps.getString(args[1]));

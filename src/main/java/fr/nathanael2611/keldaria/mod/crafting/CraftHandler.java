@@ -1,3 +1,8 @@
+/**
+ * Copyright 2019-2021 Keldaria. Tous droits réservés.
+ * Toute reproduction, diffusion, partage, distribution,
+ * commercialisation sans autorisation explicite est interdite.
+ */
 package fr.nathanael2611.keldaria.mod.crafting;
 
 import fr.nathanael2611.keldaria.mod.Keldaria;
@@ -43,7 +48,7 @@ public class CraftHandler
                         }
                     } else
                     {
-                        Helpers.sendPopMessage((EntityPlayerMP) e.getEntityPlayer(), "§c ● Vous devez avoir la compétence §4" + EnumJob.APOTHECARY.getFormattedName() + "§c pour faire cela!", 1000);
+                        Helpers.sendPopMessage((EntityPlayerMP) e.getEntityPlayer(), "§c �? Vous devez avoir la compétence §4" + EnumJob.APOTHECARY.getFormattedName() + "§c pour faire cela!", 1000);
 
                     }
                 } else if (clickedBlock == Blocks.ANVIL)

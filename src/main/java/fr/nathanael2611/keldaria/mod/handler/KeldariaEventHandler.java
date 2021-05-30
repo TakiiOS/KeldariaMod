@@ -1,3 +1,8 @@
+/**
+ * Copyright 2019-2021 Keldaria. Tous droits réservés.
+ * Toute reproduction, diffusion, partage, distribution,
+ * commercialisation sans autorisation explicite est interdite.
+ */
 package fr.nathanael2611.keldaria.mod.handler;
 
 import com.google.common.collect.Maps;
@@ -556,7 +561,7 @@ public class KeldariaEventHandler
                 boolean isSigned = WritablePaper.isSigned(mainHandStack);
                 if (mainHandStack.getItem() == KeldariaItems.WRITED_PAPER && !isSigned)
                 {
-                    player.sendMessage(new TextComponentString(TextFormatting.RED + " ● Papier invalide"));
+                    player.sendMessage(new TextComponentString(TextFormatting.RED + " �? Papier invalide"));
                     return;
                 }
                 PacketOpenPaperWriting packet = isSigned ? new PacketOpenPaperWriting(title, content, true) : new PacketOpenPaperWriting(content);

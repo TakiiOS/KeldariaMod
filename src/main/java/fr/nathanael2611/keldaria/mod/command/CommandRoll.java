@@ -1,3 +1,8 @@
+/**
+ * Copyright 2019-2021 Keldaria. Tous droits réservés.
+ * Toute reproduction, diffusion, partage, distribution,
+ * commercialisation sans autorisation explicite est interdite.
+ */
 package fr.nathanael2611.keldaria.mod.command;
 
 import com.google.common.collect.Lists;
@@ -53,7 +58,7 @@ public class CommandRoll extends KeldariaCommand
 
         for (EntityPlayerMP player : seeners)
         {
-            player.sendMessage(new TextComponentString(YELLOW + " ● " + GOLD + RolePlayNames.getName(user.asPlayer()) + YELLOW + " a fait un roll de " + GOLD + rand + YELLOW + "(max: " + GOLD + maxValue + ")\n" + YELLOW + "   Desc: " + GOLD + desc));
+            player.sendMessage(new TextComponentString(YELLOW + " �? " + GOLD + RolePlayNames.getName(user.asPlayer()) + YELLOW + " a fait un roll de " + GOLD + rand + YELLOW + "(max: " + GOLD + maxValue + ")\n" + YELLOW + "   Desc: " + GOLD + desc));
         }
         PlayerSpy.ROLL_LOG.log(
                 "\n> **" + user.asPlayer().getName() + "**\n" +

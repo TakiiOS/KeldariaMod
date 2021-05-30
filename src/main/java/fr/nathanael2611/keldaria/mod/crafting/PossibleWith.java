@@ -1,3 +1,8 @@
+/**
+ * Copyright 2019-2021 Keldaria. Tous droits réservés.
+ * Toute reproduction, diffusion, partage, distribution,
+ * commercialisation sans autorisation explicite est interdite.
+ */
 package fr.nathanael2611.keldaria.mod.crafting;
 
 import fr.nathanael2611.keldaria.mod.features.skill.EnumComplement;
@@ -10,11 +15,11 @@ public class PossibleWith implements INBTSerializable<NBTTagCompound>
 {
 
     private EnumJob job = null;
-    private EnumJob.JobLevel level = null;
+    private EnumJob.Level level = null;
 
     private EnumComplement complement = null;
 
-    public PossibleWith(EnumJob job, EnumJob.JobLevel level)
+    public PossibleWith(EnumJob job, EnumJob.Level level)
     {
         this.job = job;
         this.level = level;
@@ -52,7 +57,7 @@ public class PossibleWith implements INBTSerializable<NBTTagCompound>
         if(nbt.hasKey("Job") && nbt.hasKey("Level"))
         {
             this.job = EnumJob.byName(nbt.getString("Job"));
-            this.level = EnumJob.JobLevel.byId(nbt.getInteger("Level"));
+            this.level = EnumJob.Level.byId(nbt.getInteger("Level"));
         }
         else if(nbt.hasKey("Complement"))
         {
@@ -80,7 +85,7 @@ public class PossibleWith implements INBTSerializable<NBTTagCompound>
         return job;
     }
 
-    public EnumJob.JobLevel getLevel()
+    public EnumJob.Level getLevel()
     {
         return level;
     }
