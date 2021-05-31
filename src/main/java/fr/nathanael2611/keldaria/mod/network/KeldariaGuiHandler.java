@@ -109,6 +109,9 @@ public class KeldariaGuiHandler implements IGuiHandler
         if (tile instanceof TileEntityCookingFurnace)
         {
             return new ContainerCookingFurnace(player.inventory, (TileEntityCookingFurnace) tile);
+        } else if (tile instanceof TileEntityBlastFurnace)
+        {
+            return new ContainerBlastFurnace(player.inventory, (TileEntityBlastFurnace) tile);
         } else if (tile instanceof TileEntityMill)
         {
             return new ContainerMill((TileEntityMill) tile, player.inventory);
@@ -191,6 +194,9 @@ public class KeldariaGuiHandler implements IGuiHandler
         if (tile instanceof TileEntityCookingFurnace)
         {
             return new GuiCookingFurnace(player.inventory, (TileEntityCookingFurnace) tile);
+        } else if (tile instanceof TileEntityBlastFurnace)
+        {
+            return new GuiBlastFurnace(player.inventory, (TileEntityBlastFurnace) tile);
         } else if (tile instanceof TileEntityMill)
         {
             return new GuiMill((TileEntityMill) tile, player.inventory);

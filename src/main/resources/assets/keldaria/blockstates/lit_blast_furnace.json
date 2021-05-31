@@ -1,0 +1,9 @@
+{
+  "variants": {
+    "normal": {"model":"keldaria:lit_blast_furnace"},
+    "facing=north": { "model": "keldaria:lit_blast_furnace", "y": 0 },
+    "facing=east":  { "model": "keldaria:lit_blast_furnace", "y": 90 },
+    "facing=south": { "model": "keldaria:lit_blast_furnace", "y": 180 },
+    "facing=west":  { "model": "keldaria:lit_blast_furnace", "y": 270 }
+  }
+}

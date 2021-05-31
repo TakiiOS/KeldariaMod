@@ -28,6 +28,7 @@ public class KeldariaFiles
     public final File PORTCULLIS_CONFIG;
     public final File SOUND_RESISTANCE;
     public final File CLIMB_SYSTEM;
+    public final File BLAST_FURNACE;
 
     public final File ARMPOSES_FILE;
 
@@ -42,6 +43,12 @@ public class KeldariaFiles
         if(this.notExistsAndCreate(this.SOUND_RESISTANCE, false))
         {
             writeDefaultInFile(this.SOUND_RESISTANCE, "{\"materials\": {}, \"blocks\": {}}");
+        }
+
+        this.BLAST_FURNACE = new File(this.CONFIG_DIR, "blast_furnace.json");
+        if(this.notExistsAndCreate(this.BLAST_FURNACE, false))
+        {
+            writeDefaultInFile(this.BLAST_FURNACE, "{}");
         }
 
         this.CLIMB_SYSTEM = new File(this.CONFIG_DIR, "climb_system.json");

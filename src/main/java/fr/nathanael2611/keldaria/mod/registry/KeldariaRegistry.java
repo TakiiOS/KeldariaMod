@@ -12,6 +12,7 @@ import fr.nathanael2611.keldaria.mod.animation.AnimationUtils;
 import fr.nathanael2611.keldaria.mod.animation.Animations;
 import fr.nathanael2611.keldaria.mod.api.registry.Register;
 import fr.nathanael2611.keldaria.mod.crafting.CraftHandler;
+import fr.nathanael2611.keldaria.mod.features.BlastFurnace;
 import fr.nathanael2611.keldaria.mod.features.rot.ExpiredFoods;
 import fr.nathanael2611.keldaria.mod.features.skill.JobHandler;
 import fr.nathanael2611.keldaria.mod.fight.FightHandler;
@@ -50,13 +51,20 @@ public class KeldariaRegistry
     private BeerBarrelRegistry beerBarrelRegistry = new BeerBarrelRegistry();
     private CookingRegistry cookingRegistry = new CookingRegistry();
     private List<Class> registriesClasses = Lists.newArrayList();
+    private BlastFurnace blastFurnace = new BlastFurnace();
 
     public void registerRecipes()
     {
         this.cookingRegistry.init();
         FurnaceRecipes.instance().addSmelting(KeldariaItems.CLAY_CHOP, new ItemStack(KeldariaItems.EMPTY_CHOP), 0);
         this.beerBarrelRegistry.init();
+        this.blastFurnace.reload();
 
+    }
+
+    public BlastFurnace getBlastFurnace()
+    {
+        return blastFurnace;
     }
 
     public void registerAnimations()
@@ -94,6 +102,7 @@ public class KeldariaRegistry
         GameRegistry.registerTileEntity(TileEntityWallpaper.class, new ResourceLocation(Keldaria.MOD_ID, ".TileEntityWallpaper"));
         GameRegistry.registerTileEntity(TileEntityFruitBlock.class, new ResourceLocation(Keldaria.MOD_ID, ".TileEntityFruitBlock"));
         GameRegistry.registerTileEntity(TileEntitySieve.class, new ResourceLocation(Keldaria.MOD_ID, ".TileEntitySieve"));
+        GameRegistry.registerTileEntity(TileEntityBlastFurnace.class, new ResourceLocation(Keldaria.MOD_ID, ".TileEntityBlastFurnace"));
 
     }
 
@@ -130,13 +139,13 @@ public class KeldariaRegistry
         }
 
         //Items.SHIELD.setMaxDamage(Items.SHIELD.getMaxDamage() * 2);
-        Items.SHIELD.setMaxDamage((int) (Items.SHIELD.getMaxDamage() * 2.5));
-        Items.IRON_AXE.setMaxDamage((int) (Items.IRON_AXE.getMaxDamage() * 2.5));
-        Items.IRON_PICKAXE.setMaxDamage((int) (Items.IRON_PICKAXE.getMaxDamage() * 2.5));
-        Items.IRON_SWORD.setMaxDamage((int) (Items.IRON_SWORD.getMaxDamage() * 2.5));
-        Items.IRON_SHOVEL.setMaxDamage((int) (Items.IRON_SHOVEL.getMaxDamage() * 2.5));
-        Items.IRON_HOE.setMaxDamage((int) (Items.IRON_HOE.getMaxDamage() * 2.5));
-        KeldariaItems.IRON_SPEAR.setMaxDamage((int) (KeldariaItems.IRON_SPEAR.getMaxDamage() * 2.5));
+        Items.SHIELD.setMaxDamage((int) (Items.SHIELD.getMaxDamage() * 3));
+        Items.IRON_AXE.setMaxDamage((int) (Items.IRON_AXE.getMaxDamage() * 3));
+        Items.IRON_PICKAXE.setMaxDamage((int) (Items.IRON_PICKAXE.getMaxDamage() * 3));
+        Items.IRON_SWORD.setMaxDamage((int) (Items.IRON_SWORD.getMaxDamage() * 3));
+        Items.IRON_SHOVEL.setMaxDamage((int) (Items.IRON_SHOVEL.getMaxDamage() * 3));
+        Items.IRON_HOE.setMaxDamage((int) (Items.IRON_HOE.getMaxDamage() * 3));
+        KeldariaItems.IRON_SPEAR.setMaxDamage((int) (KeldariaItems.IRON_SPEAR.getMaxDamage() * 3));
 
         Item.REGISTRY.forEach(item -> {
             if(item instanceof ItemTool)

@@ -519,6 +519,7 @@ public class KeldariaEventHandler
             Helpers.markPlayerConnection(mp);
             KeldariaVoices.setSpeakStrength(mp, 15);
             KeldariaPacketHandler.getInstance().getNetwork().sendTo(new PacketUpdateClimbSystem(), mp);
+            keldaria.getRegistry().getBlastFurnace().updateOn(mp);
         }
     }
 
@@ -561,7 +562,7 @@ public class KeldariaEventHandler
                 boolean isSigned = WritablePaper.isSigned(mainHandStack);
                 if (mainHandStack.getItem() == KeldariaItems.WRITED_PAPER && !isSigned)
                 {
-                    player.sendMessage(new TextComponentString(TextFormatting.RED + " â—? Papier invalide"));
+                    player.sendMessage(new TextComponentString(TextFormatting.RED + " ï¿½? Papier invalide"));
                     return;
                 }
                 PacketOpenPaperWriting packet = isSigned ? new PacketOpenPaperWriting(title, content, true) : new PacketOpenPaperWriting(content);

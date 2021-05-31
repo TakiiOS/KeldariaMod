@@ -6,6 +6,7 @@
 package fr.nathanael2611.keldaria.mod.command;
 
 import com.google.common.collect.Lists;
+import fr.nathanael2611.keldaria.mod.Keldaria;
 import fr.nathanael2611.keldaria.mod.crafting.CraftManager;
 import fr.nathanael2611.keldaria.mod.crafting.storage.KnownRecipesStorage;
 import fr.nathanael2611.keldaria.mod.crafting.storage.api.IKnownRecipes;
@@ -38,7 +39,13 @@ public class CommandCraftManager extends KeldariaCommand
             {
                 user.sendMessage("§aReload effectué!");
                 CraftManager.MANAGERS.forEach((name, manager) -> manager.reload());
-            } else if (args.length > 2)
+            } else if(args[0].equalsIgnoreCase("reloadBlastFurnace"))
+            {
+                user.sendMessage("§aReload effectué!");
+                Keldaria.getInstance().getRegistry().getBlastFurnace().reload();
+                Keldaria.getInstance().getRegistry().getBlastFurnace().updateOnAll();
+            }
+            else if (args.length > 2)
             {
                 if (args[0].equalsIgnoreCase("crafts"))
                 {

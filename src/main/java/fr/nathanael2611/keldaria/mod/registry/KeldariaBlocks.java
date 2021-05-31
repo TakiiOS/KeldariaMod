@@ -49,7 +49,9 @@ public class KeldariaBlocks
     @Register(name = "cooking_furnace")
     public static final Block COOKING_FURNACE = new BlockCookingFurnace();
     @Register(name = "blast_furnace")
-    public static final Block BLAST_FURNACE = new BlockBlastFurnace();
+    public static final Block BLAST_FURNACE = new BlockBlastFurnace(false);
+    @Register(name = "lit_blast_furnace")
+    public static final Block LIT_BLAST_FURNACE = new BlockBlastFurnace(true);
 
     @Register(name = "white_onion", hasItem = false)
     public static final Block WHITE_ONION = new BlockWhiteOnion();

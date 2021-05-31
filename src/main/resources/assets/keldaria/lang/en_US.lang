@@ -123,6 +123,7 @@ item.keldaria:potaufeu.name=Pot-au-feu
 item.keldaria:iron_plate.name=Plaque de fer
 tile.keldaria:fruit_block.name=Block fruitier
 tile.keldaria:sieve.name=Tamis à sel
+tile.keldaria:blast_furnace.name=Tamis à sel
 
 tile.keldaria:refined_log.name=Bois raffiné
 tile.keldaria:oak_refined_log.name=Bois de chêne raffiné

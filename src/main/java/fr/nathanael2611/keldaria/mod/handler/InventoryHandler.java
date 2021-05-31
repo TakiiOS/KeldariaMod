@@ -5,7 +5,9 @@
  */
 package fr.nathanael2611.keldaria.mod.handler;
 
+import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
+import fr.nathanael2611.keldaria.mod.features.ability.EnumAptitudes;
 import fr.nathanael2611.keldaria.mod.log.PlayerSpy;
 import fr.nathanael2611.keldaria.mod.registry.KeldariaItems;
 import fr.nathanael2611.keldaria.mod.server.RolePlayNames;
@@ -28,6 +30,7 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 import java.util.HashMap;
+import java.util.List;
 
 /**
  * This class is used for all things that is in link with the player inventory
@@ -47,6 +50,8 @@ public class InventoryHandler
         DISABLED_ITEM.setStackDisplayName(DISABLED_SLOT_NAME);
 
     }
+
+    private static int[] unlockableSlots = new int[] {29, 30, 31, 32, 33, 20, 21, 22, 23, 24};
 
     /**
      * Automatically fill locked slots in the player inventory
@@ -68,10 +73,16 @@ public class InventoryHandler
             player.experience = 1000000;
 
             InventoryPlayer inventory = player.inventory;
-            for(int i = 9; i<27; i++)
+            List<Integer> unlockedSlots = getUnlockedSlots(player);
+            for(int i = 9; i<36; i++)
             {
                 ItemStack stack = inventory.getStackInSlot(i);
-                if(!stack.getDisplayName().equals(DISABLED_SLOT_NAME) || stack.getCount() != 1)
+                if(unlockedSlots.contains(i))
+                {
+                    if(stack.getDisplayName().equals(DISABLED_SLOT_NAME))
+                    inventory.mainInventory.set(i, ItemStack.EMPTY);
+                }
+                else if(!stack.getDisplayName().equals(DISABLED_SLOT_NAME) || stack.getCount() != 1)
                 {
                     inventory.mainInventory.set(i, DISABLED_ITEM.copy());
                 }
@@ -80,6 +91,22 @@ public class InventoryHandler
         }
 
 
+    }
+
+    public List<Integer> getUnlockedSlots(EntityPlayer player)
+    {
+        List<Integer> list = Lists.newArrayList();
+        int resistance = EnumAptitudes.RESISTANCE.getPoints(player);
+        int intelligence = EnumAptitudes.INTELLIGENCE.getPoints(player);
+        int total = resistance + intelligence;
+        for (int i = 0; i < total; i++)
+        {
+            if(unlockableSlots.length > i)
+            {
+                list.add(unlockableSlots[i]);
+            }
+        }
+        return list;
     }
 
     /**
@@ -105,7 +132,7 @@ public class InventoryHandler
         }
         if(e.getEntityItem().getItem().getItem() == KeldariaItems.DICE)
         {
-            Helpers.sendInRadius(e.getPlayer().getPosition(), new TextComponentString("§6 �? §e" + RolePlayNames.getName(e.getPlayer()) + " a lancé un dé... Résultat: " + (Helpers.RANDOM.nextInt(6) + 1)), 6);
+            Helpers.sendInRadius(e.getPlayer().getPosition(), new TextComponentString("§6 �? §e" + RolePlayNames.getName(e.getPlayer()) + " a lancé un dé... Résultat: " + (Helpers.RANDOM.nextInt(6) + 1)), 6);
         }
         PlayerSpy.ITEMS_LOG.log("**Item Toss:** " + e.getEntityItem().getItem().getDisplayName() + "\n**Position**: " + Helpers.blockPosToString(e.getEntityItem().getPosition()));
 

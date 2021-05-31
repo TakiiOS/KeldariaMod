@@ -91,6 +91,7 @@ public class KeldariaPacketHandler
         this.registerPacket(PacketSpyRequest.Message.class, PacketSpyRequest.class, Side.CLIENT);
         this.registerPacket(PacketSpyReply.Message.class, PacketSpyReply.class, Side.SERVER);
         this.registerPacket(PacketUpdateZone.Handler.class, PacketUpdateZone.class, Side.CLIENT);
+        this.registerPacket(PacketBlastFurnaceCrafts.Handler.class, PacketBlastFurnaceCrafts.class, Side.CLIENT);
         //this.registerPacket(PacketFightControl.Message.class, PacketFightControl.class, Side.CLIENT);
         //this.registerPacket(PacketProcessAttack.Handler.class, PacketProcessAttack.class, Side.SERVER);
     }
