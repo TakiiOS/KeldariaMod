@@ -6,7 +6,7 @@
 package fr.nathanael2611.keldaria.mod.tileentity;
 
 import fr.nathanael2611.keldaria.mod.Keldaria;
-import fr.nathanael2611.keldaria.mod.features.rot.ExpiredFoods;
+import fr.nathanael2611.keldaria.mod.features.food.ExpiredFoods;
 import fr.nathanael2611.keldaria.mod.features.cookingfurnace.BurntAliments;
 import fr.nathanael2611.keldaria.mod.features.cookingfurnace.CookingRegistry;
 import net.minecraft.block.state.IBlockState;

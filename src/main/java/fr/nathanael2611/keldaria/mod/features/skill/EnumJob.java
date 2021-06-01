@@ -15,23 +15,30 @@ public enum EnumJob
     PEASANT("peasant", "Paysan"),
     MINER("miner", "Mineur"),
     LUMBERJACK("lumberjack", "Bûcheron"),
-    ARTISAN("artisan", "Artisan"),
+    ARTISAN("artisan", "Artisan", EnumComplement.TINKERING),
     BUILDER("builder", "Bâtisseur"),
     BLACKSMITH("blacksmith", "Forgeron"),
-    COOK("cook", "Cuisinier"),
-    APOTHECARY("apothecary", "Apothicaire"),
-    COMBATANT("combatant", "Combattant"),
-    DRESSMAKER("dressmaker", "Couturier");
+    COOK("cook", "Cuisinier", EnumComplement.COOKING),
+    APOTHECARY("apothecary", "Apothicaire", EnumComplement.FIRST_AID),
+    COMBATANT("combatant", "Combattant", EnumComplement.WEAPON_MASTERY),
+    DRESSMAKER("dressmaker", "Couturier", EnumComplement.MENDING);
 
     private String key;
     private String name;
     private String formattedName;
+    private EnumComplement equivalent;
 
     EnumJob(String name, String formattedName)
+    {
+        this(name, formattedName, null);
+    }
+
+    EnumJob(String name, String formattedName, EnumComplement equivalent)
     {
         this.key = "job:" + name;
         this.name = name;
         this.formattedName = formattedName;
+        this.equivalent = equivalent;
     }
 
     public String getName()
@@ -124,4 +131,8 @@ public enum EnumJob
         }
     }
 
+    public EnumComplement getEquivalent()
+    {
+        return this.equivalent;
+    }
 }

@@ -5,8 +5,7 @@
  */
 package fr.nathanael2611.keldaria.mod.asm.mixin.common;
 
-import fr.nathanael2611.keldaria.mod.features.rot.ExpiredFoods;
-import fr.nathanael2611.keldaria.mod.features.rot.capability.Rot;
+import fr.nathanael2611.keldaria.mod.asm.MixinHooks;
 import net.minecraft.entity.Entity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemFood;
@@ -22,15 +21,7 @@ public abstract class MixinItemFood extends Item
     public void onUpdate(ItemStack stack, World worldIn, Entity entityIn, int itemSlot, boolean isSelected)
     {
         super.onUpdate(stack, worldIn, entityIn, itemSlot, isSelected);
-        Rot rot = ExpiredFoods.getRot(stack);
-        if (rot.getCreatedDay() == 0)
-        {
-            ExpiredFoods.create(stack);
-        }
-        if(rot.isInBag())
-        {
-            rot.extractFromBag();
-        }
+        MixinHooks.onFoodUpdate(stack, worldIn, entityIn, itemSlot, isSelected);
     }
 
 }

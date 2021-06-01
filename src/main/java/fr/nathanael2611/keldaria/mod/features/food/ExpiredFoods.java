@@ -3,19 +3,14 @@
  * Toute reproduction, diffusion, partage, distribution,
  * commercialisation sans autorisation explicite est interdite.
  */
-package fr.nathanael2611.keldaria.mod.features.rot;
+package fr.nathanael2611.keldaria.mod.features.food;
 
 import com.google.common.collect.Maps;
-import fr.nathanael2611.keldaria.mod.Keldaria;
 import fr.nathanael2611.keldaria.mod.features.KeldariaDate;
-import fr.nathanael2611.keldaria.mod.features.rot.capability.Rot;
+import fr.nathanael2611.keldaria.mod.features.food.capability.Rot;
 import fr.nathanael2611.keldaria.mod.registry.KeldariaItems;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemFood;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.event.AttachCapabilitiesEvent;
-import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 import java.util.HashMap;
 
@@ -56,33 +51,6 @@ public class ExpiredFoods
     {
         getRot(stack).setCreatedDay(KeldariaDate.getKyrgonDate().getTotalDaysInRP());
     }
-
-    /*
-    public static int getDaysSinceCreation(ItemStack stack)
-    {
-        return KeldariaDate.lastDate.getTotalDaysInRP() - getCreatedDate(stack);
-    }
-
-    public static int getCreatedDate(ItemStack stack)
-    {
-        return getCompoundTag(stack).getInteger(KEY);
-    }
-
-    public static NBTTagCompound getCompoundTag(ItemStack stack)
-    {
-        if(stack.getTagCompound() == null) stack.setTagCompound(new NBTTagCompound());
-        return stack.getTagCompound();
-    }
-
-    public static void create(ItemStack stack)
-    {
-        getCompoundTag(stack).setInteger(KEY, KeldariaDate.getKyrgonDate().getTotalDaysInRP());
-    }
-
-    public static boolean canExpire(Item item)
-    {
-        return item instanceof ItemFood || PEREMPTIONS.containsKey(item);
-    }*/
 
 
 }

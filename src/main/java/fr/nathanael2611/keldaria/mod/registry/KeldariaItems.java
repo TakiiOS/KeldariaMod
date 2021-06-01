@@ -381,18 +381,24 @@ public class KeldariaItems
     public static final Item BLACK_QUEEN = new ItemPawn();
 
     @Register(name = "oak_bit")
-    public static final Item OAK_BIT = new Item();
+    public static final Item OAK_BIT = new ItemWoodBit();
     @Register(name = "birch_bit")
-    public static final Item BIRCH_BIT = new Item();
+    public static final Item BIRCH_BIT = new ItemWoodBit();
     @Register(name = "spruce_bit")
-    public static final Item SPRUCE_BIT = new Item();
+    public static final Item SPRUCE_BIT = new ItemWoodBit();
     @Register(name = "dark_oak_bit")
-    public static final Item DARK_OAK_BIT = new Item();
+    public static final Item DARK_OAK_BIT = new ItemWoodBit();
     @Register(name = "acacia_bit")
-    public static final Item ACACIA_BIT = new Item();
+    public static final Item ACACIA_BIT = new ItemWoodBit();
     @Register(name = "jungle_bit")
-    public static final Item JUNGLE_BIT = new Item();
+    public static final Item JUNGLE_BIT = new ItemWoodBit();
 
+    @Register(name = "smelted_iron")
+    public static final Item SMELTED_IRON = new ItemSmeltedIngot(1, Items.IRON_INGOT);
+    @Register(name = "smelted_steel")
+    public static final Item SMELTED_STEEL = new ItemSmeltedIngot(1, STEEL_INGOT);
+    @Register(name = "smelted_gold")
+    public static final Item SMELTED_GOLD = new ItemSmeltedIngot(1, Items.GOLD_INGOT);
 
     @Register(name = "raw_iron")
     public static final Item RAW_IRON = new ItemRawOre();

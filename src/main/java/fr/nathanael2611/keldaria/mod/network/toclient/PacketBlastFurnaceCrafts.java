@@ -1,8 +1,6 @@
 package fr.nathanael2611.keldaria.mod.network.toclient;
 
 import fr.nathanael2611.keldaria.mod.Keldaria;
-import fr.nathanael2611.keldaria.mod.features.BlastFurnace;
-import fr.nathanael2611.keldaria.mod.registry.KeldariaRegistry;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraftforge.fml.common.network.ByteBufUtils;

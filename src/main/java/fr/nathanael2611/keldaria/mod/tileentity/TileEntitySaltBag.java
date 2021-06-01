@@ -6,8 +6,8 @@
 package fr.nathanael2611.keldaria.mod.tileentity;
 
 import fr.nathanael2611.keldaria.mod.features.KeldariaDate;
-import fr.nathanael2611.keldaria.mod.features.rot.ExpiredFoods;
-import fr.nathanael2611.keldaria.mod.features.rot.capability.Rot;
+import fr.nathanael2611.keldaria.mod.features.food.ExpiredFoods;
+import fr.nathanael2611.keldaria.mod.features.food.capability.Rot;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.ItemStackHelper;

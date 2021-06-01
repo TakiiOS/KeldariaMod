@@ -34,7 +34,7 @@ import fr.nathanael2611.keldaria.mod.features.cleanliness.Soap;
 import fr.nathanael2611.keldaria.mod.features.combat.EnumAttackType;
 import fr.nathanael2611.keldaria.mod.features.containment.Points;
 import fr.nathanael2611.keldaria.mod.features.containment.Regions;
-import fr.nathanael2611.keldaria.mod.features.rot.ExpiredFoods;
+import fr.nathanael2611.keldaria.mod.features.food.ExpiredFoods;
 import fr.nathanael2611.keldaria.mod.features.skill.EnumJob;
 import fr.nathanael2611.keldaria.mod.item.ItemFlambadou;
 import fr.nathanael2611.keldaria.mod.item.ItemWashingSoap;
@@ -253,6 +253,7 @@ public class Keldaria
         this.commands.add(new CommandWeaponStats());
         this.commands.add(new CommandItemTexture());
         this.commands.add(new CommandRepair());
+        this.commands.add(new CommandFoodQuality());
         this.commands.add(new CommandVoiceDistance());
         this.commands.register((CommandHandler) e.getServer().commandManager);
         Map<String, ICommand> commands = e.getServer().commandManager.getCommands();
@@ -329,6 +330,8 @@ public class Keldaria
         }
         this.pigeonTravels = new EntityHomingPigeon.PigeonTravels(e.getServer().getWorld(0), pigeonsList);
         this.climbSystem.init(Helpers.readFileToString(this.files.CLIMB_SYSTEM));
+
+        this.registry.getBlastFurnace().reload();
     }
 
     public EntityHomingPigeon.PigeonTravels getPigeonTravels()

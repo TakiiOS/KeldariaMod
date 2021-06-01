@@ -5,7 +5,7 @@
  */
 package fr.nathanael2611.keldaria.mod.block;
 
-import fr.nathanael2611.keldaria.mod.features.rot.ExpiredFoods;
+import fr.nathanael2611.keldaria.mod.features.food.ExpiredFoods;
 import fr.nathanael2611.keldaria.mod.registry.KeldariaItems;
 import fr.nathanael2611.keldaria.mod.registry.KeldariaTabs;
 import fr.nathanael2611.keldaria.mod.tileentity.TileEntityVineSupport;

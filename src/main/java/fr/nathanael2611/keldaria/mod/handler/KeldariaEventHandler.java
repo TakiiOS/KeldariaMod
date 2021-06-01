@@ -23,10 +23,11 @@ import fr.nathanael2611.keldaria.mod.features.combat.EnumAttackType;
 import fr.nathanael2611.keldaria.mod.features.combatstats.WeaponStat;
 import fr.nathanael2611.keldaria.mod.features.containment.Containment;
 import fr.nathanael2611.keldaria.mod.features.cookingfurnace.BurntAliments;
+import fr.nathanael2611.keldaria.mod.features.food.FoodQuality;
 import fr.nathanael2611.keldaria.mod.features.lockpick.Lock;
 import fr.nathanael2611.keldaria.mod.features.lockpick.LocksHelper;
-import fr.nathanael2611.keldaria.mod.features.rot.ExpiredFoods;
-import fr.nathanael2611.keldaria.mod.features.rot.capability.Rot;
+import fr.nathanael2611.keldaria.mod.features.food.ExpiredFoods;
+import fr.nathanael2611.keldaria.mod.features.food.capability.Rot;
 import fr.nathanael2611.keldaria.mod.features.skill.EnumJob;
 import fr.nathanael2611.keldaria.mod.features.thirst.Thirst;
 import fr.nathanael2611.keldaria.mod.features.writable.WritablePaper;
@@ -49,10 +50,8 @@ import fr.nathanael2611.keldaria.mod.tileentity.TileEntityWallpaper;
 import fr.nathanael2611.keldaria.mod.util.Helpers;
 import fr.nathanael2611.keldaria.mod.util.math.Vector2i;
 import fr.nathanael2611.simpledatabasemanager.core.Databases;
-import net.minecraft.block.Block;
 import net.minecraft.block.BlockBed;
 import net.minecraft.block.BlockDoor;
-import net.minecraft.block.IGrowable;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.Minecraft;
@@ -91,6 +90,7 @@ import net.minecraftforge.event.entity.EntityMountEvent;
 import net.minecraftforge.event.entity.ProjectileImpactEvent;
 import net.minecraftforge.event.entity.living.*;
 import net.minecraftforge.event.entity.player.*;
+import net.minecraftforge.event.furnace.FurnaceFuelBurnTimeEvent;
 import net.minecraftforge.event.world.BlockEvent;
 import net.minecraftforge.event.world.ChunkEvent;
 import net.minecraftforge.event.world.WorldEvent;
@@ -102,7 +102,6 @@ import net.minecraftforge.fml.common.gameevent.PlayerEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent;
 
 import java.lang.reflect.Field;
-import java.sql.ParameterMetaData;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
@@ -476,6 +475,15 @@ public class KeldariaEventHandler
                 EntityPlayerMP playerMP = (EntityPlayerMP) player;
                 int amount = ((ItemFood) stack.getItem()).getHealAmount(stack);
                 int baseAmount = amount;
+
+                float sat = ((ItemFood) stack.getItem()).getSaturationModifier(stack);
+                float baseSat = sat;
+
+                {
+                    FoodQuality quality = FoodQuality.getQuality(stack);
+                    amount *= quality.getMultiplier();
+                    sat *= quality.getMultiplier();
+                }
                 if(!ExpiredFoods.isExpired(stack))
                 {
                     Rot rot = ExpiredFoods.getRot(stack);
@@ -498,8 +506,15 @@ public class KeldariaEventHandler
                     player.addPotionEffect(new PotionEffect(MobEffects.SATURATION, 100, 0));
                 }
                 player.getFoodStats().setFoodLevel(player.getFoodStats().getFoodLevel() - baseAmount + amount);
+                player.getFoodStats().setFoodSaturationLevel(player.getFoodStats().getSaturationLevel() - baseSat + sat);
             }
         }
+    }
+
+    @SubscribeEvent
+    public void getFuelBurnTime(FurnaceFuelBurnTimeEvent event)
+    {
+        ItemStack stack = event.getItemStack();
     }
 
     @SubscribeEvent
@@ -523,7 +538,6 @@ public class KeldariaEventHandler
         }
     }
 
-    private int growTimer = 0;
 
     @SubscribeEvent
     public void onCropGrow(BlockEvent.CropGrowEvent.Pre e)
@@ -1068,6 +1082,14 @@ public class KeldariaEventHandler
     {
         if (event.phase == TickEvent.Phase.START)
         {
+            if(event.player.getHeldItemMainhand().getItem() instanceof ItemSmeltedIngot || event.player.getHeldItemOffhand().getItem() instanceof ItemSmeltedIngot)
+            {
+                if(Helpers.randomInteger(0, 20) < 2)
+                {
+                    event.player.attackEntityFrom(DamageSource.LAVA, 1);
+                    event.player.setFire(3);
+                }
+            }
             if (event.player.getHealth() < event.player.getMaxHealth())
             {
                 if (event.player.getFoodStats().getFoodLevel() >= /*MinHunger*/ 10)

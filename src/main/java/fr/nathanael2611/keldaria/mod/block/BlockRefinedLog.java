@@ -8,6 +8,7 @@ package fr.nathanael2611.keldaria.mod.block;
 import fr.nathanael2611.keldaria.mod.registry.KeldariaBlocks;
 import fr.nathanael2611.keldaria.mod.registry.KeldariaItems;
 import net.minecraft.block.*;
+import net.minecraft.block.material.Material;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;

@@ -9,12 +9,15 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.mojang.authlib.GameProfile;
 import fr.nathanael2611.keldaria.mod.Keldaria;
-import fr.nathanael2611.keldaria.mod.features.rot.ExpiredFoods;
+import fr.nathanael2611.keldaria.mod.features.food.ExpiredFoods;
 import fr.nathanael2611.keldaria.mod.features.PlayerSizes;
 import fr.nathanael2611.keldaria.mod.features.ability.EnumAptitudes;
 import fr.nathanael2611.keldaria.mod.features.combat.BlockingSystem;
 import fr.nathanael2611.keldaria.mod.features.combatstats.WeaponStat;
 import fr.nathanael2611.keldaria.mod.features.cookingfurnace.BurntAliments;
+import fr.nathanael2611.keldaria.mod.features.food.FoodQuality;
+import fr.nathanael2611.keldaria.mod.features.food.capability.Rot;
+import fr.nathanael2611.keldaria.mod.item.ItemSmeltedIngot;
 import fr.nathanael2611.keldaria.mod.util.Helpers;
 import fr.nathanael2611.simpledatabasemanager.core.Databases;
 import io.netty.channel.ChannelFuture;
@@ -26,6 +29,7 @@ import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.block.model.ItemCameraTransforms;
 import net.minecraft.client.renderer.color.IItemColor;
 import net.minecraft.command.ICommand;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.passive.EntityHorse;
 import net.minecraft.entity.player.EntityPlayer;
@@ -41,6 +45,7 @@ import net.minecraft.network.datasync.EntityDataManager;
 import net.minecraft.server.network.NetHandlerLoginServer;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.math.Vec3d;
+import net.minecraft.world.World;
 
 import java.awt.*;
 import java.io.IOException;
@@ -57,7 +62,15 @@ public class MixinHooks
 
         int color = iitemcolor == null ? -1 : iitemcolor.colorMultiplier(stack, tintIndex);
 
-        if(BurntAliments.isFumed(stack))
+        if(stack.getItem() instanceof ItemSmeltedIngot)
+        {
+            Color c = new Color(color);
+            color = new Color(
+                    (int) Math.max(0, Math.min(c.getRed(), 255)),
+                    (int) Math.max(0, Math.min(c.getGreen()/ 1.7f, 255)),
+                    (int) Math.max(0, Math.min(c.getBlue() / 2, 255))).getRGB();
+        }
+        else if(BurntAliments.isFumed(stack))
         {
             Color c = new Color(color);
             color = new Color(
@@ -262,6 +275,27 @@ public class MixinHooks
                 GlStateManager.translate(-0.1, 0, 0);
             }
         }*/
+
+    }
+
+    public static void onFoodUpdate(ItemStack stack, World worldIn, Entity entityIn, int itemSlot, boolean isSelected)
+    {
+        if(entityIn instanceof EntityPlayer)
+        {
+            if(!FoodQuality.isDefined(stack))
+            {
+                FoodQuality.init((EntityPlayer) entityIn, stack);
+            }
+        }
+        Rot rot = ExpiredFoods.getRot(stack);
+        if (rot.getCreatedDay() == 0)
+        {
+            ExpiredFoods.create(stack);
+        }
+        if(rot.isInBag())
+        {
+            rot.extractFromBag();
+        }
 
     }
 }

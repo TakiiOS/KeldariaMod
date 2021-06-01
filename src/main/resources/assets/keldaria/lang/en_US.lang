@@ -84,6 +84,13 @@ item.keldaria:chainmail_chestplate.name=Côte de maille
 item.keldaria:chainmail_leggings.name=Pantalon de maille
 item.keldaria:chainmail_boots.name=Bottes de maille
 
+
+
+item.keldaria:smelted_iron.name=Fer fondu
+item.keldaria:smelted_steel.name=Acier fondu
+item.keldaria:smelted_gold.name=Or fondu
+
+
 item.keldaria:iron_helmet.name=Casque en fer
 item.keldaria:iron_chestplate.name=Plastron en fer
 item.keldaria:iron_gorgeret.name=Gorgeret en fer

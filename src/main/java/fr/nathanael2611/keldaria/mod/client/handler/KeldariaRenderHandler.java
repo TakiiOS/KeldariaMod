@@ -29,7 +29,8 @@ import fr.nathanael2611.keldaria.mod.features.combat.EnumAttackType;
 import fr.nathanael2611.keldaria.mod.features.combatstats.WeaponStat;
 import fr.nathanael2611.keldaria.mod.features.containment.ContainmentSystem;
 import fr.nathanael2611.keldaria.mod.features.containment.Points;
-import fr.nathanael2611.keldaria.mod.features.rot.ExpiredFoods;
+import fr.nathanael2611.keldaria.mod.features.food.ExpiredFoods;
+import fr.nathanael2611.keldaria.mod.features.food.FoodQuality;
 import fr.nathanael2611.keldaria.mod.features.skill.EnumJob;
 import fr.nathanael2611.keldaria.mod.features.thirst.Thirst;
 import fr.nathanael2611.keldaria.mod.inventory.InventoryQuiver;
@@ -862,6 +863,10 @@ public class KeldariaRenderHandler
         ItemStack stack = event.getItemStack();
         if (stack.getItem() instanceof ItemFood)
         {
+            if(FoodQuality.isDefined(stack))
+            {
+                event.getToolTip().add("§7Qualité: §f" + FoodQuality.getQuality(stack).getFormattedName());
+            }
             event.getToolTip().add("§7Périmé à §f" + ExpiredFoods.getRot(stack).getRotPercent(stack) + "%");
             event.getToolTip().add("§7Etat: " + (ExpiredFoods.isExpired(stack) ? "§cPérimé" : "§aValable"));
         } else if (SharpeningHelpers.canBeSharped(stack))

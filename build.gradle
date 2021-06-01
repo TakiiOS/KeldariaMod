@@ -52,6 +52,7 @@ compileJava {
 license {
     header = file('LICENSE')
     include "**/*.java"
+    //include "src/main/java/fr/nathanael2611/**/*.java"
 }
 
 

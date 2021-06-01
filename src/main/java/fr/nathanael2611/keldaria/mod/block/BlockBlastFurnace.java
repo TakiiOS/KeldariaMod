@@ -8,7 +8,6 @@ package fr.nathanael2611.keldaria.mod.block;
 import fr.nathanael2611.keldaria.mod.Keldaria;
 import fr.nathanael2611.keldaria.mod.registry.KeldariaBlocks;
 import fr.nathanael2611.keldaria.mod.tileentity.TileEntityBlastFurnace;
-import fr.nathanael2611.keldaria.mod.tileentity.TileEntityCookingFurnace;
 import net.minecraft.block.BlockHorizontal;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
@@ -16,11 +15,9 @@ import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Blocks;
 import net.minecraft.inventory.InventoryHelper;
 import net.minecraft.item.Item;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.tileentity.TileEntityFurnace;
 import net.minecraft.util.*;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
@@ -40,7 +37,10 @@ public class BlockBlastFurnace extends BlockHorizontal
         super(Material.ROCK);
         setHardness(3);
         this.burning = burning;
-        setLightLevel(0.875F);
+        if (burning)
+        {
+            setLightLevel(0.875F);
+        }
     }
 
 
@@ -48,14 +48,13 @@ public class BlockBlastFurnace extends BlockHorizontal
     {
         IBlockState iblockstate = worldIn.getBlockState(pos);
         TileEntity tileentity = worldIn.getTileEntity(pos);
-       keepInventory = true;
+        keepInventory = true;
 
         if (active)
         {
             worldIn.setBlockState(pos, KeldariaBlocks.LIT_BLAST_FURNACE.getDefaultState().withProperty(FACING, iblockstate.getValue(FACING)), 3);
             worldIn.setBlockState(pos, KeldariaBlocks.LIT_BLAST_FURNACE.getDefaultState().withProperty(FACING, iblockstate.getValue(FACING)), 3);
-        }
-        else
+        } else
         {
             worldIn.setBlockState(pos, KeldariaBlocks.BLAST_FURNACE.getDefaultState().withProperty(FACING, iblockstate.getValue(FACING)), 3);
             worldIn.setBlockState(pos, KeldariaBlocks.BLAST_FURNACE.getDefaultState().withProperty(FACING, iblockstate.getValue(FACING)), 3);
@@ -78,7 +77,7 @@ public class BlockBlastFurnace extends BlockHorizontal
 
             if (tileentity instanceof TileEntityBlastFurnace)
             {
-                InventoryHelper.dropInventoryItems(worldIn, pos, (TileEntityBlastFurnace)tileentity);
+                InventoryHelper.dropInventoryItems(worldIn, pos, (TileEntityBlastFurnace) tileentity);
                 worldIn.updateComparatorOutputLevel(pos, this);
             }
         }
@@ -97,8 +96,7 @@ public class BlockBlastFurnace extends BlockHorizontal
         if (worldIn.isRemote)
         {
             return true;
-        }
-        else
+        } else
         {
             TileEntity tileentity = worldIn.getTileEntity(pos);
 
@@ -149,18 +147,19 @@ public class BlockBlastFurnace extends BlockHorizontal
     @Override
     public int getMetaFromState(IBlockState state)
     {
-        return ((EnumFacing)state.getValue(FACING)).getIndex();
+        return ((EnumFacing) state.getValue(FACING)).getIndex();
     }
+
     @Override
     public IBlockState withRotation(IBlockState state, Rotation rot)
     {
-        return state.withProperty(FACING, rot.rotate((EnumFacing)state.getValue(FACING)));
+        return state.withProperty(FACING, rot.rotate((EnumFacing) state.getValue(FACING)));
     }
 
     @Override
     protected BlockStateContainer createBlockState()
     {
-        return new BlockStateContainer(this, new IProperty[] {FACING});
+        return new BlockStateContainer(this, new IProperty[]{FACING});
     }
 
 

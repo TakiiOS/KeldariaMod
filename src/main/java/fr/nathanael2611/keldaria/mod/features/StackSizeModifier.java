@@ -6,10 +6,12 @@
 package fr.nathanael2611.keldaria.mod.features;
 
 import com.google.common.collect.Maps;
+import fr.nathanael2611.keldaria.mod.item.ItemSmeltedIngot;
 import net.minecraft.block.material.Material;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.registry.RegistryNamespaced;
 import net.minecraftforge.fml.common.ObfuscationReflectionHelper;
@@ -140,6 +142,10 @@ public class StackSizeModifier
         add(Items.SHULKER_SHELL, 1);
         for(Item item : registry)
         {
+            if(item instanceof ItemSmeltedIngot)
+            {
+                item.setMaxStackSize(new ItemStack(((ItemSmeltedIngot) item).getBase()).getMaxStackSize());
+            }
             if(item instanceof ItemBlock)
             {
                 ItemBlock itemBlock = (ItemBlock) item;

@@ -3,10 +3,10 @@
  * Toute reproduction, diffusion, partage, distribution,
  * commercialisation sans autorisation explicite est interdite.
  */
-package fr.nathanael2611.keldaria.mod.features.rot.capability;
+package fr.nathanael2611.keldaria.mod.features.food.capability;
 
 import fr.nathanael2611.keldaria.mod.features.KeldariaDate;
-import fr.nathanael2611.keldaria.mod.features.rot.ExpiredFoods;
+import fr.nathanael2611.keldaria.mod.features.food.ExpiredFoods;
 import fr.nathanael2611.keldaria.mod.util.Helpers;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
