@@ -102,6 +102,7 @@ public class KeldariaRegistry
         GameRegistry.registerTileEntity(TileEntityFruitBlock.class, new ResourceLocation(Keldaria.MOD_ID, ".TileEntityFruitBlock"));
         GameRegistry.registerTileEntity(TileEntitySieve.class, new ResourceLocation(Keldaria.MOD_ID, ".TileEntitySieve"));
         GameRegistry.registerTileEntity(TileEntityBlastFurnace.class, new ResourceLocation(Keldaria.MOD_ID, ".TileEntityBlastFurnace"));
+        GameRegistry.registerTileEntity(TileEntityFieldsAnalyzer.class, new ResourceLocation(Keldaria.MOD_ID, ".TileEntityFieldsAnalyzer"));
 
     }
 

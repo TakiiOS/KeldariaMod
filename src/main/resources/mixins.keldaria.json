@@ -7,6 +7,7 @@
   "compatibilityLevel": "JAVA_8",
   "mixins": [
     "common.MixinBlockDoor",
+    "common.MixinBlockCrops",
     "common.MixinCommandHandler",
     "common.MixinContainer",
     "common.MixinEntityAnimal",

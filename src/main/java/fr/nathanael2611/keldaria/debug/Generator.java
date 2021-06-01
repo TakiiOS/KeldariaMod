@@ -47,6 +47,9 @@ public class Generator
 
     public static void process(File f)
     {
+
+
+
         if(f.getName().endsWith(".schematic"))
         {
             try
@@ -110,7 +113,7 @@ public class Generator
     public static void main(String[] args)
     {
 
-        System.out.println(new Vec3d(90, 0, 0).rotateYaw(80));
+        System.out.println(0<<4);
 
         //RotatedBB bb = new RotatedBB(new AxisAlignedBB(10, 10, 10, -10, -10, -10), 30, 30);
         //System.out.println(bb.containsPoint(0, 0, 0));

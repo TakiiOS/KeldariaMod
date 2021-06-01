@@ -21,6 +21,7 @@ public class BlockOnion extends BlockCrops {
 
     public static final int MAX_AGE = 4;
 
+    
     public PropertyInteger getBaseAgeProperty() {
         return PropertyInteger.create("age", 0, MAX_AGE);
     }

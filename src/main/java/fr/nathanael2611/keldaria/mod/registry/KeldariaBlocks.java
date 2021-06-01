@@ -243,6 +243,9 @@ public class KeldariaBlocks
     @Register(name = "card_deck")
     public static final Block CARD_DECK = new BlockCardDeck();
 
+    @Register(name = "fields_analyzer")
+    public static final Block FIELDS_ANALYZER = new BlockFieldsAnalyzer();
+
 
     public static void registerBlock(IForgeRegistry<Block> registry, Block block, String name)
     {

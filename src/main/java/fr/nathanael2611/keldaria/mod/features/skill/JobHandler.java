@@ -6,6 +6,7 @@
 package fr.nathanael2611.keldaria.mod.features.skill;
 
 import com.google.common.collect.Lists;
+import fr.nathanael2611.keldaria.mod.block.BlockFieldsAnalyzer;
 import fr.nathanael2611.keldaria.mod.block.BlockRefinedLog;
 import fr.nathanael2611.keldaria.mod.features.ability.EnumAptitudes;
 import fr.nathanael2611.keldaria.mod.item.ItemRawOre;
@@ -14,8 +15,12 @@ import net.minecraft.block.*;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemSeedFood;
+import net.minecraft.item.ItemSeeds;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.chunk.Chunk;
+import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.event.world.BlockEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
@@ -92,6 +97,27 @@ public class JobHandler
             }
 
         }
+    }
+
+    @SubscribeEvent
+    public void onClick(PlayerInteractEvent.RightClickBlock event)
+    {
+        Item item = event.getItemStack().getItem();
+        if(item instanceof ItemSeeds || item instanceof ItemSeedFood)
+        {
+            Block block = event.getWorld().getBlockState(event.getPos()).getBlock();
+            if(block instanceof BlockFarmland)
+            {
+                Chunk chunk = event.getWorld().getChunk(event.getPos());
+                BlockFieldsAnalyzer.addField(chunk, event.getPos().up());
+            }
+        }
+    }
+
+    @SubscribeEvent
+    public void onTrample(BlockEvent.FarmlandTrampleEvent event)
+    {
+        event.setCanceled(true);
     }
 
 }
