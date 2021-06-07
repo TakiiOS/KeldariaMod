@@ -10,6 +10,8 @@ import fr.nathanael2611.keldaria.mod.Keldaria;
 import fr.nathanael2611.keldaria.mod.animation.AnimationUtils;
 import fr.nathanael2611.keldaria.mod.client.ShadersManager;
 import fr.nathanael2611.keldaria.mod.client.ren.REN;
+import fr.nathanael2611.keldaria.mod.client.render.entity.animal.RenderPig;
+import fr.nathanael2611.keldaria.mod.entity.animal.EntityPig;
 import fr.nathanael2611.keldaria.mod.tileentity.TileEntityFruitBlock;
 import fr.nathanael2611.keldaria.mod.block.furniture.TileEntityChessPlate;
 import fr.nathanael2611.keldaria.mod.client.KeldariaDiscordRPC;
@@ -35,16 +37,14 @@ import fr.nathanael2611.keldaria.mod.season.SeasonHandler;
 import fr.nathanael2611.keldaria.mod.tileentity.*;
 import fr.nathanael2611.obfuscate.remastered.client.ObfuscateEvents;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.renderer.entity.Render;
-import net.minecraft.client.renderer.entity.RenderHorse;
-import net.minecraft.client.renderer.entity.RenderManager;
-import net.minecraft.client.renderer.entity.RenderPlayer;
+import net.minecraft.client.renderer.entity.*;
 import net.minecraft.client.settings.KeyBinding;
 import net.minecraft.entity.passive.EntityHorse;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.Util;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.client.registry.ClientRegistry;
+import net.minecraftforge.fml.client.registry.IRenderFactory;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
@@ -87,6 +87,7 @@ public class ClientProxy extends CommonProxy
         this.setCustomIcon();
         this.registerEvents();
         this.registerTESR();
+        this.registerEntityRenderers();
         REN.preInit(event);
     }
 
@@ -98,14 +99,16 @@ public class ClientProxy extends CommonProxy
         this.registerColorHandlers();
         this.addNewLayers();
 
-        RenderingRegistry.registerEntityRenderingHandler(EntityLucrain.class,
-                new RenderLammergeier(Minecraft.getMinecraft().getRenderManager()));
-        RenderingRegistry.registerEntityRenderingHandler(Spider.class,
-                new RenderBestiarySpider(Minecraft.getMinecraft().getRenderManager()));
-        RenderingRegistry.registerEntityRenderingHandler(EntityHomingPigeon.class,
-                new RenderHomingPigeon(Minecraft.getMinecraft().getRenderManager()));
-
         REN.init(event);
+    }
+
+    private void registerEntityRenderers()
+    {
+        //RenderingRegistry.registerEntityRenderingHandler(EntityLucrain.class, new RenderLammergeier(Minecraft.getMinecraft().getRenderManager()));
+        //RenderingRegistry.registerEntityRenderingHandler(Spider.class, new RenderBestiarySpider(Minecraft.getMinecraft().getRenderManager()));
+        //RenderingRegistry.registerEntityRenderingHandler(EntityHomingPigeon.class, new RenderHomingPigeon(Minecraft.getMinecraft().getRenderManager()));
+        RenderingRegistry.registerEntityRenderingHandler(EntityHomingPigeon.class, RenderHomingPigeon::new);
+        RenderingRegistry.registerEntityRenderingHandler(EntityPig.class, RenderPig::new);
     }
 
     private void addNewLayers()

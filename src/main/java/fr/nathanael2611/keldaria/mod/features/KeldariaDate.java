@@ -15,7 +15,66 @@ import net.minecraft.world.storage.WorldInfo;
 public class KeldariaDate
 {
 
-    public static final String[] MONTHS = new String[] {"Cefône", "Mist", "Païs", "Istès", "Yavana", "Maguï'a", "Lich", "Frisk"};
+    public enum Month
+    {
+        CEFONE(0, "Cefône"),
+        MIST(1, "Mist"),
+        PAIS(2, "Païs"),
+        ISTES(3, "Istès"),
+        YAVANA(4, "Yavana"),
+        MAGUIA(5, "Maguï'a"),
+        LICH(6, "Lich"),
+        FRISK(7, "Frisk");
+
+        private int index;
+        private String formattedName;
+
+        Month(int index, String formattedName)
+        {
+            this.formattedName = formattedName;
+        }
+
+        public static Month byName(String arg)
+        {
+            for (Month value : values())
+            {
+                if(value.getFormattedName().equalsIgnoreCase(arg))
+                {
+                    return value;
+                }
+            }
+            return null;
+        }
+
+        public String getFormattedName()
+        {
+            return formattedName;
+        }
+
+        public static Month byIndex(int index)
+        {
+            for (Month value : values())
+            {
+                if(value.index == index - 1)
+                {
+                    return value;
+                }
+            }
+            return null;
+        }
+
+        public int getIndex()
+        {
+            return index;
+        }
+
+        @Override
+        public String toString()
+        {
+            return this.formattedName;
+        }
+    }
+    //public static final String[] MONTHS = new String[] {"Cefône", "Mist", "Païs", "Istès", "Yavana", "Maguï'a", "Lich", "Frisk"};
 
     public static KeldariaDateFormat lastDate = getKyrgonDate();
 
@@ -150,6 +209,8 @@ public class KeldariaDate
             return this.dayIndex + " " + getMonthByIndex(this.monthIndex) + " " + this.year + " - " + this.hour;
         }
 
+
+
         public long toTicks()
         {
             String[] parts = this.hour.split(":");
@@ -195,6 +256,11 @@ public class KeldariaDate
                 case 7: return Season.WINTER;
             }
             return null;
+        }
+
+        public Month getMonth()
+        {
+            return getMonthByIndex(this.monthIndex);
         }
 
         public int getMoonPhase()
@@ -266,13 +332,14 @@ public class KeldariaDate
     }
 
 
-    public static String getMonthByIndex(int index)
+    public static Month getMonthByIndex(int index)
     {
-        return MONTHS[index - 1];
+        return Month.byIndex(index);
+        //return MONTHS[index - 1];
     }
 
-    public static int getIndexByMonth(String month)
-    {
+    public static int getIndexByMonth(Month month)
+    {/*
         for (int i = 0; i < MONTHS.length; i++)
         {
             if(MONTHS[i].equalsIgnoreCase(month))
@@ -280,7 +347,8 @@ public class KeldariaDate
                 return i + 1;
             }
         }
-        return -1;
+        return -1;*/
+        return month.getIndex();
     }
 
 

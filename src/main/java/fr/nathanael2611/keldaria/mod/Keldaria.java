@@ -23,6 +23,7 @@ import fr.nathanael2611.keldaria.mod.crafting.storage.impl.KnownRecipes;
 import fr.nathanael2611.keldaria.mod.discord.DiscordImpl;
 import fr.nathanael2611.keldaria.mod.entity.EntityHomingPigeon;
 import fr.nathanael2611.keldaria.mod.entity.EntityLucrain;
+import fr.nathanael2611.keldaria.mod.entity.animal.EntityPig;
 import fr.nathanael2611.keldaria.mod.entity.bestiary.spider.Spider;
 import fr.nathanael2611.keldaria.mod.features.*;
 import fr.nathanael2611.keldaria.mod.features.ability.EnumAptitudes;
@@ -139,11 +140,13 @@ public class Keldaria
         //CapabilityManager.INSTANCE.register(IChunkGrowManager.class, new GrowStorage(), ChunkGrowManagerImpl::new);
         KeldariaPacketHandler.getInstance().registerPackets();
         DataSerializers.registerSerializer(MixinHooks.DOUBLE);
+        DataSerializers.registerSerializer(MixinHooks.LONG);
+        DataSerializers.registerSerializer(MixinHooks.GENDER);
+        DataSerializers.registerSerializer(MixinHooks.ANIMAL_STATS);
         astikorCarts.preInit(e);
 
-        EntityRegistry.registerModEntity(new ResourceLocation("keldaira", "lucrain"), EntityLucrain.class, "Lucrain", 28, this, 64, 1, true);
-        EntityRegistry.registerModEntity(new ResourceLocation("keldaria", "spider"), Spider.class, "Spider", 29, this, 64, 1, true);
-        EntityRegistry.registerModEntity(new ResourceLocation("keldaria", "homing_pigeon"), EntityHomingPigeon.class, "HomingPigeon", 30, this, 64, 1, true);
+
+        this.registry.registerEntities(this);
 
         Zones.registerAll();
 

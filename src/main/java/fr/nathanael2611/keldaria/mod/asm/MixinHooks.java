@@ -9,6 +9,8 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.mojang.authlib.GameProfile;
 import fr.nathanael2611.keldaria.mod.Keldaria;
+import fr.nathanael2611.keldaria.mod.entity.AnimalStat;
+import fr.nathanael2611.keldaria.mod.features.AnimalGender;
 import fr.nathanael2611.keldaria.mod.features.food.ExpiredFoods;
 import fr.nathanael2611.keldaria.mod.features.PlayerSizes;
 import fr.nathanael2611.keldaria.mod.features.ability.EnumAptitudes;
@@ -46,6 +48,7 @@ import net.minecraft.server.network.NetHandlerLoginServer;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.common.network.ByteBufUtils;
 
 import java.awt.*;
 import java.io.IOException;
@@ -166,6 +169,65 @@ public class MixinHooks
 
 
 
+    public static final DataSerializer<AnimalGender> GENDER = new DataSerializer<AnimalGender>()
+    {
+        public void write(PacketBuffer buf, AnimalGender value)
+        {
+            buf.writeInt(value.getId());
+        }
+        public AnimalGender read(PacketBuffer buf) throws IOException
+        {
+            return AnimalGender.byId(buf.readInt());
+        }
+        public DataParameter<AnimalGender> createKey(int id)
+        {
+            return new DataParameter<>(id, this);
+        }
+        public AnimalGender copyValue(AnimalGender value)
+        {
+            return value;
+        }
+    };
+
+    public static final DataSerializer<AnimalStat> ANIMAL_STATS = new DataSerializer<AnimalStat>()
+    {
+        public void write(PacketBuffer buf, AnimalStat value)
+        {
+            ByteBufUtils.writeTag(buf, value.serializeNBT());
+        }
+        public AnimalStat read(PacketBuffer buf) throws IOException
+        {
+            return new AnimalStat(ByteBufUtils.readTag(buf));
+        }
+        public DataParameter<AnimalStat> createKey(int id)
+        {
+            return new DataParameter<>(id, this);
+        }
+        public AnimalStat copyValue(AnimalStat value)
+        {
+            return value;
+        }
+    };
+
+    public static final DataSerializer<Long> LONG = new DataSerializer<Long>()
+    {
+        public void write(PacketBuffer buf, Long value)
+        {
+            buf.writeLong(value.longValue());
+        }
+        public Long read(PacketBuffer buf) throws IOException
+        {
+            return buf.readLong();
+        }
+        public DataParameter<Long> createKey(int id)
+        {
+            return new DataParameter<Long>(id, this);
+        }
+        public Long copyValue(Long value)
+        {
+            return value;
+        }
+    };
     public static final DataSerializer<Double> DOUBLE = new DataSerializer<Double>()
     {
         public void write(PacketBuffer buf, Double value)

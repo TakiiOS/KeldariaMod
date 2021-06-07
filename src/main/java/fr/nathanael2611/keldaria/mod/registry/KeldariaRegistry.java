@@ -12,6 +12,10 @@ import fr.nathanael2611.keldaria.mod.animation.AnimationUtils;
 import fr.nathanael2611.keldaria.mod.animation.Animations;
 import fr.nathanael2611.keldaria.mod.api.registry.Register;
 import fr.nathanael2611.keldaria.mod.crafting.CraftHandler;
+import fr.nathanael2611.keldaria.mod.entity.EntityHomingPigeon;
+import fr.nathanael2611.keldaria.mod.entity.EntityLucrain;
+import fr.nathanael2611.keldaria.mod.entity.animal.EntityPig;
+import fr.nathanael2611.keldaria.mod.entity.bestiary.spider.Spider;
 import fr.nathanael2611.keldaria.mod.features.BlastFurnace;
 import fr.nathanael2611.keldaria.mod.features.food.ExpiredFoods;
 import fr.nathanael2611.keldaria.mod.features.skill.JobHandler;
@@ -35,6 +39,7 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.ObfuscationReflectionHelper;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
+import net.minecraftforge.fml.common.registry.EntityRegistry;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
 import java.lang.annotation.Annotation;
@@ -244,6 +249,16 @@ public class KeldariaRegistry
             }
         }
 
+
+    }
+
+    public void registerEntities(Keldaria mod)
+    {
+        //EntityRegistry.registerModEntity(new ResourceLocation("keldaira", "lucrain"), EntityLucrain.class, "Lucrain", 28, this, 64, 1, true);
+        //EntityRegistry.registerModEntity(new ResourceLocation("keldaria", "spider"), Spider.class, "Spider", 29, this, 64, 1, true);
+        EntityRegistry.registerModEntity(new ResourceLocation("keldaria", "homing_pigeon"), EntityHomingPigeon.class, "HomingPigeon", 30, mod, 64, 1, true);
+
+        EntityRegistry.registerModEntity(new ResourceLocation(Keldaria.MOD_ID, "pig"), EntityPig.class, "Pig", 31, mod, 80, 3, true);
 
     }
 

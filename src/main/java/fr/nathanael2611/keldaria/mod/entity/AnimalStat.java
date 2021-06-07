@@ -61,12 +61,4 @@ public class AnimalStat implements INBTSerializable<NBTTagCompound>
         return resistance;
     }
 
-    public double getSize(long bornTime, long growTime)
-    {
-
-        long diff = (System.currentTimeMillis() - bornTime);
-        double percent = Math.min(Helpers.getPercent(diff, growTime), 100);
-
-        return this.size * (percent * 0.01);
-    }
 }

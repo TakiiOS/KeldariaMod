@@ -43,9 +43,9 @@ public class EntityLucrain extends EntityAnimal implements EntityFlying
     {
         super.onUpdate();
 
-        double s = this.stat.getSize(this.bornTime, this.growTime);
-        width = (float) s;
-        height = (float) s;
+        //double s = this.stat.getSize(this.bornTime, this.growTime);
+        //width = (float) s;
+        //height = (float) s;
         setEntityBoundingBox(Animation.createHitboxByDimensions(this, width, height));
 
 
@@ -178,7 +178,7 @@ public class EntityLucrain extends EntityAnimal implements EntityFlying
             EntityLiving entityliving = (EntityLiving)passenger;
             this.renderYawOffset = entityliving.renderYawOffset;
         }
-        passenger.setPosition(this.posX, this.posY + (getStat().getSize(bornTime, growTime)*0.45), this.posZ);
+        //passenger.setPosition(this.posX, this.posY + (getStat().getSize(bornTime, growTime)*0.45), this.posZ);
 
         if(false)
         {

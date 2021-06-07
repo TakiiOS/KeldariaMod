@@ -21,6 +21,7 @@ import fr.nathanael2611.keldaria.mod.client.gui.GuiArmsChooser;
 import fr.nathanael2611.keldaria.mod.command.CommandLore;
 import fr.nathanael2611.keldaria.mod.crafting.storage.KnownRecipesStorage;
 import fr.nathanael2611.keldaria.mod.crafting.storage.api.IKnownRecipes;
+import fr.nathanael2611.keldaria.mod.entity.animal.EntityKeldAnimal;
 import fr.nathanael2611.keldaria.mod.features.*;
 import fr.nathanael2611.keldaria.mod.features.accessories.Accessories;
 import fr.nathanael2611.keldaria.mod.features.armoposes.ArmPoses;
@@ -587,6 +588,30 @@ public class KeldariaRenderHandler
 
 
 
+                if(result.entityHit instanceof EntityKeldAnimal)
+                {
+                    EntityKeldAnimal animal = (EntityKeldAnimal) result.entityHit;
+                    List<String> infos = Lists.newArrayList();
+                    infos.add(String.format("§n%s", animal.getName()));
+                    infos.add(" ");
+                    infos.add(String.format("§6 - §e%s", animal.isHungry() ? "Affamé" : "Rassasié"));
+                    infos.add(String.format("§1 - §9%s", animal.isThirsty() ? "Assoifé" : "Hydraté"));
+
+                    {
+                        int maxWidth = 0;
+                        for (String info : infos)
+                        {
+                            maxWidth = Math.max(maxWidth, mc.fontRenderer.getStringWidth(info) + 10);
+                        }
+                        Gui.drawRect((int) (resolution.getScaledWidth() - maxWidth - 2), resolution.getScaledHeight() / 2 - 60, (int) (resolution.getScaledWidth()), resolution.getScaledHeight() / 2 + 10, new Color(0, 0, 0, 100).getRGB());
+                        for (int i = 0; i < infos.size(); i++)
+                        {
+                            mc.fontRenderer.drawStringWithShadow(infos.get(i), resolution.getScaledWidth() - maxWidth, resolution.getScaledHeight() / 2 - 55 + (i * mc.fontRenderer.FONT_HEIGHT), Color.WHITE.getRGB());
+                        }
+
+                    }
+                }
+                else
                 if (result.entityHit instanceof AbstractHorse || (mc.player.isRiding() && mc.player.getRidingEntity() instanceof AbstractHorse))
                 {
                     AbstractHorse horse = result.entityHit instanceof AbstractHorse ? (AbstractHorse) result.entityHit : (AbstractHorse) mc.player.getRidingEntity();
@@ -622,10 +647,6 @@ public class KeldariaRenderHandler
                 //RayTraceResult result = mc.player.rayTrace(mc.player.getEntityAttribute(EntityPlayer.REACH_DISTANCE).getAttributeValue(), event.getPartialTicks());
                 if (result != null)
                 {
-
-
-
-
                     BlockPos pos = result.getBlockPos();
                     if (pos != null)
                     {
