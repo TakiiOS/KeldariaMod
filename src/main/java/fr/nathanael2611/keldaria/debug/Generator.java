@@ -27,6 +27,64 @@ import java.util.zip.GZIPOutputStream;
 
 public class Generator
 {
+    public static void main(String[] args)
+    {
+
+        System.out.println(KeldariaDate.getKyrgonDate().toFormattedString());
+
+        //RotatedBB bb = new RotatedBB(new AxisAlignedBB(10, 10, 10, -10, -10, -10), 30, 30);
+        //System.out.println(bb.containsPoint(0, 0, 0));
+
+        //  File file = new File("C:\\Users\\Nathanël\\Keldaria\\Schems\\ooo\\");
+        //analyse(file);
+
+
+        if(true) return ;
+        try
+        {
+            KeldaBot bot = new KeldaBot("NjM5MjM1NTk0OTYyMjA2NzMz.XdnxXg.UlmFLA2B5CXghO01jB5hMEsYrcs");
+            bot.getJda().getPresence().setStatus(OnlineStatus.OFFLINE);
+            bot.getJda().addEventListener(new ListenerAdapter()
+            {
+                @Override
+                public void onReady(@Nonnull ReadyEvent event)
+                {
+                    System.out.println("cc");
+                    super.onReady(event);
+                    for (TextChannel textChannel : bot.getKeldariaGuild().getTextChannels())
+                    {
+                        if(textChannel.getName().contains("général"))
+                        {
+                            System.out.println(textChannel.getName() + ">>>>");
+                            int i = 0;
+                            for (Message message : textChannel.getIterableHistory())
+                            {
+                                if(i++ > 40) break;
+                                System.out.println("   - " + message.getAuthor().getName() + "->" + message.getContentRaw());
+                            }
+                        }
+                    }
+                }
+            });
+        } catch (LoginException e)
+        {
+            e.printStackTrace();
+        }
+
+
+        if(true)return;
+        Transforms.Transform.parse("T(10,30,20)");
+        Date date = new Date();
+        date.setYear(2020);
+        date.setDate(24);
+        date.setMonth(Calendar.DECEMBER);
+        Calendar calendar = new GregorianCalendar();
+        calendar.set(2021, Calendar.JANUARY, 3, 18, 30);
+        System.out.println(KeldariaDate.getKyrgonDate(calendar.getTime().getTime()).toFormattedString());
+
+
+    }
+
 
 
 
@@ -108,64 +166,6 @@ public class Generator
                 e.printStackTrace();
             }
         }
-    }
-
-    public static void main(String[] args)
-    {
-
-        System.out.println(0<<4);
-
-        //RotatedBB bb = new RotatedBB(new AxisAlignedBB(10, 10, 10, -10, -10, -10), 30, 30);
-        //System.out.println(bb.containsPoint(0, 0, 0));
-
-      //  File file = new File("C:\\Users\\Nathanël\\Keldaria\\Schems\\ooo\\");
-        //analyse(file);
-
-
-        if(true) return ;
-        try
-        {
-            KeldaBot bot = new KeldaBot("NjM5MjM1NTk0OTYyMjA2NzMz.XdnxXg.UlmFLA2B5CXghO01jB5hMEsYrcs");
-            bot.getJda().getPresence().setStatus(OnlineStatus.OFFLINE);
-            bot.getJda().addEventListener(new ListenerAdapter()
-            {
-                @Override
-                public void onReady(@Nonnull ReadyEvent event)
-                {
-                    System.out.println("cc");
-                    super.onReady(event);
-                    for (TextChannel textChannel : bot.getKeldariaGuild().getTextChannels())
-                    {
-                        if(textChannel.getName().contains("général"))
-                        {
-                            System.out.println(textChannel.getName() + ">>>>");
-                            int i = 0;
-                            for (Message message : textChannel.getIterableHistory())
-                            {
-                                if(i++ > 40) break;
-                                System.out.println("   - " + message.getAuthor().getName() + "->" + message.getContentRaw());
-                            }
-                        }
-                    }
-                }
-            });
-        } catch (LoginException e)
-        {
-            e.printStackTrace();
-        }
-
-
-        if(true)return;
-        Transforms.Transform.parse("T(10,30,20)");
-        Date date = new Date();
-        date.setYear(2020);
-        date.setDate(24);
-        date.setMonth(Calendar.DECEMBER);
-        Calendar calendar = new GregorianCalendar();
-        calendar.set(2021, Calendar.JANUARY, 3, 18, 30);
-        System.out.println(KeldariaDate.getKyrgonDate(calendar.getTime().getTime()).toFormattedString());
-
-
     }
 
 

@@ -12,8 +12,32 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
 import net.minecraft.world.storage.WorldInfo;
 
+import java.util.concurrent.TimeUnit;
+
 public class KeldariaDate
 {
+
+    public enum Unit
+    {
+
+        DAYS {
+            @Override
+            public long toMillis(long value)
+            {
+                return TimeUnit.HOURS.toMillis(12) * value;
+            }
+        },
+        MONTH {
+            @Override
+            public long toMillis(long value)
+            {
+                return DAYS.toMillis(14) * value;
+            }
+        };
+
+        public abstract long toMillis(long value);
+
+    }
 
     public enum Month
     {
@@ -31,6 +55,7 @@ public class KeldariaDate
 
         Month(int index, String formattedName)
         {
+            this.index = index;
             this.formattedName = formattedName;
         }
 

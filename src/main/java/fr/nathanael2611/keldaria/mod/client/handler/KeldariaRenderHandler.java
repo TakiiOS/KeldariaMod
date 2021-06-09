@@ -22,6 +22,7 @@ import fr.nathanael2611.keldaria.mod.command.CommandLore;
 import fr.nathanael2611.keldaria.mod.crafting.storage.KnownRecipesStorage;
 import fr.nathanael2611.keldaria.mod.crafting.storage.api.IKnownRecipes;
 import fr.nathanael2611.keldaria.mod.entity.animal.EntityKeldAnimal;
+import fr.nathanael2611.keldaria.mod.entity.animal.Pregnancy;
 import fr.nathanael2611.keldaria.mod.features.*;
 import fr.nathanael2611.keldaria.mod.features.accessories.Accessories;
 import fr.nathanael2611.keldaria.mod.features.armoposes.ArmPoses;
@@ -594,9 +595,7 @@ public class KeldariaRenderHandler
                     List<String> infos = Lists.newArrayList();
                     infos.add(String.format("§n%s", animal.getName()));
                     infos.add(" ");
-                    infos.add(String.format("§6 - §e%s", animal.isHungry() ? "Affamé" : "Rassasié"));
-                    infos.add(String.format("§1 - §9%s", animal.isThirsty() ? "Assoifé" : "Hydraté"));
-
+                    infos.addAll(animal.getHoverInfos(mc.player));
                     {
                         int maxWidth = 0;
                         for (String info : infos)

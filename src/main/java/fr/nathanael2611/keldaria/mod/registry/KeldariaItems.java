@@ -410,6 +410,9 @@ public class KeldariaItems
     @Register(name = "glasses_frame")
     public static final Item GLASSES_FRAME = new ItemFakeGlasses();
 
+    @Register(name = "fertilized_egg")
+    public static final ItemFertilizedEgg FERTILIZED_EGG = new ItemFertilizedEgg();
+
 
     static
     {

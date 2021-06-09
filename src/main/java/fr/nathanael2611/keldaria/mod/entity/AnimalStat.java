@@ -61,4 +61,12 @@ public class AnimalStat implements INBTSerializable<NBTTagCompound>
         return resistance;
     }
 
+    public static AnimalStat fromParents(AnimalStat one, AnimalStat other)
+    {
+        double size = one.size + other.size + Helpers.randomDouble(0.7, 1.3);
+        double speed = one.speed + other.speed + Helpers.randomDouble(0.7, 1.3);
+        double resistance = one.resistance + other.resistance + Helpers.randomDouble(0.7, 1.3);
+        return new AnimalStat(size / 3, speed /3, resistance / 3);
+    }
+
 }

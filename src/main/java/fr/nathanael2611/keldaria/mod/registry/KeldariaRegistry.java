@@ -13,9 +13,9 @@ import fr.nathanael2611.keldaria.mod.animation.Animations;
 import fr.nathanael2611.keldaria.mod.api.registry.Register;
 import fr.nathanael2611.keldaria.mod.crafting.CraftHandler;
 import fr.nathanael2611.keldaria.mod.entity.EntityHomingPigeon;
-import fr.nathanael2611.keldaria.mod.entity.EntityLucrain;
-import fr.nathanael2611.keldaria.mod.entity.animal.EntityPig;
-import fr.nathanael2611.keldaria.mod.entity.bestiary.spider.Spider;
+import fr.nathanael2611.keldaria.mod.entity.animal.KeldaChicken;
+import fr.nathanael2611.keldaria.mod.entity.animal.KeldaCow;
+import fr.nathanael2611.keldaria.mod.entity.animal.KeldaPig;
 import fr.nathanael2611.keldaria.mod.features.BlastFurnace;
 import fr.nathanael2611.keldaria.mod.features.food.ExpiredFoods;
 import fr.nathanael2611.keldaria.mod.features.skill.JobHandler;
@@ -258,7 +258,10 @@ public class KeldariaRegistry
         //EntityRegistry.registerModEntity(new ResourceLocation("keldaria", "spider"), Spider.class, "Spider", 29, this, 64, 1, true);
         EntityRegistry.registerModEntity(new ResourceLocation("keldaria", "homing_pigeon"), EntityHomingPigeon.class, "HomingPigeon", 30, mod, 64, 1, true);
 
-        EntityRegistry.registerModEntity(new ResourceLocation(Keldaria.MOD_ID, "pig"), EntityPig.class, "Pig", 31, mod, 80, 3, true);
+        EntityRegistry.registerModEntity(new ResourceLocation(Keldaria.MOD_ID, "pig"), KeldaPig.class, "Pig", 31, mod, 80, 3, true);
+        EntityRegistry.registerModEntity(new ResourceLocation(Keldaria.MOD_ID, "cow"), KeldaCow.class, "Cow", 32, mod, 80, 3, true);
+        EntityRegistry.registerModEntity(new ResourceLocation(Keldaria.MOD_ID, "chicken"), KeldaChicken.class, "Chicken", 33, mod, 80, 3, true);
+        EntityRegistry.registerModEntity(new ResourceLocation(Keldaria.MOD_ID, "egg"), KeldaChicken.KeldaEgg.class, "Egg", 34, mod, 80, 3, true);
 
     }
 

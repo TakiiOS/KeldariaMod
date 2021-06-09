@@ -1,9 +1,9 @@
 package fr.nathanael2611.keldaria.mod.entity.animal;
 
 import com.google.common.collect.Lists;
-import fr.nathanael2611.keldaria.mod.client.render.entity.animal.FoodEntry;
 import fr.nathanael2611.keldaria.mod.entity.ai.EntityAIReproduction;
 import fr.nathanael2611.keldaria.mod.entity.ai.KeldAITempt;
+import fr.nathanael2611.keldaria.mod.features.KeldariaDate;
 import net.minecraft.block.Block;
 import net.minecraft.entity.ai.*;
 import net.minecraft.entity.player.EntityPlayer;
@@ -16,16 +16,27 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
 import java.util.List;
-import java.util.concurrent.TimeUnit;
 
-public class EntityPig extends EntityKeldAnimal
+public class KeldaPig extends EntityKeldAnimal
 {
 
     private static final List<FoodEntry> TEMPTATION_ITEMS = Lists.newArrayList(new FoodEntry(Items.CARROT, 30), new FoodEntry(Items.POTATO, 20), new FoodEntry(Items.BEETROOT, 40));
 
-    public EntityPig(World worldIn)
+    public KeldaPig(World worldIn)
     {
         super(worldIn);
+    }
+
+    protected void initEntityAI()
+    {
+        this.tasks.addTask(0, new EntityAISwimming(this));
+        this.tasks.addTask(1, new EntityAIPanic(this, 1.25D));
+        this.tasks.addTask(3, new EntityAIReproduction(this, 1.0D));
+        this.tasks.addTask(4, new KeldAITempt(this, 1.2D, false));
+        //this.tasks.addTask(5, new EntityAIFollowParent(this, 1.1D));
+        this.tasks.addTask(6, new EntityAIWanderAvoidWater(this, 1.0D));
+        this.tasks.addTask(7, new EntityAIWatchClosest(this, EntityPlayer.class, 6.0F));
+        this.tasks.addTask(8, new EntityAILookIdle(this));
     }
 
     @Override
@@ -52,22 +63,10 @@ public class EntityPig extends EntityKeldAnimal
         return isAdult() ? 20 : 10;
     }
 
-    protected void initEntityAI()
-    {
-        this.tasks.addTask(0, new EntityAISwimming(this));
-        this.tasks.addTask(1, new EntityAIPanic(this, 1.25D));
-        this.tasks.addTask(3, new EntityAIReproduction(this, 1.0D));
-        this.tasks.addTask(4, new KeldAITempt(this, 1.2D, false));
-        //this.tasks.addTask(5, new EntityAIFollowParent(this, 1.1D));
-        this.tasks.addTask(6, new EntityAIWanderAvoidWater(this, 1.0D));
-        this.tasks.addTask(7, new EntityAIWatchClosest(this, EntityPlayer.class, 6.0F));
-        this.tasks.addTask(8, new EntityAILookIdle(this));
-    }
-
     @Override
     public long getGrowTime()
     {
-        return TimeUnit.DAYS.toMillis(7);
+        return KeldariaDate.Unit.MONTH.toMillis(1);
     }
 
     @Override
@@ -79,20 +78,39 @@ public class EntityPig extends EntityKeldAnimal
     @Override
     public long getReFertilizationTime()
     {
-        return 10000;
+        return KeldariaDate.Unit.MONTH.toMillis(1);
     }
 
     @Override
     public long getFullTime()
     {
-        return TimeUnit.DAYS.toMillis(2);
+        return KeldariaDate.Unit.DAYS.toMillis(4);
     }
 
     @Override
     public long getHydratedTime()
     {
-        return TimeUnit.DAYS.toMillis(2);
+        return KeldariaDate.Unit.DAYS.toMillis(4);
     }
+
+    @Override
+    public long getConceptionTime()
+    {
+        return KeldariaDate.Unit.MONTH.toMillis(1);
+    }
+
+    @Override
+    public List<ItemStack> getLoot()
+    {
+        return Lists.newArrayList(new ItemStack(Items.PORKCHOP));
+    }
+
+    @Override
+    public EntityKeldAnimal initChild(EntityKeldAnimal mate)
+    {
+        return new KeldaPig(this.world);
+    }
+
 
     protected SoundEvent getAmbientSound()
     {
@@ -112,24 +130,6 @@ public class EntityPig extends EntityKeldAnimal
     protected void playStepSound(BlockPos pos, Block blockIn)
     {
         this.playSound(SoundEvents.ENTITY_PIG_STEP, 0.15F, 1.0F);
-    }
-
-    @Override
-    public List<ItemStack> getLoot()
-    {
-        return Lists.newArrayList(new ItemStack(Items.PORKCHOP));
-    }
-
-    @Override
-    public EntityKeldAnimal initChild(EntityKeldAnimal mate)
-    {
-        return new EntityPig(this.world);
-    }
-
-    @Override
-    public long getConceptionTime()
-    {
-        return 10000;
     }
 
 }

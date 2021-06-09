@@ -9,6 +9,9 @@ item.keldaria:white_horse.name=Cheval blanc
 item.keldaria:white_pawn.name=Pion blanc
 item.keldaria:white_king.name=Roi blanc
 
+item.keldaria:fertilized_egg.name=Oeuf fécondé
+
+
 item.keldaria:glasses.name=Lunettes
 item.keldaria:glasses_frame.name=Lunettes vides
 

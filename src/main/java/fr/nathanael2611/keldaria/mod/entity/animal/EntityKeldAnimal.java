@@ -3,10 +3,10 @@ package fr.nathanael2611.keldaria.mod.entity.animal;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Sets;
 import fr.nathanael2611.keldaria.mod.asm.MixinHooks;
-import fr.nathanael2611.keldaria.mod.client.render.entity.animal.FoodEntry;
 import fr.nathanael2611.keldaria.mod.entity.AnimalStat;
 import fr.nathanael2611.keldaria.mod.features.AnimalGender;
 import fr.nathanael2611.keldaria.mod.features.KeldariaDate;
+import fr.nathanael2611.keldaria.mod.features.skill.EnumJob;
 import fr.nathanael2611.keldaria.mod.util.Helpers;
 import net.minecraft.entity.EntityCreature;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -35,18 +35,35 @@ public abstract class EntityKeldAnimal extends EntityCreature
     private static final DataParameter<Long> LAST_DRINK = EntityDataManager.createKey(EntityKeldAnimal.class, MixinHooks.LONG);
     private static final DataParameter<AnimalGender> GENDER = EntityDataManager.createKey(EntityKeldAnimal.class, MixinHooks.GENDER);
     private static final DataParameter<Long> BORN_DATE = EntityDataManager.createKey(EntityKeldAnimal.class, MixinHooks.LONG);
+    private static final DataParameter<Long> LAST_MAKE_OUT = EntityDataManager.createKey(EntityKeldAnimal.class, MixinHooks.LONG);
+    private static final DataParameter<Pregnancy> PREGNANCY = EntityDataManager.createKey(EntityKeldAnimal.class, MixinHooks.PREGNANCY);
 
     private UUID owner = null;
 
     public EntityKeldAnimal(World worldIn)
     {
         super(worldIn);
+        this.enablePersistence();
     }
 
     @Override
     public void onUpdate()
     {
         super.onUpdate();
+
+        if(!this.world.isRemote)
+        {
+            if(this.isPregnant())
+            {
+                if(this.getPregnancy().shouldGiveBirth())
+                {
+                    EntityKeldAnimal baby = this.getPregnancy().createBaby(this.world);
+                    baby.setLocationAndAngles(this.posX, this.posY, this.posZ, 0.0F, 0.0F);
+                    this.world.spawnEntity(baby);
+                    this.getPregnant(Pregnancy.NOT_PREGNANT);
+                }
+            }
+        }
 
         this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(this.getBaseHealth() * this.getStats().getResistance());
         this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(this.getBaseSpeed() * this.getStats().getSpeed());
@@ -71,6 +88,8 @@ public abstract class EntityKeldAnimal extends EntityCreature
         this.dataManager.register(LAST_DRINK, System.currentTimeMillis());
         this.dataManager.register(GENDER, AnimalGender.MALE);
         this.dataManager.register(BORN_DATE, System.currentTimeMillis());
+        this.dataManager.register(LAST_MAKE_OUT, System.currentTimeMillis());
+        this.dataManager.register(PREGNANCY, Pregnancy.NOT_PREGNANT);
 
     }
 
@@ -133,6 +152,21 @@ public abstract class EntityKeldAnimal extends EntityCreature
         this.dataManager.set(BORN_DATE, bornDate);
     }
 
+    public void getPregnant(Pregnancy pregnancy)
+    {
+        this.dataManager.set(PREGNANCY, pregnancy);
+    }
+
+    public Pregnancy getPregnancy()
+    {
+        return this.dataManager.get(PREGNANCY);
+    }
+
+    public void setBornDate(Pregnancy pregnancy)
+    {
+        this.dataManager.set(PREGNANCY, pregnancy);
+    }
+
     public void feed()
     {
         this.feed(System.currentTimeMillis());
@@ -163,6 +197,25 @@ public abstract class EntityKeldAnimal extends EntityCreature
         return /*!isTamed() ||*/ System.currentTimeMillis() - getLastDrink() > getHydratedTime();
     }
 
+
+    public void makeOut()
+    {
+        this.makeOut(System.currentTimeMillis());
+    }
+
+    public void makeOut(long time)
+    {
+        this.dataManager.set(LAST_MAKE_OUT, time);
+    }
+
+    public long getLastMakeOut()
+    {
+        return this.dataManager.get(LAST_MAKE_OUT);
+    }
+
+
+    public abstract long getReFertilizationTime();
+
     public abstract long getFullTime();
 
     public abstract long getHydratedTime();
@@ -188,12 +241,18 @@ public abstract class EntityKeldAnimal extends EntityCreature
         super.readEntityFromNBT(compound);
         if(compound.hasKey("Stats"))
             this.setStats(new AnimalStat(compound.getCompoundTag("Stats")));
+        if(compound.hasKey("Pregnancy"))
+            this.getPregnant(new Pregnancy(compound.getCompoundTag("Pregnancy")));
+        if(compound.hasKey("Gender"))
+            this.setGender(AnimalGender.byId(compound.getInteger("Gender")));
 
         if(compound.hasKey("BornDate"))
             this.setBornDate(compound.getLong("BornDate"));
         if(compound.hasUniqueId("Owner"))
             owner = compound.getUniqueId("Owner");
 
+        if(compound.hasKey("LastMakeOut"))
+            makeOut(compound.getLong("LastMakeOut"));
         if(compound.hasKey("LastFeed"))
             feed(compound.getLong("LastFeed"));
         if(compound.hasKey("LastDrink"))
@@ -206,11 +265,14 @@ public abstract class EntityKeldAnimal extends EntityCreature
     {
         super.writeEntityToNBT(compound);
         compound.setTag("Stats", this.getStats().serializeNBT());
+        compound.setTag("Pregnancy", this.getPregnancy().serializeNBT());
+        compound.setInteger("Gender", this.getGender().getId());
 
         compound.setLong("BornDate", this.getBornDate());
         if(this.owner != null)
             compound.setUniqueId("Owner", this.owner);
 
+        compound.setLong("LastMakeOut", this.getLastMakeOut());
         compound.setLong("LastFeed", this.getLastFeed());
         compound.setLong("LastDrink", this.getLastDrink());
     }
@@ -223,18 +285,26 @@ public abstract class EntityKeldAnimal extends EntityCreature
 
     public boolean canMateWith(EntityKeldAnimal otherAnimal)
     {
-        if (otherAnimal == this)
+        if(this.isFertile())
         {
-            return false;
+            if (otherAnimal == this)
+            {
+                return false;
+            }
+            else if(!otherAnimal.isFertile())
+            {
+                return false;
+            }
+            else if (otherAnimal.getClass() != this.getClass())
+            {
+                return false;
+            }
+            else
+            {
+                return this.getGender() != otherAnimal.getGender() && (this.isHealthy() && otherAnimal.isHealthy());
+            }
         }
-        else if (otherAnimal.getClass() != this.getClass())
-        {
-            return false;
-        }
-        else
-        {
-            return this.getGender() != otherAnimal.getGender() && (this.isHealthy() && otherAnimal.isHealthy());
-        }
+        return false;
     }
 
     public boolean isHealthy()
@@ -304,12 +374,12 @@ public abstract class EntityKeldAnimal extends EntityCreature
 
     public List<KeldariaDate.Month> getFertileMonths()
     {
-        return Lists.newArrayList(KeldariaDate.Month.PAIS, KeldariaDate.Month.MAGUIA);
+        return Lists.newArrayList(KeldariaDate.Month.MIST, KeldariaDate.Month.MAGUIA);
     }
 
     public boolean isFertile()
     {
-        return this.isAdult() && getFertileMonths().contains(KeldariaDate.lastDate.getMonth());
+        return !this.isPregnant() && this.isAdult() && getFertileMonths().contains(KeldariaDate.lastDate.getMonth()) && (System.currentTimeMillis() - this.getLastMakeOut() > this.getReFertilizationTime());
     }
 
     public boolean canMate()
@@ -317,7 +387,53 @@ public abstract class EntityKeldAnimal extends EntityCreature
         return this.isFertile();
     }
 
+    public boolean canBePregnant()
+    {
+        return this.getGender() == AnimalGender.FEMALE;
+    }
 
+    public boolean isPregnant()
+    {
+        return this.canBePregnant() && this.getPregnancy().isPregnant();
+    }
 
+    public EntityKeldAnimal createBaby(EntityKeldAnimal mate)
+    {
+        EntityKeldAnimal animal = this.initChild(mate);
+        animal.setStats(AnimalStat.fromParents(this.getStats(), mate.getStats()));
+        animal.setGender(Helpers.randomInteger(0, 100) > 50 ? AnimalGender.MALE : AnimalGender.FEMALE);
+        return animal;
+    }
+
+    public abstract EntityKeldAnimal initChild(EntityKeldAnimal mate);
+
+    public abstract long getConceptionTime();
+
+    public long getTimeLived()
+    {
+        return System.currentTimeMillis() - getBornDate();
+    }
+
+    public List<String> getHoverInfos(EntityPlayer player)
+    {
+        List<String> infos = Lists.newArrayList();
+        infos.add(String.format("§6%s", this.isHungry() ? "Affamé" : "Rassasié"));
+        infos.add(String.format("§3%s", this.isThirsty() ? "Assoifé" : "Hydraté"));
+        AnimalGender gender = this.getGender();
+        infos.add(String.format("§4Sexe: §c%s", gender.getSymbol() + " " + (gender == AnimalGender.MALE ? "Mâle" : "Femelle")));
+        if(this.isPregnant())
+        {
+            Pregnancy pregnancy = this.getPregnancy();
+            if(EnumJob.APOTHECARY.has(player))
+            {
+                infos.add("§6Enceinte " + ((System.currentTimeMillis() - pregnancy.getFertilizationDate()) * 100 / pregnancy.getChildDevelopment()) + "%");
+            }
+            else
+            {
+                infos.add("§6Enceinte");
+            }
+        }
+        return infos;
+    }
 
 }

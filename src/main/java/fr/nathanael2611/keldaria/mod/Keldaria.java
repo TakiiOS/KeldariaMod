@@ -22,9 +22,6 @@ import fr.nathanael2611.keldaria.mod.crafting.storage.api.IKnownRecipes;
 import fr.nathanael2611.keldaria.mod.crafting.storage.impl.KnownRecipes;
 import fr.nathanael2611.keldaria.mod.discord.DiscordImpl;
 import fr.nathanael2611.keldaria.mod.entity.EntityHomingPigeon;
-import fr.nathanael2611.keldaria.mod.entity.EntityLucrain;
-import fr.nathanael2611.keldaria.mod.entity.animal.EntityPig;
-import fr.nathanael2611.keldaria.mod.entity.bestiary.spider.Spider;
 import fr.nathanael2611.keldaria.mod.features.*;
 import fr.nathanael2611.keldaria.mod.features.ability.EnumAptitudes;
 import fr.nathanael2611.keldaria.mod.features.accessories.SyncedAccessories;
@@ -64,16 +61,15 @@ import net.minecraft.nbt.JsonToNBT;
 import net.minecraft.nbt.NBTException;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
-import net.minecraft.network.datasync.DataSerializers;
-import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.ForgeChunkManager;
 import net.minecraftforge.common.capabilities.CapabilityManager;
 import net.minecraftforge.common.util.Constants;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.*;
-import net.minecraftforge.fml.common.registry.EntityRegistry;
+import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.registries.DataSerializerEntry;
 
 import javax.security.auth.login.LoginException;
 import java.awt.*;
@@ -139,10 +135,11 @@ public class Keldaria
         //CapabilityManager.INSTANCE.register(FightControl.class, new FightStorage(), FightControl::new);
         //CapabilityManager.INSTANCE.register(IChunkGrowManager.class, new GrowStorage(), ChunkGrowManagerImpl::new);
         KeldariaPacketHandler.getInstance().registerPackets();
-        DataSerializers.registerSerializer(MixinHooks.DOUBLE);
-        DataSerializers.registerSerializer(MixinHooks.LONG);
-        DataSerializers.registerSerializer(MixinHooks.GENDER);
-        DataSerializers.registerSerializer(MixinHooks.ANIMAL_STATS);
+        ForgeRegistries.DATA_SERIALIZERS.register(new DataSerializerEntry(MixinHooks.DOUBLE).setRegistryName(MOD_ID, "double"));
+        ForgeRegistries.DATA_SERIALIZERS.register(new DataSerializerEntry(MixinHooks.LONG).setRegistryName(MOD_ID, "long"));
+        ForgeRegistries.DATA_SERIALIZERS.register(new DataSerializerEntry(MixinHooks.GENDER).setRegistryName(MOD_ID, "gender"));
+        ForgeRegistries.DATA_SERIALIZERS.register(new DataSerializerEntry(MixinHooks.ANIMAL_STATS).setRegistryName(MOD_ID, "animal_stats"));
+        ForgeRegistries.DATA_SERIALIZERS.register(new DataSerializerEntry(MixinHooks.PREGNANCY).setRegistryName(MOD_ID, "pregnancy"));
         astikorCarts.preInit(e);
 
 

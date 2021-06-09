@@ -10,6 +10,7 @@ import com.google.gson.JsonParser;
 import com.mojang.authlib.GameProfile;
 import fr.nathanael2611.keldaria.mod.Keldaria;
 import fr.nathanael2611.keldaria.mod.entity.AnimalStat;
+import fr.nathanael2611.keldaria.mod.entity.animal.Pregnancy;
 import fr.nathanael2611.keldaria.mod.features.AnimalGender;
 import fr.nathanael2611.keldaria.mod.features.food.ExpiredFoods;
 import fr.nathanael2611.keldaria.mod.features.PlayerSizes;
@@ -204,6 +205,26 @@ public class MixinHooks
             return new DataParameter<>(id, this);
         }
         public AnimalStat copyValue(AnimalStat value)
+        {
+            return value;
+        }
+    };
+
+    public static final DataSerializer<Pregnancy> PREGNANCY = new DataSerializer<Pregnancy>()
+    {
+        public void write(PacketBuffer buf, Pregnancy value)
+        {
+            ByteBufUtils.writeTag(buf, value.serializeNBT());
+        }
+        public Pregnancy read(PacketBuffer buf) throws IOException
+        {
+            return new Pregnancy(ByteBufUtils.readTag(buf));
+        }
+        public DataParameter<Pregnancy> createKey(int id)
+        {
+            return new DataParameter<>(id, this);
+        }
+        public Pregnancy copyValue(Pregnancy value)
         {
             return value;
         }

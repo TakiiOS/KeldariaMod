@@ -1,11 +1,11 @@
 package fr.nathanael2611.keldaria.mod.client.render.entity.animal;
 
-import fr.nathanael2611.keldaria.mod.entity.animal.EntityPig;
+import fr.nathanael2611.keldaria.mod.entity.animal.KeldaPig;
 import net.minecraft.client.model.ModelPig;
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.util.ResourceLocation;
 
-public class RenderPig extends RenderKeldAnimal<EntityPig>
+public class RenderPig extends RenderKeldAnimal<KeldaPig>
 {
     private static final ResourceLocation PIG_TEXTURES = new ResourceLocation("textures/entity/pig/pig.png");
 
@@ -17,7 +17,7 @@ public class RenderPig extends RenderKeldAnimal<EntityPig>
     /**
      * Returns the location of an entity's texture. Doesn't seem to be called unless you call Render.bindEntityTexture.
      */
-    protected ResourceLocation getEntityTexture(EntityPig entity)
+    protected ResourceLocation getEntityTexture(KeldaPig entity)
     {
         return PIG_TEXTURES;
     }

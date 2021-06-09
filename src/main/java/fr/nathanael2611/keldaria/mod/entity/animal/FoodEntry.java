@@ -1,4 +1,4 @@
-package fr.nathanael2611.keldaria.mod.client.render.entity.animal;
+package fr.nathanael2611.keldaria.mod.entity.animal;
 
 import fr.nathanael2611.keldaria.mod.util.Helpers;
 import net.minecraft.item.Item;
