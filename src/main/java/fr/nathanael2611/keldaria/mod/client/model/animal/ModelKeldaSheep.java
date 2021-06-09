@@ -1,17 +1,14 @@
 package fr.nathanael2611.keldaria.mod.client.model.animal;
 
-import fr.nathanael2611.keldaria.mod.entity.animal.KeldaSheep;
 import net.minecraft.client.model.ModelQuadruped;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.passive.EntitySheep;
 
-public class ModelSheep2 extends ModelQuadruped
+public class ModelKeldaSheep extends ModelQuadruped
 {
-    private float headRotationAngleX;
 
-    public ModelSheep2()
+    public ModelKeldaSheep()
     {
         super(12, 0.0F);
         this.head = new ModelRenderer(this, 0, 0);

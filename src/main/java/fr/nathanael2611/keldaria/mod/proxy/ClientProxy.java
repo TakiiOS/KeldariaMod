@@ -8,18 +8,9 @@ package fr.nathanael2611.keldaria.mod.proxy;
 import de.matthiasmann.twl.utils.PNGDecoder;
 import fr.nathanael2611.keldaria.mod.Keldaria;
 import fr.nathanael2611.keldaria.mod.animation.AnimationUtils;
-import fr.nathanael2611.keldaria.mod.client.ShadersManager;
-import fr.nathanael2611.keldaria.mod.client.ren.REN;
-import fr.nathanael2611.keldaria.mod.client.render.entity.animal.RenderChicken;
-import fr.nathanael2611.keldaria.mod.client.render.entity.animal.RenderCow;
-import fr.nathanael2611.keldaria.mod.client.render.entity.animal.RenderEgg;
-import fr.nathanael2611.keldaria.mod.client.render.entity.animal.RenderPig;
-import fr.nathanael2611.keldaria.mod.entity.animal.KeldaChicken;
-import fr.nathanael2611.keldaria.mod.entity.animal.KeldaCow;
-import fr.nathanael2611.keldaria.mod.entity.animal.KeldaPig;
-import fr.nathanael2611.keldaria.mod.tileentity.TileEntityFruitBlock;
 import fr.nathanael2611.keldaria.mod.block.furniture.TileEntityChessPlate;
 import fr.nathanael2611.keldaria.mod.client.KeldariaDiscordRPC;
+import fr.nathanael2611.keldaria.mod.client.ShadersManager;
 import fr.nathanael2611.keldaria.mod.client.handler.KeldariaClientHandler;
 import fr.nathanael2611.keldaria.mod.client.handler.KeldariaKeyboardHandler;
 import fr.nathanael2611.keldaria.mod.client.handler.KeldariaRenderHandler;
@@ -27,10 +18,16 @@ import fr.nathanael2611.keldaria.mod.client.layer.LayerHorseStorage;
 import fr.nathanael2611.keldaria.mod.client.layer.LayerQuiver;
 import fr.nathanael2611.keldaria.mod.client.layer.LayerSpur;
 import fr.nathanael2611.keldaria.mod.client.layer.LayerWeapons;
+import fr.nathanael2611.keldaria.mod.client.ren.REN;
 import fr.nathanael2611.keldaria.mod.client.render.entity.RenderHomingPigeon;
+import fr.nathanael2611.keldaria.mod.client.render.entity.animal.*;
 import fr.nathanael2611.keldaria.mod.client.render.teisr.RoundShieldRenderer;
 import fr.nathanael2611.keldaria.mod.client.render.tesr.*;
 import fr.nathanael2611.keldaria.mod.entity.EntityHomingPigeon;
+import fr.nathanael2611.keldaria.mod.entity.animal.KeldaChicken;
+import fr.nathanael2611.keldaria.mod.entity.animal.KeldaCow;
+import fr.nathanael2611.keldaria.mod.entity.animal.KeldaPig;
+import fr.nathanael2611.keldaria.mod.entity.animal.KeldaSheep;
 import fr.nathanael2611.keldaria.mod.item.ItemRemedyVial;
 import fr.nathanael2611.keldaria.mod.item.ItemWashingSoap;
 import fr.nathanael2611.keldaria.mod.registry.KeldariaItems;
@@ -38,7 +35,10 @@ import fr.nathanael2611.keldaria.mod.season.SeasonHandler;
 import fr.nathanael2611.keldaria.mod.tileentity.*;
 import fr.nathanael2611.obfuscate.remastered.client.ObfuscateEvents;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.renderer.entity.*;
+import net.minecraft.client.renderer.entity.Render;
+import net.minecraft.client.renderer.entity.RenderHorse;
+import net.minecraft.client.renderer.entity.RenderManager;
+import net.minecraft.client.renderer.entity.RenderPlayer;
 import net.minecraft.client.settings.KeyBinding;
 import net.minecraft.entity.passive.EntityHorse;
 import net.minecraft.util.ResourceLocation;
@@ -112,6 +112,7 @@ public class ClientProxy extends CommonProxy
         RenderingRegistry.registerEntityRenderingHandler(KeldaCow.class, RenderCow::new);
         RenderingRegistry.registerEntityRenderingHandler(KeldaChicken.class, RenderChicken::new);
         RenderingRegistry.registerEntityRenderingHandler(KeldaChicken.KeldaEgg.class, RenderEgg::new);
+        RenderingRegistry.registerEntityRenderingHandler(KeldaSheep.class, RenderSheep::new);
     }
 
     private void addNewLayers()
@@ -208,8 +209,7 @@ public class ClientProxy extends CommonProxy
             try
             {
                 Display.setIcon(new ByteBuffer[]{loadIcon("16.PNG"), loadIcon("32.PNG")});
-            }
-            catch (Exception e)
+            } catch (Exception e)
             {
                 System.out.println("Failed to set custom icon");
                 e.printStackTrace();

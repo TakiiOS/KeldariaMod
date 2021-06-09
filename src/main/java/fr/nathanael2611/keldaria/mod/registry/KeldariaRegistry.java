@@ -16,6 +16,7 @@ import fr.nathanael2611.keldaria.mod.entity.EntityHomingPigeon;
 import fr.nathanael2611.keldaria.mod.entity.animal.KeldaChicken;
 import fr.nathanael2611.keldaria.mod.entity.animal.KeldaCow;
 import fr.nathanael2611.keldaria.mod.entity.animal.KeldaPig;
+import fr.nathanael2611.keldaria.mod.entity.animal.KeldaSheep;
 import fr.nathanael2611.keldaria.mod.features.BlastFurnace;
 import fr.nathanael2611.keldaria.mod.features.food.ExpiredFoods;
 import fr.nathanael2611.keldaria.mod.features.skill.JobHandler;
@@ -262,6 +263,7 @@ public class KeldariaRegistry
         EntityRegistry.registerModEntity(new ResourceLocation(Keldaria.MOD_ID, "cow"), KeldaCow.class, "Cow", 32, mod, 80, 3, true);
         EntityRegistry.registerModEntity(new ResourceLocation(Keldaria.MOD_ID, "chicken"), KeldaChicken.class, "Chicken", 33, mod, 80, 3, true);
         EntityRegistry.registerModEntity(new ResourceLocation(Keldaria.MOD_ID, "egg"), KeldaChicken.KeldaEgg.class, "Egg", 34, mod, 80, 3, true);
+        EntityRegistry.registerModEntity(new ResourceLocation(Keldaria.MOD_ID, "sheep"), KeldaSheep.class, "Sheep", 35, mod, 80, 3, true);
 
     }
 

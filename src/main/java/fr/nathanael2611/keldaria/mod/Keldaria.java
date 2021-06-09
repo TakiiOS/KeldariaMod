@@ -140,6 +140,7 @@ public class Keldaria
         ForgeRegistries.DATA_SERIALIZERS.register(new DataSerializerEntry(MixinHooks.GENDER).setRegistryName(MOD_ID, "gender"));
         ForgeRegistries.DATA_SERIALIZERS.register(new DataSerializerEntry(MixinHooks.ANIMAL_STATS).setRegistryName(MOD_ID, "animal_stats"));
         ForgeRegistries.DATA_SERIALIZERS.register(new DataSerializerEntry(MixinHooks.PREGNANCY).setRegistryName(MOD_ID, "pregnancy"));
+        ForgeRegistries.DATA_SERIALIZERS.register(new DataSerializerEntry(MixinHooks.FLEECE).setRegistryName(MOD_ID, "fleece"));
         astikorCarts.preInit(e);
 
 

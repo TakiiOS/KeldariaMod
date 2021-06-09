@@ -22,7 +22,6 @@ import fr.nathanael2611.keldaria.mod.command.CommandLore;
 import fr.nathanael2611.keldaria.mod.crafting.storage.KnownRecipesStorage;
 import fr.nathanael2611.keldaria.mod.crafting.storage.api.IKnownRecipes;
 import fr.nathanael2611.keldaria.mod.entity.animal.EntityKeldAnimal;
-import fr.nathanael2611.keldaria.mod.entity.animal.Pregnancy;
 import fr.nathanael2611.keldaria.mod.features.*;
 import fr.nathanael2611.keldaria.mod.features.accessories.Accessories;
 import fr.nathanael2611.keldaria.mod.features.armoposes.ArmPoses;
@@ -151,7 +150,6 @@ public class KeldariaRenderHandler
         animation.renderAnimation(e);
 
 
-
         float swingProgress = player.prevSwingProgress + (player.swingProgress - player.prevSwingProgress) * e.getPartialTicks();
         swingProgress *= 2;
         //System.out.println(swingProgress);
@@ -173,19 +171,19 @@ public class KeldariaRenderHandler
         }
 
         ArmPoses poses = Keldaria.getInstance().getArmPoses();
-        if(poses.hasPose(e.getEntityPlayer()))
+        if (poses.hasPose(e.getEntityPlayer()))
         {
             Arms arms = poses.getPose(e.getEntityPlayer());
             arms.getRightArm().apply(e.getEntityPlayer(), modelPlayer.bipedRightArm, true);
             arms.getLeftArm().apply(e.getEntityPlayer(), modelPlayer.bipedLeftArm, false);
         }
 
-        if(mc.player == e.getEntity())
+        if (mc.player == e.getEntity())
         {
-            if(mc.currentScreen instanceof GuiFrame.APIGuiScreen)
+            if (mc.currentScreen instanceof GuiFrame.APIGuiScreen)
             {
                 GuiFrame screen = ((GuiFrame.APIGuiScreen) mc.currentScreen).getFrame();
-                if(screen instanceof GuiArmsChooser)
+                if (screen instanceof GuiArmsChooser)
                 {
                     Arms arms = ((GuiArmsChooser) screen).getToAdd();
                     arms.getRightArm().apply(mc.player, modelPlayer.bipedRightArm, true);
@@ -193,7 +191,6 @@ public class KeldariaRenderHandler
                 }
             }
         }
-
 
 
     }
@@ -289,12 +286,11 @@ public class KeldariaRenderHandler
                 return;
             }
             GL11.glPushMatrix();
-            if(e.getRenderer().getMainModel() instanceof ModelPlayer)
+            if (e.getRenderer().getMainModel() instanceof ModelPlayer)
             {
 
 
                 ModelPlayer modelPlayer = (ModelPlayer) e.getRenderer().getMainModel();
-
 
 
                 modelPlayer.bipedHead.showModel = !AmputationManager.isAmputated(player, AmputationManager.Member.HEAD);
@@ -311,7 +307,6 @@ public class KeldariaRenderHandler
 
                 modelPlayer.bipedLeftLeg.showModel = !AmputationManager.isAmputated(player, AmputationManager.Member.LEFT_LEG);
                 modelPlayer.bipedLeftLegwear.showModel = !AmputationManager.isAmputated(player, AmputationManager.Member.LEFT_LEG);
-
 
 
             }
@@ -408,10 +403,10 @@ public class KeldariaRenderHandler
         {
             if (event.isCancelable())
             {
-                if(!Helpers.isDebugEnable())
+                if (!Helpers.isDebugEnable())
                 {
                     double skill = WeaponStat.getAttackStat(mc.player) != null ? WeaponStat.getAttackStat(mc.player).getLevel(mc.player) : 0;
-                    if(skill < 15)
+                    if (skill < 15)
                     {
                         event.setCanceled(!mc.player.isCreative());
                     }
@@ -429,9 +424,9 @@ public class KeldariaRenderHandler
                         event.getType() == RenderGameOverlayEvent.ElementType.FOOD ||
                         event.getType() == RenderGameOverlayEvent.ElementType.EXPERIENCE)
         {
-            if(event.isCancelable())
+            if (event.isCancelable())
             {
-                if(!(mc.player.isCreative()) && !mc.player.isSpectator())
+                if (!(mc.player.isCreative()) && !mc.player.isSpectator())
                 {
                     event.setCanceled(true);
                 }
@@ -461,7 +456,7 @@ public class KeldariaRenderHandler
         /* Render Helm*/
         if (event.getType() == RenderGameOverlayEvent.ElementType.HELMET)
         {
-            Accessories acc =  Keldaria.getInstance().getSyncedAccessories().getAccessories(mc.player);
+            Accessories acc = Keldaria.getInstance().getSyncedAccessories().getAccessories(mc.player);
             if (!Helpers.isDebugEnable() && (acc != null && acc.getArmor().isWearingHelm()))
             {
                 ScaledResolution scaledRes = event.getResolution();
@@ -490,7 +485,7 @@ public class KeldariaRenderHandler
 
         GlStateManager.pushMatrix();
 
-        if(event.getType() == RenderGameOverlayEvent.ElementType.HOTBAR)
+        if (event.getType() == RenderGameOverlayEvent.ElementType.HOTBAR)
         {
             renderHotbar(event.getResolution());
         }
@@ -521,8 +516,10 @@ public class KeldariaRenderHandler
                 while (yaw > 360) yaw -= 360;
                 while (yaw < 0) yaw += 360;
                 GlStateManager.pushMatrix();
-                if (mc.player.getHeldItemMainhand().getItem() == KeldariaItems.COMPASS) GlStateManager.translate(resolution.getScaledWidth() - (100 * 1.3), 100 + resolution.getScaledHeight() - mc.player.getCooledAttackStrength(0) * 100, 0);
-                else GlStateManager.translate(0, 100 + resolution.getScaledHeight() - mc.player.getCooledAttackStrength(0) * 100, 0);
+                if (mc.player.getHeldItemMainhand().getItem() == KeldariaItems.COMPASS)
+                    GlStateManager.translate(resolution.getScaledWidth() - (100 * 1.3), 100 + resolution.getScaledHeight() - mc.player.getCooledAttackStrength(0) * 100, 0);
+                else
+                    GlStateManager.translate(0, 100 + resolution.getScaledHeight() - mc.player.getCooledAttackStrength(0) * 100, 0);
                 GlStateManager.scale(1.3, 1.3, 1.3);
                 RenderHelpers.drawImage(0, -100, COMPASS_TEXTURE_BG, 100, 100);
                 GlStateManager.pushMatrix();
@@ -541,7 +538,7 @@ public class KeldariaRenderHandler
                 Entity entity = MixinClientHooks.getOverItem(event.getPartialTicks());
                 this.itemEntityOverMouse = entity;
 
-                if(entity instanceof EntityItem /*&&
+                if (entity instanceof EntityItem /*&&
                         entity.getDistance(mc.player) < mc.player.getEntityAttribute(EntityPlayer.REACH_DISTANCE).getAttributeValue() / 2.2*/)
                 {
                     EntityItem item = (EntityItem) entity;
@@ -586,32 +583,22 @@ public class KeldariaRenderHandler
             }
             if (result != null)
             {
-
-
-
-                if(result.entityHit instanceof EntityKeldAnimal)
+                if (result.entityHit instanceof EntityKeldAnimal)
                 {
                     EntityKeldAnimal animal = (EntityKeldAnimal) result.entityHit;
                     List<String> infos = Lists.newArrayList();
                     infos.add(String.format("§n%s", animal.getName()));
                     infos.add(" ");
                     infos.addAll(animal.getHoverInfos(mc.player));
-                    {
-                        int maxWidth = 0;
-                        for (String info : infos)
-                        {
-                            maxWidth = Math.max(maxWidth, mc.fontRenderer.getStringWidth(info) + 10);
-                        }
-                        Gui.drawRect((int) (resolution.getScaledWidth() - maxWidth - 2), resolution.getScaledHeight() / 2 - 60, (int) (resolution.getScaledWidth()), resolution.getScaledHeight() / 2 + 10, new Color(0, 0, 0, 100).getRGB());
-                        for (int i = 0; i < infos.size(); i++)
-                        {
-                            mc.fontRenderer.drawStringWithShadow(infos.get(i), resolution.getScaledWidth() - maxWidth, resolution.getScaledHeight() / 2 - 55 + (i * mc.fontRenderer.FONT_HEIGHT), Color.WHITE.getRGB());
-                        }
 
-                    }
-                }
-                else
-                if (result.entityHit instanceof AbstractHorse || (mc.player.isRiding() && mc.player.getRidingEntity() instanceof AbstractHorse))
+                    int maxWidth = 0;
+                    for (String info : infos)
+                        maxWidth = Math.max(maxWidth, mc.fontRenderer.getStringWidth(info) + 10);
+                    Gui.drawRect((int) (resolution.getScaledWidth() - maxWidth - 2), resolution.getScaledHeight() / 2 - 60, (int) (resolution.getScaledWidth()), resolution.getScaledHeight() / 2 + 10, new Color(0, 0, 0, 100).getRGB());
+                    for (int i = 0; i < infos.size(); i++)
+                        mc.fontRenderer.drawStringWithShadow(infos.get(i), resolution.getScaledWidth() - maxWidth, resolution.getScaledHeight() / 2 - 55 + (i * mc.fontRenderer.FONT_HEIGHT), Color.WHITE.getRGB());
+                    
+                } else if (result.entityHit instanceof AbstractHorse || (mc.player.isRiding() && mc.player.getRidingEntity() instanceof AbstractHorse))
                 {
                     AbstractHorse horse = result.entityHit instanceof AbstractHorse ? (AbstractHorse) result.entityHit : (AbstractHorse) mc.player.getRidingEntity();
                     ILivingHorse livingHorse = (ILivingHorse) horse;
@@ -624,7 +611,7 @@ public class KeldariaRenderHandler
                     AnimalGender gender = livingHorse.getGender();
                     infos.add(String.format("§4Sexe: §c%s", gender.getSymbol() + " " + (gender == AnimalGender.MALE ? "Mâle" : "Femelle")));
 
-                    if(mc.player.isRidingSameEntity(horse))
+                    if (mc.player.isRidingSameEntity(horse))
                     {
                         infos.add(String.format("§4Santé:§c %s", (int) Helpers.getPercent(horse.getHealth(), horse.getMaxHealth()) + "%"));
                     }
@@ -702,12 +689,9 @@ public class KeldariaRenderHandler
     }
 
 
-
-
     public void renderHotbar(ScaledResolution res)
     {
         GlStateManager.pushMatrix();
-
 
 
         //GlStateManager.translate(10, 0, 0);
@@ -718,12 +702,11 @@ public class KeldariaRenderHandler
 
         GlStateManager.translate(res.getScaledWidth() / 2, res.getScaledHeight(), 0);
         GlStateManager.scale(0.8, 0.8, 1);
-        GlStateManager.translate(- 178 / 2, - 57, 0);
+        GlStateManager.translate(-178 / 2, -57, 0);
         GlStateManager.translate(0, 0, -200);
 
 
-
-        if(!creative)
+        if (!creative)
         {
             mc.getTextureManager().bindTexture(HUD);
 
@@ -731,7 +714,7 @@ public class KeldariaRenderHandler
 
             GlStateManager.pushMatrix();
             GlStateManager.translate(16.5, 0, 0);
-            if(mc.player != null)
+            if (mc.player != null)
             {
                 GuiInventory.drawEntityOnScreen(0, 54, 25, 1, 1, mc.player);
                 //GlStateManager.disableColorMaterial();
@@ -741,7 +724,7 @@ public class KeldariaRenderHandler
 
             GlStateManager.translate(0, 0, 100);
 
-            if(KeldariaClientHandler.grabMoment > 0 || KeldariaClientHandler.grabMoment < -1)
+            if (KeldariaClientHandler.grabMoment > 0 || KeldariaClientHandler.grabMoment < -1)
             {
                 Gui.drawModalRectWithCustomSizedTexture(30, -2, 0, 105, 141, 17, 256, 256);
             }
@@ -767,11 +750,10 @@ public class KeldariaRenderHandler
                 int air = Math.max(Helpers.crossMult(mc.player.getAir(), 300, barSize), 0);
                 RenderHelpers.fillRect(119, 10, air, 3, Color.decode("#58ACBC".toLowerCase()).getRGB());
 
-                if(KeldariaClientHandler.grabMoment > 0)
+                if (KeldariaClientHandler.grabMoment > 0)
                 {
                     RenderHelpers.fillRect(34, 1, (int) (KeldariaClientHandler.grabMoment * 133 / KeldariaClientHandler.defaultGrabMoment), 3, Color.decode("#E5C662").getRGB());
-                }
-                else if(KeldariaClientHandler.grabMoment < -1)
+                } else if (KeldariaClientHandler.grabMoment < -1)
                 {
                     RenderHelpers.fillRect(34, 1, (int) ((KeldariaClientHandler.defaultGrabMoment - KeldariaClientHandler.grabMoment) * 133 / KeldariaClientHandler.defaultGrabMoment), 3, Color.decode("#E5C662").getRGB());
                 }
@@ -797,9 +779,7 @@ public class KeldariaRenderHandler
         }
 
 
-
         Gui.drawRect(6, -10, 6, -8, new Color(0, 0, 0, 0).getRGB());
-
 
 
         GlStateManager.popMatrix();
@@ -883,7 +863,7 @@ public class KeldariaRenderHandler
         ItemStack stack = event.getItemStack();
         if (stack.getItem() instanceof ItemFood)
         {
-            if(FoodQuality.isDefined(stack))
+            if (FoodQuality.isDefined(stack))
             {
                 event.getToolTip().add("§7Qualité: §f" + FoodQuality.getQuality(stack).getFormattedName());
             }
@@ -930,7 +910,7 @@ public class KeldariaRenderHandler
         }
 
         IKnownRecipes recipes = stack.getCapability(KnownRecipesStorage.CAPABILITY_KNOWN_RECIPES, null);
-        if(recipes != null && recipes.getKnownKeys().size() > 0)
+        if (recipes != null && recipes.getKnownKeys().size() > 0)
         {
             event.getToolTip().add("§eCe livre contient des recettes.");
             event.getToolTip().add("§7(Pour y avoir accès, mettez");
@@ -953,14 +933,13 @@ public class KeldariaRenderHandler
         EntityPlayer player = mc.player;
         try
         {
-            if(Keldaria.getInstance().getSyncedAccessories() != null && Keldaria.getInstance().getSyncedAccessories().getAccessories(player) != null &&!Keldaria.getInstance().getSyncedAccessories().getAccessories(mc.player).getInventory().canSee())
+            if (Keldaria.getInstance().getSyncedAccessories() != null && Keldaria.getInstance().getSyncedAccessories().getAccessories(player) != null && !Keldaria.getInstance().getSyncedAccessories().getAccessories(mc.player).getInventory().canSee())
             {
                 GlStateManager.setFog(GlStateManager.FogMode.EXP);
                 event.setDensity(10000);
 
                 event.setCanceled(true);
-            }
-            else /*if (mc.world.isRaining())*/
+            } else /*if (mc.world.isRaining())*/
             {
                 /*boolean isRainingAtPlayer = player.world.isRainingAt(new BlockPos(player.posX, player.posY + 2, player.posZ));
                 GlStateManager.setFog(GlStateManager.FogMode.EXP);
@@ -989,17 +968,16 @@ public class KeldariaRenderHandler
                 event.setCanceled(true);*/
 
 
-
                 RPZone zone = Zones.getZone(player);
                 Atmosphere atmosphere = zone.getAtmosphere(mc.world);
                 double density = atmosphere.getFogDensity();
-                if(density != -1)
+                if (density != -1)
                 {
                     float needed = (float) density;
 
-                    if(this.fogAlpha != needed)
+                    if (this.fogAlpha != needed)
                     {
-                        if(this.fogAlpha > needed)
+                        if (this.fogAlpha > needed)
                             this.fogAlpha -= 0.0001f;
                         else
                             this.fogAlpha += 0.0001f;
@@ -1009,10 +987,9 @@ public class KeldariaRenderHandler
 
                     event.setDensity(this.fogAlpha);
                     event.setCanceled(true);
-                }
-                else
+                } else
                 {
-                    if(this.fogAlpha > 0)
+                    if (this.fogAlpha > 0)
                     {
                         this.fogAlpha -= 0.0001f;
                         GlStateManager.setFog(GlStateManager.FogMode.EXP);
@@ -1023,7 +1000,7 @@ public class KeldariaRenderHandler
                 }
             }
 
-        } catch(Exception ignored)
+        } catch (Exception ignored)
         {
         }
     }
@@ -1052,12 +1029,11 @@ public class KeldariaRenderHandler
                     GlStateManager.rotate((mc.player.getPrimaryHand() == EnumHandSide.RIGHT ? mc.player.rotationPitch : -mc.player.rotationPitch) / 3, 0, 0, 1);
                 }
             }
-        }
-        else
+        } else
         {
             if (event.getHand() == EnumHand.MAIN_HAND)
             {
-                if(EnumAttackType.getAttackType(mc.player) == EnumAttackType.THRUST)
+                if (EnumAttackType.getAttackType(mc.player) == EnumAttackType.THRUST)
                 {
                     GlStateManager.rotate(-90, 1, 0, 0);
                     GlStateManager.translate(0, 1, 0);
@@ -1099,54 +1075,52 @@ public class KeldariaRenderHandler
     @SubscribeEvent
     public void onFogColors(EntityViewRenderEvent.FogColors event)
     {
-       try{
-           if(!Keldaria.getInstance().getSyncedAccessories().getAccessories(mc.player).getInventory().canSee())
-           {
-               event.setRed((float) 0);
-               event.setGreen((float) 0);
-               event.setBlue((float) 0);
-           }else
-           if (SkyColor.isFogColorCustom(true))
-           {
-               Vec3d fogColor = SkyColor.getFogColor(true);
-               event.setRed((float) fogColor.x);
-               event.setGreen((float) fogColor.y);
-               event.setBlue((float) fogColor.z);
-           }
-           else
-           {
-               if(actualFogColor == null)
-               {
-                   actualFogColor = new Vec3d(event.getRed(), event.getGreen(), event.getBlue());
-               }
-               RPZone zone = Zones.getZone(mc.player);
-               Atmosphere atmosphere = zone.getAtmosphere(mc.world);
-               Atmosphere.RGB fogColor = atmosphere.getFogColor();
+        try
+        {
+            if (!Keldaria.getInstance().getSyncedAccessories().getAccessories(mc.player).getInventory().canSee())
+            {
+                event.setRed((float) 0);
+                event.setGreen((float) 0);
+                event.setBlue((float) 0);
+            } else if (SkyColor.isFogColorCustom(true))
+            {
+                Vec3d fogColor = SkyColor.getFogColor(true);
+                event.setRed((float) fogColor.x);
+                event.setGreen((float) fogColor.y);
+                event.setBlue((float) fogColor.z);
+            } else
+            {
+                if (actualFogColor == null)
+                {
+                    actualFogColor = new Vec3d(event.getRed(), event.getGreen(), event.getBlue());
+                }
+                RPZone zone = Zones.getZone(mc.player);
+                Atmosphere atmosphere = zone.getAtmosphere(mc.world);
+                Atmosphere.RGB fogColor = atmosphere.getFogColor();
 
-               Vec3d needed = new Vec3d(event.getRed(), event.getGreen(), event.getBlue());
+                Vec3d needed = new Vec3d(event.getRed(), event.getGreen(), event.getBlue());
 
-               if (fogColor.hasColor())
-               {
-                   if(fogColor.isAdditive())
-                   {
-                       needed = needed.add(fogColor.asVec());
-                       //needed = new Vec3d(event.getRed() + fogColor.getRed(), event.getGreen() + fogColor.getGreen(), event.getBlue() + fogColor.getBlue());
-                   }
-                   else
-                   {
-                       needed = fogColor.asVec();
-                   }
-               }
+                if (fogColor.hasColor())
+                {
+                    if (fogColor.isAdditive())
+                    {
+                        needed = needed.add(fogColor.asVec());
+                        //needed = new Vec3d(event.getRed() + fogColor.getRed(), event.getGreen() + fogColor.getGreen(), event.getBlue() + fogColor.getBlue());
+                    } else
+                    {
+                        needed = fogColor.asVec();
+                    }
+                }
 
-               this.actualFogColor = Helpers.processNormalizeColor(this.actualFogColor, needed, 0.001);
+                this.actualFogColor = Helpers.processNormalizeColor(this.actualFogColor, needed, 0.001);
 
-               event.setRed((float) this.actualFogColor.x);
-               event.setGreen((float)this.actualFogColor.y);
-               event.setBlue((float) this.actualFogColor.z);
-           }
-       }catch(Exception ignored)
-       {
-       }
+                event.setRed((float) this.actualFogColor.x);
+                event.setGreen((float) this.actualFogColor.y);
+                event.setBlue((float) this.actualFogColor.z);
+            }
+        } catch (Exception ignored)
+        {
+        }
     }
 
     @SubscribeEvent

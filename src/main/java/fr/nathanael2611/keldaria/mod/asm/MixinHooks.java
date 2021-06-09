@@ -10,6 +10,7 @@ import com.google.gson.JsonParser;
 import com.mojang.authlib.GameProfile;
 import fr.nathanael2611.keldaria.mod.Keldaria;
 import fr.nathanael2611.keldaria.mod.entity.AnimalStat;
+import fr.nathanael2611.keldaria.mod.entity.animal.Fleece;
 import fr.nathanael2611.keldaria.mod.entity.animal.Pregnancy;
 import fr.nathanael2611.keldaria.mod.features.AnimalGender;
 import fr.nathanael2611.keldaria.mod.features.food.ExpiredFoods;
@@ -36,10 +37,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.passive.EntityHorse;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemFood;
-import net.minecraft.item.ItemShield;
-import net.minecraft.item.ItemStack;
+import net.minecraft.item.*;
 import net.minecraft.network.PacketBuffer;
 import net.minecraft.network.datasync.DataParameter;
 import net.minecraft.network.datasync.DataSerializer;
@@ -225,6 +223,27 @@ public class MixinHooks
             return new DataParameter<>(id, this);
         }
         public Pregnancy copyValue(Pregnancy value)
+        {
+            return value;
+        }
+    };
+
+    public static final DataSerializer<Fleece> FLEECE = new DataSerializer<Fleece>()
+    {
+        public void write(PacketBuffer buf, Fleece value)
+        {
+            buf.writeInt(value.getColor().getMetadata());
+            buf.writeBoolean(value.hasFleece());
+        }
+        public Fleece read(PacketBuffer buf) throws IOException
+        {
+            return new Fleece(buf.readBoolean(), EnumDyeColor.byMetadata(buf.readInt()));
+        }
+        public DataParameter<Fleece> createKey(int id)
+        {
+            return new DataParameter<>(id, this);
+        }
+        public Fleece copyValue(Fleece value)
         {
             return value;
         }
